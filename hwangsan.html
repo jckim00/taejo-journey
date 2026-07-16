@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강물이 핏빛으로 물든 자리 — 황산대첩비지 답사 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@300;400;600&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #1a1410;
+    --sepia:     #8B6914;
+    --moss:      #5a6b4a;
+    --stone:     #9b9080;
+    --accent:    #c4611a;
+    --pale:      #faf7f2;
+    --parchment: #f5f0e8;
+    --gold:      #c4a040;
+    --crimson:   #8a1a1a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--pale); color:var(--ink); font-family:'Noto Serif KR',serif; font-weight:300; line-height:2.0; }
+
+  .masthead { background:var(--ink); color:var(--parchment); text-align:center; padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+  .masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px); }
+  .masthead-label { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; color:#6a6058; text-transform:uppercase; margin-bottom:1.4rem; position:relative; }
+  .masthead h1 { font-family:'Nanum Myeongjo',serif; font-size:clamp(2.2rem,5vw,4rem); font-weight:800; line-height:1.2; color:#fff; position:relative; }
+  .masthead h1 em { font-style:normal; color:var(--gold); }
+  .masthead-sub { font-family:'Noto Serif KR',serif; font-size:1.05rem; color:var(--stone); margin-top:1.4rem; font-style:italic; position:relative; }
+  .masthead-meta { margin-top:2rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.2em; color:#4a4038; border-top:1px solid #2e2820; padding-top:1.4rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; position:relative; }
+
+  .hero { width:100%; max-height:600px; overflow:hidden; position:relative; }
+  .hero img { width:100%; max-height:600px; object-fit:cover; object-position:center 40%; display:block; filter:sepia(14%) contrast(1.06) brightness(.93); }
+  .hero-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,.8)); color:#ddd8ce; padding:4rem 2rem 1.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.75rem; letter-spacing:.1em; line-height:1.8; }
+
+  .container { max-width:800px; margin:0 auto; padding:0 2rem; }
+
+  .lead-block { padding:4.5rem 0 3.5rem; border-bottom:1px solid #d8d0c4; }
+  .lead-tag { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; letter-spacing:.45em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; }
+  .lead-text { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.15rem,2.4vw,1.42rem); line-height:1.95; color:#2a201a; font-weight:700; }
+
+  .section { padding:3.5rem 0; border-bottom:1px solid #e4ddd5; }
+  .section:last-child { border-bottom:none; }
+  .section-label { font-family:'Nanum Gothic',sans-serif; font-size:.62rem; letter-spacing:.55em; text-transform:uppercase; color:#b0a898; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+  .section-label::after { content:''; flex:1; height:1px; background:#ddd5c8; }
+
+  h2 { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.35rem,3vw,1.8rem); font-weight:800; line-height:1.4; margin-bottom:1.6rem; color:var(--ink); }
+  p { font-size:1rem; color:#2e2620; margin-bottom:1.5rem; line-height:2.0; }
+  p:last-child { margin-bottom:0; }
+  .drop-cap::first-letter { font-family:'Nanum Myeongjo',serif; font-size:4.5rem; font-weight:800; float:left; line-height:.76; margin-right:.08em; margin-top:.1em; color:var(--sepia); }
+
+  .photo-single { margin:2.8rem 0; }
+  .photo-single img { width:100%; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-caption { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--stone); padding:.75rem 0 0; letter-spacing:.05em; border-top:1px solid #d8d0c4; margin-top:.5rem; line-height:1.8; }
+
+  .photo-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.8rem 0; }
+  .photo-duo figure { margin:0; }
+  .photo-duo img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-duo figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; line-height:1.7; }
+
+  .pull-quote { margin:3rem 0; padding:2rem 2.8rem; border-left:4px solid var(--sepia); background:#f0ebe0; position:relative; }
+  .pull-quote::before { content:'❝'; font-size:3.5rem; color:var(--sepia); opacity:.2; position:absolute; top:-.6rem; left:.8rem; line-height:1; }
+  .pull-quote p { font-family:'Nanum Myeongjo',serif; font-size:1.18rem; font-style:italic; font-weight:700; line-height:1.9; margin:0; color:#3a2e20; }
+  .pull-quote cite { display:block; margin-top:.9rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.18em; color:var(--stone); font-style:normal; }
+
+  .diagram-box { background:#f0ebe0; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .diagram-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.5rem; text-align:center; }
+
+  .highlight-box { background:#f5f0e0; border:2px solid var(--gold); padding:1.8rem 2.2rem; margin:2.5rem 0; }
+  .highlight-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; }
+  .highlight-box p { font-size:.95rem; line-height:1.9; color:#3a3028; margin-bottom:0; }
+
+  .info-box { background:#eee8dc; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .info-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.42em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.2rem; }
+  .info-grid { display:grid; grid-template-columns:auto 1fr; gap:.45rem 1.2rem; font-size:.88rem; }
+  .info-grid dt { font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); white-space:nowrap; }
+  .info-grid dd { color:#3a3028; margin:0; }
+
+  .ruin-note { margin:2.5rem 0; padding:1.6rem 2rem; border-top:1px solid #c8c0b0; border-bottom:1px solid #c8c0b0; font-family:'Nanum Myeongjo',serif; font-size:.96rem; font-style:italic; color:#5a4e3c; line-height:2.0; text-align:center; }
+
+  footer { background:var(--ink); color:#5a5048; text-align:center; padding:2.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.22em; margin-top:4rem; line-height:2.2; }
+
+  @media(max-width:600px){
+    .photo-duo { grid-template-columns:1fr; }
+    .diagram-box { padding:1.5rem; }
+    .pull-quote { padding:1.5rem 1.8rem; }
+    .masthead-meta { gap:1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-label">영웅의 길 · 답사기록 1부</div>
+  <h1>강물이 핏빛으로 물든 자리<br><em>황산대첩</em>, 영웅의 첫 페이지</h1>
+  <p class="masthead-sub">이름 없던 북방 장수가, 전국이 아는 영웅이 된 곳</p>
+  <div class="masthead-meta">
+    <span>전북 남원시 운봉읍</span>
+    <span>1380년(고려 우왕 6)</span>
+    <span>사적 · 남원 황산대첩비지</span>
+  </div>
+</header>
+
+<div class="hero">
+  <img src="images/img01_daecheop.jpg" alt="대첩비각">
+  <div class="hero-caption">남원 황산대첩비지 · 대첩비각 — 1577년 처음 세운 승전비를 지키는 자리</div>
+</div>
+
+<main class="container">
+
+  <!-- 리드 -->
+  <section class="lead-block">
+    <div class="lead-tag">Prologue · 1380년 8월</div>
+    <p class="lead-text">
+      지금의 남원 운봉, 좁은 골짜기 하나를 사이에 두고 두 군대가 마주 섰다. 한쪽은 온 나라를 약탈하며 여기까지 밀고 올라온 왜구의 정예 부대. 다른 한쪽은 나라의 마지막 카드로 급파된 한 장수의 군대였다. 이 싸움에서 지면, 다음은 개경 코앞이었다.
+    </p>
+  </section>
+
+  <!-- Scene 01 -->
+  <section class="section">
+    <div class="section-label">Scene 01 · 위기</div>
+    <h2>왜구, 나라의 숨통을 조르다</h2>
+    <p class="drop-cap">
+      1380년 무렵 고려는 왜구 때문에 나라가 흔들릴 지경이었다. 지금으로 치면 한 달이 멀다 하고 해안 마을마다 도둑떼가 몰려와 곡식을 털고 집을 불태우는 상황이 수십 년간 계속됐다고 생각하면 된다. 그해 8월 왜구는 500척에 가까운 배를 이끌고 금강 하구로 쳐들어왔다가 고려군에 막혀 퇴로가 끊기자, 내륙 깊숙이 남원 운봉까지 밀고 들어와 진을 쳤다. 이 부대의 대장이 바로 '아지발도'다.
+    </p>
+    <p>
+      아지발도는 머리부터 발끝까지 갑옷으로 감싸고 있어 화살이 튕겨 나갈 정도였다고 전해진다. 지휘관이 화살에 끄떡없으니 병사들의 사기도 꺾이지 않았다. 조정은 삼도도순찰사로 이성계를 급파했다. 북방에서 여진족을 상대로 잔뼈가 굵은 무장을, 이번엔 남쪽 끝까지 내려보낸 것이다.
+    </p>
+  </section>
+
+  <!-- Scene 02 -->
+  <section class="section">
+    <div class="section-label">Scene 02 · 혈투</div>
+    <h2>투구 꼭지를 맞춘 화살 한 발</h2>
+    <p>
+      전투가 길어지자 이성계는 아지발도의 약점을 찾아냈다. 갑옷은 완벽했지만 투구 꼭지 아래, 턱을 드러내는 틈이 있었다. 이성계가 활을 쏘아 투구 꼭지를 정확히 맞혀 떨어뜨리자, 아지발도가 반사적으로 턱을 드러냈다. 그 순간 의형제 이지란(퉁두란, 이두란으로도 불린다)이 두 번째 화살을 날려 명중시켰다. 대장을 잃은 왜구는 순식간에 무너졌고, 고려군은 이 기세를 몰아 적을 섬멸했다.
+    </p>
+    <div class="pull-quote">
+      <p>투구는 완벽한 갑옷이었다. 완벽함이 무너지는 건 언제나 딱 하나, 틈 하나 때문이다.</p>
+      <cite>— 황산대첩, 승부의 순간</cite>
+    </div>
+    <p>
+      지금 대첩비지 근처에는 '피바위'라는 바위가 남아있다. 아지발도가 흘린 피가 이 바위에 스며들었다는 이야기가 마을에 전해 내려온다.
+    </p>
+    <div class="highlight-box">
+      <div class="highlight-box-title">팩트체크</div>
+      <p>
+        '피바위' 이야기는 어디까지나 구전으로 내려오는 전승이지, 기록으로 확인된 사실은 아니다 — 답사를 갈 때는 이 구분을 해두는 게 좋다. "강물이 왜구의 피로 붉게 물들어 일주일간 물을 마시지 못했다"는 이야기도 같은 계열의 전승으로 이해하면 된다.
+      </p>
+    </div>
+    <div class="highlight-box">
+      <div class="highlight-box-title">전장에는 활만 있었던 게 아니다 — 종군한 문신, 정몽주</div>
+      <p>
+        황산에 내려온 게 이성계와 이지란 같은 무장들뿐이었던 건 아니다. 이 부대에는 '종사관(從事官)'이라는 이름으로 종군한 문신 한 명이 있었는데, 바로 정몽주다. 종사관은 지금으로 치면 야전사령부의 행정·기획 참모에 가까운 자리로, 병력 편성과 보급, 문서 처리 같은 군의 살림을 총괄했다. 정몽주는 이미 1363~1364년 동북면에서 여진족을 토벌할 때부터 이성계와 함께 종군한 이력이 있었고, 황산에서도 그 역할을 그대로 이어받아 전장 끝까지 동행했다. (일부 기록은 그를 '조전원수(助戰元帥)'로 표기하기도 한다 — 직함 표기가 사료마다 조금씩 다르다는 점을 밝혀둔다.)
+      </p>
+      <p>
+        칼을 든 적은 없지만, 이 전투의 승리는 그의 몫이기도 했다. 그리고 이 인연은 전투가 끝난 뒤에도 이어진다. 개선 길에 들른 전주 오목대의 승전 잔치, 그 자리에서 이성계가 흘린 말 한마디에 정몽주가 말을 몰아 뛰쳐나가는 장면 — 이 시리즈의 다음 답사지, 오목대에서 이어지는 이야기다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 타임라인 -->
+  <section class="section">
+    <div class="section-label">Scene 03 · 645년의 시간</div>
+    <h2>비석 하나가 겪은 일</h2>
+    <p>
+      황산대첩 그 자체보다 더 파란만장한 건 이 승리를 기록한 비석의 운명이다. 승전 197년 후에야 비석이 세워졌고, 그마저도 일제강점기에 산산조각이 났다. 지금 답사지에서 보는 건물들은 이 굴곡진 시간을 그대로 보여주는 흔적이다.
+    </p>
+    <div class="diagram-box">
+      <div class="diagram-title">황산대첩비지 — 승리에서 오늘까지</div>
+      <div style="display:flex;flex-direction:column;gap:1px;background:#d0c8bc;border:1px solid #d0c8bc;margin-top:.5rem;">
+
+        <div style="display:grid;grid-template-columns:5.2rem 1fr;gap:0;background:var(--pale);">
+          <div style="background:var(--sepia);padding:.9rem .6rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;">1380</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--sepia);margin-bottom:.3rem;">황산대첩</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">이성계가 삼도도순찰사로 출정, 아지발도가 이끄는 왜구 정예를 이곳에서 섬멸.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5.2rem 1fr;gap:0;background:var(--parchment);">
+          <div style="background:#6a5a4a;padding:.9rem .6rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;">1381</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:#6a5a4a;margin-bottom:.3rem;">어휘암에 이름을 새기다</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">이성계가 반월강 큰 바위(어휘암)에 자신과 8원수, 4종사의 이름을 새기게 함. 승리가 혼자의 공이 아니라는 뜻을 남겼다.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5.2rem 1fr;gap:0;background:var(--pale);">
+          <div style="background:var(--sepia);padding:.9rem .6rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;">1577</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--sepia);margin-bottom:.3rem;">황산대첩비, 197년 만에 건립</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">선조 10년, 전라도관찰사 박계현의 건의로 왕명을 받아 건립. 김귀영이 비문을 짓고 송인이 글씨를 씀.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5.2rem 1fr;gap:0;background:var(--parchment);">
+          <div style="background:#6a5a4a;padding:.9rem .6rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;">1666~82</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:#6a5a4a;margin-bottom:.3rem;">비각 재건 · 어휘각·사적비 건립</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">현종 7년(1666) 비각을 다시 세움. 고종 19년(1882) 운봉현감 이두현이 어휘각을 처음 짓고, 별도의 사적비(화수산비각비)도 세움.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5.2rem 1fr;gap:0;background:var(--pale);">
+          <div style="background:var(--crimson);padding:.9rem .6rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;">1945</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--crimson);margin-bottom:.3rem;">일제, 비석을 폭파하다</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">1945년 1월 16일 밤, 남원경찰서 고등계 형사들이 비석을 폭파하고 어휘암의 글자도 정으로 쪼아 훼손함. 해방 후 반민특위에서 조사된 사건.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5.2rem 1fr;gap:0;background:var(--parchment);">
+          <div style="background:var(--moss);padding:.9rem .6rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;">1957~63</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--moss);margin-bottom:.3rem;">비석 복원 · 사적 지정</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">1957년 원래 비문 그대로 새겨 다시 세움. 1963년 '황산대첩비지'라는 이름으로 사적 제104호 지정.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5.2rem 1fr;gap:0;background:var(--pale);">
+          <div style="background:var(--moss);padding:.9rem .6rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;">1973</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--moss);margin-bottom:.3rem;">지금의 모습으로 정비</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">삼문·홍살문·담장·부속건물을 새로 단장하고, 어휘각을 재건하고, 파괴된 비석 조각을 모아 파비각을 짓고, 황산대첩기념비를 새로 세움.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5.2rem 1fr;gap:0;background:var(--parchment);">
+          <div style="background:#6a5a4a;padding:.9rem .6rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;">2024</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:#6a5a4a;margin-bottom:.3rem;">하마비 재건</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">1961년 대홍수로 유실됐던 하마비를, 63년 만에 운봉 애향회 후원으로 다시 세움.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 04 : 답사 동선 -->
+  <section class="section">
+    <div class="section-label">Scene 04 · 답사 동선</div>
+    <h2>말에서 내리는 자리부터, 이름을 새긴 바위까지</h2>
+    <p>
+      실제로 걸어본 순서대로 정리한다. 가산마을을 지나면 가장 먼저 만나는 게 하마비, 마지막으로 만나는 게 기념비다.
+    </p>
+
+    <h3 style="font-family:'Nanum Myeongjo',serif; font-size:1.05rem; font-weight:700; margin-bottom:.8rem; color:var(--sepia);">1 · 하마비 — "누구든 여기서부터는 걸어가라"</h3>
+    <div class="photo-single">
+      <img src="images/img02_hamabi.jpg" alt="하마비">
+      <div class="photo-caption">"至此 大小人員 皆下馬" — 이곳에 이르면 신분의 높고 낮음을 막론하고 모두 말에서 내리라는 뜻. 원래 비석은 1961년 대홍수로 떠내려가 사라졌고, 지금 것은 2024년 운봉 애향회가 다시 세운 것이다.</div>
+    </div>
+    <p>
+      절 입구의 "일주문 지나면 마음을 가다듬으라"는 표지판과 같은 역할이다. 왕도 신하도 여기서부터는 말에서 내려 걸어 들어가야 했다 — 그만큼 이 자리를 신성하게 여겼다는 뜻이다.
+    </p>
+
+    <h3 style="font-family:'Nanum Myeongjo',serif; font-size:1.05rem; font-weight:700; margin-bottom:.8rem; color:var(--sepia);">2 · 삼문 — 비석으로 가는 정식 입구</h3>
+    <div class="photo-single">
+      <img src="images/img03_sammun.jpg" alt="삼문">
+      <div class="photo-caption">삼문(三門) — 1973년 대대적 정비 때 홍살문·담장과 함께 새로 지은 출입문. 문이 세 칸이라 삼문이라 부른다.</div>
+    </div>
+
+    <h3 style="font-family:'Nanum Myeongjo',serif; font-size:1.05rem; font-weight:700; margin-bottom:.8rem; color:var(--sepia);">3 · 대첩비각 — 비석의 본체</h3>
+    <div class="photo-duo">
+      <figure>
+        <img src="images/img04_daecheop_outer.jpg" alt="대첩비각 외경">
+        <figcaption>대첩비각 외경. 사람 크기와 비교하면 비석의 규모가 짐작된다.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/img05_daecheop_close.jpg" alt="대첩비각 비석 근접">
+        <figcaption>비신에 세로로 새겨진 '荒山大捷碑'(황산대첩비) 다섯 글자.</figcaption>
+      </figure>
+    </div>
+    <p>
+      이 안에 서 있는 비석이 1577년 선조의 명으로 세운 원래 비문을, 1957년에 그대로 다시 새겨 세운 것이다. 도서관이 불에 타면 사서들이 예전 목록을 보고 책을 한 권씩 다시 필사해 채워 넣는 것과 같은 이치다 — 원본은 사라졌지만, 그 안에 담긴 글자와 뜻은 그대로 되살렸다.
+    </p>
+
+    <h3 style="font-family:'Nanum Myeongjo',serif; font-size:1.05rem; font-weight:700; margin-bottom:.8rem; color:var(--sepia);">4 · 파비각 — 부서진 조각을 그대로 둔 자리</h3>
+    <div class="photo-duo">
+      <figure>
+        <img src="images/img06_pabi_outer.jpg" alt="파비각 외경">
+        <figcaption>파비각(破碑閣) — '깨진 비석의 집'이라는 뜻 그대로다.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/img07_pabi_inner.jpg" alt="파비각 내부 비석 조각">
+        <figcaption>1945년 폭파로 산산조각 난 원래 비석의 파편. 복원하지 않고 부서진 그대로 보존했다.</figcaption>
+      </figure>
+    </div>
+    <p>
+      대첩비각이 상처를 치료하고 다시 세운 자리라면, 파비각은 상처를 굳이 봉합하지 않고 흉터 그대로 전시해 둔 자리다. 두 건물을 나란히 보면 이 유적이 말하려는 게 더 분명해진다 — "우리는 이겼고, 그다음엔 이런 일도 겪었다"는 두 문장을 한 자리에서 함께 보여주는 셈이다.
+    </p>
+
+    <h3 style="font-family:'Nanum Myeongjo',serif; font-size:1.05rem; font-weight:700; margin-bottom:.8rem; color:var(--sepia);">5 · 사적비각 — 또 하나의 기록</h3>
+    <div class="photo-single">
+      <img src="images/img08_saajeok.jpg" alt="사적비각">
+      <div class="photo-caption">사적비각(事蹟碑閣). 대첩비와는 별개로, 고종 19년(1882) 운봉현감 이두현이 세웠던 비를 1958년에 다시 세운 것이다. 전투 상황과 비각 건립 취지가 함께 적혀 있다.</div>
+    </div>
+
+    <h3 style="font-family:'Nanum Myeongjo',serif; font-size:1.05rem; font-weight:700; margin-bottom:.8rem; color:var(--sepia);">6 · 어휘각 — 이름을 새긴 바위를 지키는 집</h3>
+    <div class="photo-single">
+      <img src="images/img09_eohwi.jpg" alt="어휘각">
+      <div class="photo-caption">어휘각(御諱閣). 건물 아래 드러난 바위가 바로 어휘암 — 이성계와 8원수, 4종사의 이름이 새겨졌던 자리다.</div>
+    </div>
+    <p>
+      운동경기에서 우승컵에 선수 전원의 이름을 새기는 것과 같은 마음이다. 이성계는 승전 다음 해인 1381년, 이 바위에 자기 이름 하나만이 아니라 함께 싸운 장수 열두 명의 이름을 모두 새기게 했다. 다만 이 각자(刻字)도 1945년 일제가 정과 망치로 훼손했고, 지금 남은 흔적은 희미하다. 지금의 어휘각 건물은 1973년에 다시 지은 것이다.
+    </p>
+
+    <h3 style="font-family:'Nanum Myeongjo',serif; font-size:1.05rem; font-weight:700; margin-bottom:.8rem; color:var(--sepia);">7 · 황산대첩기념비 — 가장 나중에 세운 비석</h3>
+    <div class="photo-single">
+      <img src="images/img10_monument.jpg" alt="황산대첩기념비">
+      <div class="photo-caption">황산대첩기념비. 1973년 정비 때 함께 세운 현대의 기념비로, 앞선 세 비각(대첩비각·파비각·사적비각)과는 별개의 독립된 비석이다.</div>
+    </div>
+
+    <div class="photo-single">
+      <img src="images/img11_sign.jpg" alt="안내판과 만화 패널">
+      <div class="photo-caption">답사지 입구의 안내판. 국문·영문 설명과 함께, 만화로 그린 전투 장면 패널을 세워 어린이나 외국인 방문객도 한눈에 상황을 이해할 수 있게 해두었다.</div>
+    </div>
+  </section>
+
+  <!-- Scene 05 : 의미 -->
+  <section class="section">
+    <div class="section-label">Scene 05 · 이 전투가 남긴 것</div>
+    <h2>황산 이후, 이성계는 다른 사람이 됐다</h2>
+    <p>
+      이성계는 황산대첩 이전에도 이미 고려 최고의 무장이었다. 여진 토벌, 홍건적 격퇴 — 가장 어려운 전장마다 조정이 그를 보냈다. 하지만 그때까지 그는 '북방 최고의 장군'이었다. 전라도 끝까지 내려와 왜구의 정예를 무너뜨린 이 전투를 계기로, 그는 전국 백성이 이름을 아는 장수가 됐다.
+    </p>
+    <div class="highlight-box">
+      <div class="highlight-box-title">명성은 권력의 씨앗이다</div>
+      <p>
+        무장은 아무리 공을 세워도 정치를 하지는 못한다. 고려의 정치는 권문세족이 움직였고, 장군은 나라를 구해도 나라를 바꾸지는 못하는 게 그때까지의 룰이었다. 그런데 황산대첩 이후 이성계의 이름은 국경 수비대장 수준을 넘어, 온 나라가 알아보는 이름이 됐다. 이 전국적 신망이야말로, 훗날 그가 위화도에서 회군을 결정할 수 있었던 가장 현실적인 밑천이었다.
+      </p>
+    </div>
+    <p>
+      승전보를 울리며 개경으로 개선하던 길, 이성계는 고향인 전주에 들러 일가친척을 모아놓고 잔치를 벌인다. 그 자리에는 황산 전장부터 줄곧 그의 곁을 지켰던 종사관 정몽주도 있었다. 이성계가 그 자리에서 아무도 예상하지 못한 말을 시로 남기자, 정몽주는 잔치 자리를 뛰쳐나간다.
+    </p>
+  </section>
+
+  <!-- Closing -->
+  <section class="section">
+    <div class="section-label">Closing</div>
+    <h2>승리 다음에 찾아온 질문</h2>
+    <p>
+      그러나 황산의 승리는 끝이 아니었다. 전쟁에서 돌아온 영웅은 이제 나라의 운명을 고민하기 시작한다. 그 고민이 머문 곳이 바로 오목대였다.
+    </p>
+  </section>
+
+  <!-- 정보 -->
+  <section class="section">
+    <div class="section-label">Info · 답사 정보</div>
+    <div class="info-box">
+      <div class="info-box-title">기본 정보</div>
+      <dl class="info-grid">
+        <dt>위치</dt><dd>전북 남원시 운봉읍 화수리 일대 (람천 변)</dd>
+        <dt>지정</dt><dd>사적 — 남원 황산대첩비지</dd>
+        <dt>구성</dt><dd>하마비 · 삼문 · 대첩비각 · 파비각 · 사적비각 · 어휘각 · 황산대첩기념비</dd>
+        <dt>가는 길</dt><dd>운봉읍 화수리에서 전촌마을을 거치거나, 가산리 가산마을을 거쳐 진입 — 가산마을 방향으로 가면 하마비를 가장 먼저 만난다</dd>
+        <dt>관람 방식</dt><dd>야외 개방 유적지. 상세 개방 시간·주차 정보는 남원시 문화관광 홈페이지에서 최신 내용을 확인하는 게 정확하다</dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  태조 이성계 역사 기행 · Site 01 — 황산<br>
+  전북 남원 · 사적 · 고려 우왕 6년(1380) 전투 현장<br>
+  <strong style="color:var(--sepia)">황산</strong> → 오목대 → 준경묘·영경묘 → 종묘 → 사직단 → 경복궁 → 정릉 → 회암사지 → 건원릉 → 경기전
+</footer>
+
+</body>
+</html>

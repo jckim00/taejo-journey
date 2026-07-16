@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영웅에서 국조(國祖)까지 — 태조 이성계 역사 기행 서언</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700;900&family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #1a1410;
+    --sepia:      #8B6914;
+    --moss:       #5a6b4a;
+    --stone:      #9b9080;
+    --accent:     #c4611a;
+    --pale:       #faf7f2;
+    --parchment:  #f5f0e8;
+    --gold:       #c4a040;
+    --rust:       #7a2a0a;
+    --dim:        #4a4038;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--pale);
+    color: var(--ink);
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 300;
+    line-height: 2.0;
+  }
+
+  /* ─── masthead ─── */
+  .masthead {
+    background: var(--ink);
+    color: var(--parchment);
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.012) 2px, rgba(255,255,255,.012) 4px),
+      radial-gradient(ellipse 70% 50% at 50% 80%, rgba(196,160,64,.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .masthead-label {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .65rem;
+    letter-spacing: .45em;
+    color: #5a5248;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    position: relative;
+  }
+
+  /* 시그니처 — 세로쓰기 제목 블록 */
+  .title-block {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+  /* 배경 한자: 太祖 */
+  .title-block::before {
+    content: '太祖';
+    position: absolute;
+    right: -1.2rem; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(5rem, 14vw, 10rem);
+    font-weight: 800;
+    color: rgba(255,255,255,.04);
+    line-height: 1;
+    letter-spacing: -.05em;
+    pointer-events: none;
+    user-select: none;
+  }
+  .masthead h1 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(1.9rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #fff;
+    position: relative;
+    letter-spacing: -.01em;
+  }
+  .masthead h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .masthead-sub {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1rem;
+    color: var(--stone);
+    margin-top: 1.6rem;
+    font-style: italic;
+    position: relative;
+    letter-spacing: .02em;
+  }
+  .masthead-rule {
+    width: 40px; height: 1px;
+    background: #3a3028;
+    margin: 2.4rem auto;
+    position: relative;
+  }
+  .masthead-meta {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .18em;
+    color: #4a4038;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  /* ─── 코스 지도 (시각적 타임라인) ─── */
+  .course-bar {
+    background: var(--ink);
+    padding: 2.4rem 2rem;
+    overflow-x: auto;
+  }
+  .course-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    min-width: 600px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .course-stop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+  }
+  .course-stop:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 13px; left: calc(50% + 14px);
+    width: calc(100% - 28px);
+    height: 1px;
+    background: linear-gradient(90deg, #3a3028, #2e2820);
+  }
+  .stop-dot {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid #3a3028;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 9px;
+    color: #4a4038;
+    font-weight: 700;
+    flex-shrink: 0;
+    background: var(--ink);
+    position: relative;
+    z-index: 1;
+  }
+  .stop-dot.visited {
+    background: var(--sepia);
+    border-color: var(--gold);
+    color: var(--parchment);
+  }
+  .stop-dot.part2 { border-color: var(--rust); }
+  .stop-dot.part2.visited { background: var(--rust); border-color: #c47050; }
+  .stop-name {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 9px;
+    color: #4a4038;
+    text-align: center;
+    margin-top: 7px;
+    line-height: 1.35;
+    max-width: 52px;
+  }
+  .stop-name.visited { color: #8a7860; }
+  .part-label {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 8px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .part1-label { color: var(--sepia); }
+  .part2-label { color: #c47050; }
+
+  /* ─── 본문 ─── */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* 서두 리드 */
+  .lead-block {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid #d8d0c4;
+  }
+  .lead-tag {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .63rem;
+    letter-spacing: .5em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .lead-text {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(1.15rem, 2.4vw, 1.38rem);
+    line-height: 2.0;
+    color: #2a201a;
+    font-weight: 700;
+  }
+
+  /* 섹션 공통 */
+  .section {
+    padding: 4rem 0;
+    border-bottom: 1px solid #e4ddd5;
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .6rem;
+    letter-spacing: .55em;
+    text-transform: uppercase;
+    color: #b0a898;
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: #ddd5c8; }
+
+  h2 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(1.3rem, 2.8vw, 1.75rem);
+    font-weight: 800;
+    line-height: 1.45;
+    margin-bottom: 1.8rem;
+    color: var(--ink);
+  }
+  h2 em { font-style: normal; color: var(--accent); }
+
+  p {
+    font-size: 1rem;
+    color: #2e2620;
+    margin-bottom: 1.5rem;
+    line-height: 2.0;
+  }
+  p:last-child { margin-bottom: 0; }
+
+  /* 인용 — 핵심 문장 */
+  .pull-quote {
+    border-left: 3px solid var(--gold);
+    padding: 1.2rem 1.6rem;
+    margin: 2.4rem 0;
+    background: linear-gradient(90deg, rgba(196,160,64,.07), transparent 80%);
+  }
+  .pull-quote p {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.85;
+    color: var(--ink);
+    margin: 0;
+  }
+  .pull-quote cite {
+    display: block;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    color: var(--stone);
+    font-style: normal;
+    margin-top: .7rem;
+  }
+
+  /* 장소 카드 그리드 */
+  .stop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: #d8d0c4;
+    border: 1px solid #d8d0c4;
+    margin: 0 0 .5rem;
+  }
+  .stop-card {
+    background: var(--pale);
+    padding: 1.5rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+  }
+  .stop-num {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .6rem;
+    letter-spacing: .22em;
+    color: var(--stone);
+    font-weight: 700;
+  }
+  .stop-place {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .stop-kw {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .7rem;
+    color: var(--sepia);
+    line-height: 1.4;
+    letter-spacing: .02em;
+  }
+  .stop-desc {
+    font-family: 'Noto Serif KR', serif;
+    font-size: .82rem;
+    color: #4a4038;
+    line-height: 1.85;
+    margin-top: .5rem;
+    border-top: 1px solid #e4ddd5;
+    padding-top: .65rem;
+    font-weight: 300;
+  }
+
+  /* 부 구분 헤더 */
+  .part-header {
+    margin: 3.2rem 0 1.6rem;
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    border-left: 4px solid;
+    background: var(--parchment);
+  }
+  .part-header.p1-block { border-color: var(--sepia); }
+  .part-header.p2-block { border-color: var(--rust); }
+  .part-header-tag {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    font-weight: 700;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+  .part-header-tag.p1 { color: var(--sepia); }
+  .part-header-tag.p2 { color: var(--rust); }
+  .part-header-divider {
+    width: 1px; height: 2rem;
+    background: #c8c0b4;
+    flex-shrink: 0;
+  }
+  .part-header-title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.35;
+    flex: 1;
+  }
+  .part-header-title small {
+    display: block;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .68rem;
+    font-weight: 400;
+    color: var(--stone);
+    letter-spacing: .06em;
+    margin-top: .25rem;
+  }
+
+  /* 서사 흐름 화살표 */
+  .narrative-flow {
+    margin: 2.4rem 0;
+    padding: 1.8rem;
+    background: var(--parchment);
+    border: 1px solid #d8d0c4;
+  }
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    padding: .5rem 0;
+  }
+  .flow-place {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--ink);
+    width: 90px;
+    flex-shrink: 0;
+  }
+  .flow-arrow {
+    font-size: .8rem;
+    color: var(--stone);
+    flex-shrink: 0;
+  }
+  .flow-desc {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .78rem;
+    color: var(--dim);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .flow-divider {
+    border: none;
+    border-top: 1px dashed #d0c8bc;
+    margin: .3rem 0;
+  }
+
+  /* 링크 카드 */
+  .post-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: #d8d0c4;
+    border: 1px solid #d8d0c4;
+    margin-top: 2.4rem;
+  }
+  .post-link {
+    background: var(--pale);
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background .15s;
+    gap: 1rem;
+  }
+  .post-link:hover { background: var(--parchment); }
+  .post-link-left { flex: 1; }
+  .post-link-num {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .62rem;
+    letter-spacing: .3em;
+    color: var(--stone);
+    margin-bottom: .3rem;
+    font-weight: 700;
+  }
+  .post-link-title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .post-link-sub {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .72rem;
+    color: var(--stone);
+    margin-top: .3rem;
+  }
+  .post-link-badge {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .6rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    padding: 3px 10px;
+    border: 1px solid;
+    flex-shrink: 0;
+  }
+  .post-link-badge.done { color: var(--moss); border-color: var(--moss); }
+  .post-link-badge.plan { color: #8a8070; border-color: #c0b8a8; }
+
+  /* 에필로그 */
+  .epilogue {
+    padding: 4rem 0 5rem;
+    text-align: center;
+  }
+  .epilogue-mark {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #d8d0c4;
+    letter-spacing: .08em;
+    margin-bottom: 1.6rem;
+  }
+  .epilogue p {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--stone);
+    line-height: 2.2;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* 푸터 */
+  footer {
+    background: var(--ink);
+    text-align: center;
+    padding: 2.4rem 1.5rem;
+  }
+  footer p {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .68rem;
+    letter-spacing: .15em;
+    color: #4a4038;
+    line-height: 2;
+  }
+  footer strong { color: var(--sepia); }
+
+  /* ─── 강의 모집 섹션 ─── */
+  .recruit-section {
+    background: var(--ink);
+    padding: 5rem 2rem;
+    margin-top: 0;
+  }
+  .recruit-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .recruit-eyebrow {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .62rem;
+    letter-spacing: .55em;
+    text-transform: uppercase;
+    color: var(--sepia);
+    margin-bottom: 1.4rem;
+    text-align: center;
+  }
+  .recruit-title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    line-height: 1.35;
+    margin-bottom: .8rem;
+  }
+  .recruit-title em { font-style: normal; color: var(--gold); }
+  .recruit-sub {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .88rem;
+    color: var(--stone);
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+  /* 강의 패키지 카드 */
+  .lecture-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #2e2820;
+    border: 1px solid #2e2820;
+    margin-bottom: 3rem;
+  }
+  .lc {
+    background: #1e1a14;
+    padding: 1.8rem 1.6rem;
+  }
+  .lc-type {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .6rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    color: var(--sepia);
+    margin-bottom: .7rem;
+    font-weight: 700;
+  }
+  .lc-name {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: .7rem;
+  }
+  .lc-desc {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .78rem;
+    color: #6a6058;
+    line-height: 1.75;
+    margin-bottom: 1.1rem;
+  }
+  .lc-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+  }
+  .lc-items li {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .76rem;
+    color: #9a9080;
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .lc-items li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--sepia);
+  }
+  /* 강의 일정 표 */
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3rem;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .8rem;
+  }
+  .schedule-table th {
+    background: #2e2820;
+    color: var(--sepia);
+    padding: .7rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    letter-spacing: .06em;
+    font-size: .68rem;
+    text-transform: uppercase;
+  }
+  .schedule-table td {
+    padding: .75rem 1rem;
+    border-bottom: 1px solid #1e1a14;
+    color: #8a8070;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  .schedule-table tr:last-child td { border-bottom: none; }
+  .schedule-table .td-strong { color: #d4ccbc; font-weight: 700; }
+  .schedule-table .td-badge {
+    display: inline-block;
+    font-size: .6rem;
+    padding: 1px 7px;
+    border: 1px solid var(--sepia);
+    color: var(--sepia);
+    letter-spacing: .06em;
+    margin-top: .3rem;
+  }
+  /* CTA 버튼 */
+  .cta-block {
+    text-align: center;
+    padding: 2.5rem 0 0;
+    border-top: 1px solid #2e2820;
+  }
+  .cta-note {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .75rem;
+    color: #4a4038;
+    margin-bottom: 1.4rem;
+    line-height: 1.8;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--sepia);
+    color: #fff;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .88rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    padding: 1rem 2.8rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .cta-btn:hover { background: var(--gold); color: var(--ink); }
+  .cta-btn-sub {
+    display: block;
+    margin-top: 1rem;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: .7rem;
+    color: #3a3028;
+    letter-spacing: .08em;
+  }
+
+  @media (max-width: 560px) {
+    .masthead { padding: 4rem 1.4rem 3rem; }
+    .container { padding: 0 1.4rem; }
+    .stop-grid { grid-template-columns: 1fr 1fr; }
+    .flow-place { width: 70px; font-size: .85rem; }
+    .flow-desc { font-size: .72rem; }
+    .lecture-cards { grid-template-columns: 1fr; }
+    .recruit-section { padding: 3.5rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── masthead ── -->
+<header class="masthead">
+  <div class="masthead-label">태조 이성계 역사 기행 · 서언</div>
+  <div class="title-block">
+    <h1>
+      태조 이성계,<br><em>꿈</em>과 <em>회한</em>
+    </h1>
+  </div>
+  <p class="masthead-sub">오목대에서 종묘까지, 그리고 정릉과 회암사지 — 한 인간이 꿈을 이루고 그 대가를 감내한 삶의 기록</p>
+  <div class="masthead-rule"></div>
+  <div class="masthead-meta">
+    <span>역사 문화해설사 답사 기행</span>
+    <span>전 9회 연재</span>
+    <span>제1부 · 꿈의 서사 / 제2부 · 회한의 서사</span>
+  </div>
+</header>
+
+<!-- ── 코스 진도 바 ── -->
+<div class="course-bar" role="navigation" aria-label="답사 코스">
+  <div class="course-inner" id="courseBar"></div>
+</div>
+
+<!-- ── 본문 ── -->
+<main class="container">
+
+  <!-- 서두 리드 -->
+  <div class="lead-block">
+    <div class="lead-tag">Prologue</div>
+    <p class="lead-text">
+      태조 이성계를 우리는 흔히 '조선을 건국한 영웅'으로 기억한다.
+      그러나 그의 삶을 따라가다 보면 한 명의 영웅보다 한 명의 인간이 보인다.
+      그의 생애는 '건국'과 '말년'이라는 두 개의 전혀 다른 이야기로 나뉜다.
+    </p>
+  </div>
+
+  <!-- 1. 꿈의 서사 -->
+  <section class="section">
+    <div class="section-label">I · 꿈의 서사</div>
+    <h2>오목대에서 종묘까지 — 한 장군의 마음이 나라가 되다</h2>
+    <p>
+      1380년 황산대첩. 왜구를 격파한 이성계는 개선하여 고향 함흥으로 가지 않았다. 그는 전주를 찾았다. 왜 하필 전주였을까. 직계 조상은 이미 여러 세대 전부터 북방에 정착했지만, 전주는 전주 이씨의 본향이었다. 그곳에서 승전의 기쁨을 종친들과 나누었다. 그리고 오목대에 올라 시 한 편을 남겼다.
+    </p>
+
+    <div class="pull-quote">
+      <p>丈夫出世用無窮<br>何事區區守一功<br>若使牧隱知吾意<br>非牧隱誰識此心</p>
+      <cite>장부가 세상에 태어났으면 어찌 한 번의 공으로 만족하겠는가.<br>목은이 아니면 누가 내 마음을 알겠는가. — 오목대 시, 이성계</cite>
+    </div>
+
+    <p>
+      나는 이 시가 단순한 승전시라고 생각하지 않는다. 이성계는 이미 자신의 '차심(此心)'을 품고 있었던 것은 아닐까. 그 차심이 왕이 되겠다는 뜻이었는지, 고려를 개혁하겠다는 뜻이었는지, 새로운 시대를 열겠다는 뜻이었는지는 누구도 단정할 수 없다. 그러나 분명한 것은 이성계가 스스로를 더 큰 사명을 가진 사람으로 인식하고 있었다는 점이다.
+    </p>
+    <p>
+      오목대의 시에서 가장 인상적인 대목은 마지막 구절이다. '목은이 아니면 누가 내 마음을 알겠는가.' 여기서 목은은 고려 최고의 성리학자인 이색이다. 무장인 이성계는 누구보다 잘 알고 있었을 것이다 — <strong>칼은 나라를 세울 수 있지만, 명분은 학자가 만든다.</strong> 이성계가 가장 먼저 손을 내밀고 싶었던 사람이 정도전이 아니라 이색이었다고 나는 생각한다. 그러나 이색은 끝까지 고려를 버리지 않았다. 결국 이성계의 뜻을 현실로 만든 사람은 이색이 아니라 그의 제자였던 정도전이었다.
+    </p>
+
+    <div class="pull-quote">
+      <p>오목대에서 품었던 생각은 종묘에서 정통성이 되었고,<br>경복궁에서 국가가 되었다.</p>
+      <cite>— 건국의 서사</cite>
+    </div>
+
+    <p>
+      1388년 위화도에서 결단을 내리고, 1392년 조선을 건국한다. 새로운 왕조는 무력만으로는 유지될 수 없었다. 그래서 조선은 종묘를 세우고 조상을 모시며 천명을 계승한 국가임을 선언했다. 경복궁을 지어 새로운 정치 질서를 공간으로 구현했다. 이것이 내가 '건국의 서사'라고 부르고 싶은 이야기다.
+    </p>
+  </section>
+
+  <!-- 2. 회한의 서사 -->
+  <section class="section">
+    <div class="section-label">II · 회한의 서사</div>
+    <h2>그러나 영웅의 이야기는 여기서 끝나지 않는다</h2>
+    <p>
+      1398년 제1차 왕자의 난. 태조가 가장 사랑했던 신덕왕후의 두 아들은 죽었다. 왕위는 자신의 뜻과는 다른 방향으로 흘러갔다. 그 이후의 태조는 더 이상 건국의 영웅이 아니었다. 한 명의 아버지였고, 남편이었으며, 늙은 군주였다.
+    </p>
+    <p>
+      정릉은 태조가 가장 사랑했던 왕비 신덕왕후의 능이다. 그러나 태종은 정릉을 지금의 자리로 옮기며 그 위상을 크게 낮추었다. 태조에게 정릉은 정치의 공간이 아니라 상실의 공간이었을 것이다. 회암사지는 말년의 태조가 자주 머물렀던 곳이다. 조선을 건국한 왕이 말년에는 절에서 시간을 보냈다는 사실은 많은 것을 생각하게 한다. 건국의 열정보다 삶의 무게가 더 컸던 시기였을지도 모른다.
+    </p>
+    <p>
+      그리고 건원릉. 개국 군주의 능이지만 의외로 담담하다. 그곳에는 천하를 얻은 군주보다 긴 생애를 마무리하는 한 인간의 모습이 더 크게 느껴진다.
+    </p>
+
+    <!-- 서사 흐름 -->
+    <div class="narrative-flow" aria-label="답사 서사 흐름">
+      <div class="part-header p1-block" style="margin:0 0 1rem;">
+        <span class="part-header-tag p1">제 1부</span>
+        <div class="part-header-divider"></div>
+        <div class="part-header-title">꿈의 서사 <small>오목대에서 종묘·경복궁까지 — 건국의 이야기</small></div>
+      </div>
+      <div class="flow-row">
+        <span class="flow-place">황산</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">1380 · 왜구 격퇴 · 전국적 영웅의 탄생</span>
+      </div>
+      <hr class="flow-divider">
+      <div class="flow-row">
+        <span class="flow-place">오목대</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">1380 · 승전 연회 · 전주 이씨 본향에서 건국을 예감케 한 노래</span>
+      </div>
+      <hr class="flow-divider">
+      <div class="flow-row">
+        <span class="flow-place">준경묘</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">조성 연대 미상 · 왕조의 뿌리 · "조선은 하늘이 내린 왕조"라는 풍수적 정통성의 시작</span>
+      </div>
+      <hr class="flow-divider">
+      <div class="flow-row">
+        <span class="flow-place">종묘</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">1395 · 정통성의 제도화 · "왕보다 종묘가 먼저"라는 유교 국가 선언</span>
+      </div>
+      <hr class="flow-divider">
+      <div class="flow-row">
+        <span class="flow-place">경복궁</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">1395 · 유교 국가 운영의 시작 · 정도전이 설계한 이상 국가의 물리적 완성</span>
+      </div>
+
+      <div class="part-header p2-block" style="margin:2rem 0 1rem;">
+        <span class="part-header-tag p2">제 2부</span>
+        <div class="part-header-divider"></div>
+        <div class="part-header-title">회한의 서사 <small>정릉과 회암사지, 그리고 건원릉까지 — 상실의 이야기</small></div>
+      </div>
+      <div class="flow-row">
+        <span class="flow-place">정릉</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">1396 · 신덕왕후의 죽음 · 사랑과 권력이 충돌하는 전환점</span>
+      </div>
+      <hr class="flow-divider">
+      <div class="flow-row">
+        <span class="flow-place">회암사지</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">1402~1408 · 왕자의 난 이후 은거 · 권력을 잃은 노왕의 5년</span>
+      </div>
+      <hr class="flow-divider">
+      <div class="flow-row">
+        <span class="flow-place">건원릉</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">1408 · 창업 군주의 죽음 · 억새 아래 600년</span>
+      </div>
+      <hr class="flow-divider">
+      <div class="flow-row">
+        <span class="flow-place">경기전</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-desc">1410 · 태종이 만든 기억의 공간 · 인간 이성계의 신성화 완성</span>
+      </div>
+    </div>
+
+    <p>
+      이 구조를 이해한 채로 각 현장을 밟으면, 같은 돌이 다르게 보인다. 정릉에서 신덕왕후 강씨의 이장 사건을 알고 나서 회암사지에 가면, 태조가 왜 그 절에서 5년을 버텼는지가 비로소 이해된다. 회암사지의 쓸쓸함을 몸으로 느끼고 나서 건원릉의 억새 앞에 서면, 그 황금빛이 단순한 풍경으로 보이지 않는다.
+    </p>
+  </section>
+
+  <!-- 3. 답사 현장 전체 -->
+  <section class="section">
+    <div class="section-label">III · 9개 현장</div>
+    <h2>태조를 다시 읽다 — 전체 답사지 안내</h2>
+    <p>
+      태조를 '조선을 세운 왕'으로만 기억하면 절반의 이야기다. 그의 삶을 따라가 보면 두 개의 얼굴이 보인다. 하나는 새로운 세상을 꿈꾸던 혁명가였고, 다른 하나는 모든 것을 이루고도 많은 것을 잃었던 인간이었다. 역사는 결국 사건이 아니라 사람의 이야기다.
+    </p>
+
+    <div class="part-header p1-block">
+      <span class="part-header-tag p1">제 1부</span>
+      <div class="part-header-divider"></div>
+      <div class="part-header-title">
+        꿈의 서사
+        <small>오목대에서 종묘·경복궁까지 — 건국의 이야기</small>
+      </div>
+    </div>
+    <div class="stop-grid">
+      <div class="stop-card">
+        <div class="stop-num">SITE · 01</div>
+        <div class="stop-place">남원 황산</div>
+        <div class="stop-kw">황산대첩 · 1380년 · 영웅의 탄생</div>
+        <div class="stop-desc">왜구 총대장 아지발도를 격퇴한 전투. 동북면 출신 지방 무장 이성계가 전국적 명성을 얻은 결정적 계기. 조선 건국의 정치적 자산이 이 들판에서 시작됐다.</div>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">SITE · 02</div>
+        <div class="stop-place">전주 오목대</div>
+        <div class="stop-kw">대풍가 · 전주 이씨 본향 · 건국의 예감</div>
+        <div class="stop-desc">황산대첩 직후 이성계가 승전 연회를 연 언덕. 전주 이씨 본향에서 한(漢) 고조 유방의 노래를 불렀다는 전승이 남아 있다. 그것이 흥이었는지 야망이었는지 — 돌 하나가 질문을 품고 있다.</div>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">SITE · 03</div>
+        <div class="stop-place">삼척 준경묘·영경묘</div>
+        <div class="stop-kw">전주 이씨 5대조 · 왕조의 뿌리 · 풍수 정통성</div>
+        <div class="stop-desc">태조의 5대조와 고조부 계통 묘역. 조선 건국 후 태종이 정비한 왕조 시조의 성역으로, "하늘이 점지한 왕조"라는 풍수적 서사의 출발점이 된다.</div>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">SITE · 04</div>
+        <div class="stop-place">서울 종묘</div>
+        <div class="stop-kw">추존 4조 봉안 · 1395년 · 정통성의 제도화</div>
+        <div class="stop-desc">조선이 가장 먼저 세운 건물. 왕보다 왕의 조상을 모시는 공간이 먼저였다는 것 — 이것이 유교 국가 조선의 첫 번째 선언이었다. 세계에서 가장 긴 단일 목조 건물이 지금도 그 자리에 있다.</div>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">SITE · 05</div>
+        <div class="stop-place">경복궁</div>
+        <div class="stop-kw">1395년 완공 · 정도전 설계 · 유교 국가의 물리적 완성</div>
+        <div class="stop-desc">정도전이 설계한 새 왕조의 통치 공간. 전각 하나하나의 이름에 유교 이념이 새겨졌다. 근정전에서 경회루까지 — 이성계가 꿈꾼 나라의 모습이 돌과 나무로 구현된 자리.</div>
+      </div>
+    </div>
+
+    <div class="part-header p2-block">
+      <span class="part-header-tag p2">제 2부</span>
+      <div class="part-header-divider"></div>
+      <div class="part-header-title">
+        회한의 서사
+        <small>정릉과 회암사지, 그리고 건원릉 — 상실의 이야기</small>
+      </div>
+    </div>
+    <div class="stop-grid">
+      <div class="stop-card">
+        <div class="stop-num">SITE · 06</div>
+        <div class="stop-place">성북 정릉</div>
+        <div class="stop-kw">신덕왕후 강씨 · 1396년 · 사랑과 권력의 충돌</div>
+        <div class="stop-desc">이성계가 사랑한 계비 신덕왕후의 능. 그녀의 죽음 이후 왕자의 난이 일어나고, 태종은 정릉을 도성 밖으로 강제 이장했다. 260년 후에야 복위된 왕비의 능 — 이 자리가 제1부와 제2부를 가르는 경계다.</div>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">SITE · 07</div>
+        <div class="stop-place">양주 회암사지</div>
+        <div class="stop-kw">상왕 은거 · 1402~1408 · 상실과 기도의 5년</div>
+        <div class="stop-desc">왕자의 난으로 권력을 잃은 태조가 5년 넘게 머문 절터. 262칸 규모의 왕실 사찰은 지금 주춧돌과 축대만 남았다. 함흥차사들이 왔다가 돌아간 곳, 그 쓸쓸함이 오히려 태조의 처지를 더 잘 말한다.</div>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">SITE · 08</div>
+        <div class="stop-place">구리 건원릉</div>
+        <div class="stop-kw">억새 봉분 · 1408년 · 창업 군주의 마지막</div>
+        <div class="stop-desc">조선 42기 왕릉 중 유일하게 억새로 덮인 능. 고향 함흥의 흙을 가져다 덮어달라는 유언대로 조성됐다. 영웅의 탄생에서 시작한 이 기행은 이 황금빛 억새 앞에서 끝난다 — 그리고 억새는 600년째 바람에 눕는다.</div>
+      </div>
+      <div class="stop-card">
+        <div class="stop-num">SITE · 09</div>
+        <div class="stop-place">전주 경기전</div>
+        <div class="stop-kw">태조 어진 봉안 · 1410년 · 국조의 신성화</div>
+        <div class="stop-desc">태종이 태조의 어진(御眞)을 봉안하기 위해 세운 전각. 인간 이성계가 국조(國祖)라는 신성한 기원으로 변환되는 마지막 공간. 이 기행은 황산의 전투에서 시작해 이 어진 앞에서 완성된다.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 완료 포스트 링크 -->
+  <section class="section">
+    <div class="section-label">IV · 완료된 기록</div>
+    <h2>이미 밟은 땅, 이미 쓴 이야기</h2>
+    <p>
+      공교롭게도 먼저 밟은 두 자리는 회한의 서사에 속한다. 회암사지와 건원릉 — 꿈이 아니라 상실을 담은 곳들이다. 어쩌면 태조 이성계를 이해하는 데 건국보다 말년이 먼저였던 것은, 이 기행이 처음부터 인간을 먼저 보고 싶었기 때문일지도 모른다.
+    </p>
+
+    <div class="post-links">
+      <a class="post-link" href="./회암사지_답사기.html">
+        <div class="post-link-left">
+          <div class="post-link-num">SITE · 07 · 경기도 양주</div>
+          <div class="post-link-title">양주 회암사지 — 왕위를 내려놓은 노인이 산속 폐허에서 찾은 것</div>
+          <div class="post-link-sub">2026년 5월 26일 답사 · 사적 제128호</div>
+        </div>
+        <span class="post-link-badge done">읽기 →</span>
+      </a>
+      <a class="post-link" href="./건원릉_답사기.html">
+        <div class="post-link-left">
+          <div class="post-link-num">SITE · 08 · 경기도 구리</div>
+          <div class="post-link-title">건원릉 — 고향을 그리워한 노왕의 마지막, 조선 500년 왕릉의 원형</div>
+          <div class="post-link-sub">2026년 6월 4일 답사 · 유네스코 세계문화유산</div>
+        </div>
+        <span class="post-link-badge done">읽기 →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 5. 읽는 법 -->
+  <section class="section">
+    <div class="section-label">V · 이 기행을 읽는 법</div>
+    <h2>태조 이성계의 이야기는 조선을 세운 왕의 이야기를 넘어선다</h2>
+    <p>
+      나는 답사를 준비하면서 태조의 삶을 두 개의 서사로 이해하게 되었다. 첫 번째는 꿈의 서사이고, 두 번째는 회한의 서사이다. 이 두 서사를 함께 읽을 때 비로소 태조 이성계라는 인물이 온전히 보인다.
+    </p>
+    <p>
+      9개의 포스트는 각각 독립적으로 읽을 수 있다. 그러나 가능하면 순서대로 따라가기를 권한다. 오목대에서 품은 차심(此心)이 종묘에서 정통성이 되고, 정릉에서 상실이 되고, 회암사지에서 기도가 되고, 건원릉에서 억새가 되는 — 그 흐름이 온전히 느껴질 때, 이 기행은 비로소 완성된다.
+    </p>
+
+    <div class="pull-quote">
+      <p>태조 이성계의 이야기는,<br>조선을 세운 왕의 이야기를 넘어<br>한 인간이 꿈을 이루고 그 대가를 감내한<br>삶의 기록으로 읽을 때 비로소 더 깊은 울림을 준다.</p>
+      <cite>— 답사를 시작하며</cite>
+    </div>
+
+    <p>
+      역사는 결국 사건이 아니라 사람의 이야기다. 이 기행이 끝날 때쯤 — 9개의 자리를 모두 밟고 경기전 앞마당에 서는 날 — 이성계라는 이름이 지금과 다르게 들릴 것이다. 새로운 세상을 꿈꾸던 혁명가이자, 모든 것을 이루고도 많은 것을 잃었던 인간으로.
+    </p>
+  </section>
+
+  <!-- 에필로그 -->
+  <div class="epilogue">
+    <div class="epilogue-mark">꿈 · 회한</div>
+    <p>
+      오목대에서 시작된 차심(此心)은<br>
+      종묘에서 정통성이 되었고, 경복궁에서 국가가 되었다.<br>
+      그리고 정릉에서 상실이 되었고,<br>
+      회암사지에서 기도가 되었으며,<br>
+      건원릉에서 억새가 되었다.
+    </p>
+  </div>
+
+</main>
+
+<!-- ── 강의 모집 섹션 ── -->
+<section class="recruit-section">
+  <div class="recruit-inner">
+
+    <div class="recruit-eyebrow">강의 안내 · Lecture Program</div>
+    <h2 class="recruit-title">
+      현장에서 만나는<br>
+      <em>태조 이성계</em> 역사 기행 강의
+    </h2>
+    <p class="recruit-sub">
+      강의실 안 교과서가 아닌 — 유적지 현장에서 직접 읽는 조선 건국의 서사<br>
+      역사 문화해설사가 직접 설계한 강의·답사 통합 프로그램
+    </p>
+
+    <!-- 강의 패키지 2종 -->
+    <div class="lecture-cards">
+      <div class="lc">
+        <div class="lc-type">Package A · 강의형</div>
+        <div class="lc-name">태조의 꿈과 회한<br>5강 역사 강의</div>
+        <div class="lc-desc">강의실에서 진행하는 이론 중심 프로그램. 사진·영상·지도 자료로 현장감을 살린 구성.</div>
+        <ul class="lc-items">
+          <li>1강 · 조선의 탄생과 태조의 선택</li>
+          <li>2강 · 세종대왕과 조선의 전성기</li>
+          <li>3강 · 사화와 당쟁의 시대</li>
+          <li>4강 · 실학과 정조의 개혁 군주상</li>
+          <li>5강 · 조선의 황혼과 대한제국</li>
+        </ul>
+      </div>
+      <div class="lc">
+        <div class="lc-type">Package B · 답사형</div>
+        <div class="lc-name">발로 읽는 조선<br>현장 역사 기행</div>
+        <div class="lc-desc">유적지를 직접 걸으며 진행하는 현장 해설 프로그램. 강의와 병행 또는 단독 운영 가능.</div>
+        <ul class="lc-items">
+          <li>회암사지 → 건원릉 태조 기행</li>
+          <li>종묘 · 경복궁 건국 현장 기행</li>
+          <li>영릉 · 광릉 세종·세조 기행</li>
+          <li>화성 융릉·건릉 정조 기행</li>
+          <li>홍릉·유릉 대한제국 기행</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 강의 일정 -->
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th style="width:22%">구분</th>
+          <th style="width:40%">내용</th>
+          <th>대상 / 장소</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-strong">문화원·도서관<br>위탁 강의</td>
+          <td>기관 섭외 후 커리큘럼 맞춤 조정<br><span class="td-badge">협의 가능</span></td>
+          <td>성인 일반 / 기관 강의실</td>
+        </tr>
+        <tr>
+          <td class="td-strong">소규모<br>현장 기행</td>
+          <td>10인 내외 그룹 현장 해설 투어<br><span class="td-badge">일정 협의</span></td>
+          <td>역사 관심 성인 / 유적지 현장</td>
+        </tr>
+        <tr>
+          <td class="td-strong">시니어 특화<br>스마트 기행</td>
+          <td>스마트폰 활용법 + 역사 강의 결합<br><span class="td-badge">기획 중</span></td>
+          <td>60대 이상 / 문화센터·복지관</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <p class="cta-note">
+        강의 문의 · 기관 섭외 · 그룹 답사 신청<br>
+        아래 버튼을 눌러 연락 주시면 일정과 프로그램을 안내해 드립니다.
+      </p>
+      <a class="cta-btn" href="mailto:?subject=태조 이성계 역사 기행 강의 문의" onclick="alert('이메일 주소를 설정해 주세요.\n(HTML 파일에서 href=\"mailto:여기에이메일\" 수정)')">
+        강의 · 답사 문의하기
+      </a>
+      <span class="cta-btn-sub">이메일 또는 전화로 문의 주시면 48시간 내 회신드립니다</span>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>
+    <strong>태조 이성계 역사 기행</strong> · 서언 &nbsp;|&nbsp; 역사 문화해설사 답사 기록<br>
+    황산에서 경기전까지 · 전 9개 현장
+  </p>
+</footer>
+
+<script>
+  // 코스 진도 바
+  const stops = [
+    {label:'황산',    part:1},
+    {label:'오목대',  part:1},
+    {label:'준경묘',  part:1},
+    {label:'종묘',    part:1},
+    {label:'경복궁',  part:1},
+    {label:'정릉',    part:2},
+    {label:'회암사',  part:2},
+    {label:'건원릉',  part:2},
+    {label:'경기전',  part:2},
+  ];
+
+  const bar = document.getElementById('courseBar');
+  stops.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'course-stop';
+    const p2class = s.part === 2 ? ' part2' : '';
+    el.innerHTML = `
+      <div class="stop-dot${p2class}">${String(i+1).padStart(2,'0')}</div>
+      <div class="stop-name">${s.label}</div>`;
+    bar.appendChild(el);
+  });
+</script>
+</body>
+</html>
