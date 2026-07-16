@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>조선 왕릉의 시작 — 건원릉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@300;400;600&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --sepia: #8B6914;
+    --moss: #5a6b4a;
+    --stone: #9b9080;
+    --accent: #c4611a;
+    --pale: #faf7f2;
+    --parchment: #f5f0e8;
+    --gold: #c4a040;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--pale); color:var(--ink); font-family:'Noto Serif KR',serif; font-weight:300; line-height:2.0; }
+
+  .masthead { background:var(--ink); color:var(--parchment); text-align:center; padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+  .masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px); }
+  .masthead-label { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; color:#6a6058; text-transform:uppercase; margin-bottom:1.4rem; }
+  .masthead h1 { font-family:'Nanum Myeongjo',serif; font-size:clamp(2.2rem,5vw,4rem); font-weight:800; line-height:1.2; color:#fff; position:relative; }
+  .masthead-sub { font-family:'Noto Serif KR',serif; font-size:1.05rem; color:var(--stone); margin-top:1.4rem; font-style:italic; }
+  .masthead-meta { margin-top:2rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.2em; color:#4a4038; border-top:1px solid #2e2820; padding-top:1.4rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; }
+
+  .hero { width:100%; max-height:600px; overflow:hidden; position:relative; }
+  .hero img { width:100%; max-height:600px; object-fit:cover; object-position:center 40%; display:block; filter:sepia(12%) contrast(1.06) brightness(.96); }
+  .hero-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,.78)); color:#ddd8ce; padding:4rem 2rem 1.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.75rem; letter-spacing:.1em; line-height:1.8; }
+
+  .container { max-width:800px; margin:0 auto; padding:0 2rem; }
+
+  .lead-block { padding:4.5rem 0 3.5rem; border-bottom:1px solid #d8d0c4; }
+  .lead-tag { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; letter-spacing:.45em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; }
+  .lead-text { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.15rem,2.4vw,1.42rem); line-height:1.95; color:#2a201a; font-weight:700; }
+
+  .section { padding:3.5rem 0; border-bottom:1px solid #e4ddd5; }
+  .section:last-child { border-bottom:none; }
+  .section-label { font-family:'Nanum Gothic',sans-serif; font-size:.62rem; letter-spacing:.55em; text-transform:uppercase; color:#b0a898; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+  .section-label::after { content:''; flex:1; height:1px; background:#ddd5c8; }
+
+  h2 { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.35rem,3vw,1.8rem); font-weight:800; line-height:1.4; margin-bottom:1.6rem; color:var(--ink); }
+  p { font-size:1rem; color:#2e2620; margin-bottom:1.5rem; line-height:2.0; }
+  p:last-child { margin-bottom:0; }
+  .drop-cap::first-letter { font-family:'Nanum Myeongjo',serif; font-size:4.5rem; font-weight:800; float:left; line-height:.76; margin-right:.08em; margin-top:.1em; color:var(--sepia); }
+
+  .space-diagram { background:#f0ebe0; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .space-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.5rem; text-align:center; }
+  .space-flow { display:flex; flex-direction:column; align-items:center; position:relative; gap:0; }
+  .space-flow::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--sepia),#c4a060); transform:translateX(-50%); z-index:0; }
+  .space-node { position:relative; z-index:1; display:flex; align-items:center; gap:1rem; width:100%; max-width:440px; }
+  .space-node-box { background:var(--sepia); color:#fff; font-family:'Nanum Gothic',sans-serif; font-size:.78rem; font-weight:700; padding:.5rem 1.2rem; text-align:center; min-width:160px; flex-shrink:0; }
+  .space-node-box.moss { background:var(--moss); }
+  .space-node-box.stone { background:#9b9080; }
+  .space-node-desc { font-size:.82rem; color:#5a4e3c; line-height:1.7; }
+  .space-arrow { position:relative; z-index:1; font-size:.85rem; color:var(--sepia); line-height:1.6; margin:0 auto; }
+
+  .fengshui-box { background:#f0ebe0; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .fengshui-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:#d0c8bc; margin-top:1.5rem; border:1px solid #d0c8bc; }
+  .fs-cell { background:var(--pale); padding:1rem 1.2rem; text-align:center; }
+  .fs-cell.center { background:#f0ebe0; }
+  .fs-label { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; letter-spacing:.2em; color:var(--sepia); margin-bottom:.3rem; }
+  .fs-name { font-family:'Nanum Myeongjo',serif; font-size:.95rem; font-weight:700; color:var(--ink); }
+  .fs-desc { font-size:.78rem; color:#6a5e4c; margin-top:.3rem; line-height:1.6; }
+
+  .compare-grid { display:grid; grid-template-columns:auto 1fr 1fr; gap:1px; background:#d0c8bc; border:1px solid #d0c8bc; margin:2.5rem 0; font-size:.86rem; }
+  .cg-head { background:var(--sepia); color:#fff; font-family:'Nanum Gothic',sans-serif; font-weight:700; padding:.7rem 1rem; font-size:.72rem; letter-spacing:.1em; }
+  .cg-label { background:#f0ebe0; font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); padding:.7rem 1rem; font-size:.8rem; }
+  .cg-cell { background:var(--pale); padding:.7rem 1rem; color:#3a3028; line-height:1.7; }
+  .cg-cell.alt { background:#faf5ec; }
+
+  .pull-quote { margin:3rem 0; padding:2rem 2.8rem; border-left:4px solid var(--sepia); background:#f0ebe0; position:relative; }
+  .pull-quote::before { content:'❝'; font-size:3.5rem; color:var(--sepia); opacity:.2; position:absolute; top:-.6rem; left:.8rem; line-height:1; }
+  .pull-quote p { font-family:'Nanum Myeongjo',serif; font-size:1.18rem; font-style:italic; font-weight:700; line-height:1.9; margin:0; color:#3a2e20; }
+  .pull-quote cite { display:block; margin-top:.9rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.18em; color:var(--stone); font-style:normal; }
+
+  .ruin-note { margin:2.5rem 0; padding:1.6rem 2rem; background:transparent; border-top:1px solid #c8c0b0; border-bottom:1px solid #c8c0b0; font-family:'Nanum Myeongjo',serif; font-size:.96rem; font-style:italic; color:#5a4e3c; line-height:2.0; text-align:center; }
+
+  .photo-single { margin:2.8rem 0; }
+  .photo-single img { width:100%; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-caption { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--stone); padding:.75rem 0 0; letter-spacing:.05em; border-top:1px solid #d8d0c4; margin-top:.5rem; line-height:1.8; }
+
+  .photo-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.8rem 0; }
+  .photo-duo figure { margin:0; }
+  .photo-duo img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-duo.portrait img { aspect-ratio:3/4; }
+  .photo-duo figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; line-height:1.7; }
+
+  .photo-wide { margin:2.8rem -2rem; position:relative; }
+  .photo-wide img { width:100%; display:block; filter:sepia(12%) contrast(1.04); max-height:500px; object-fit:cover; }
+  .photo-wide .photo-caption { padding:.75rem 2rem 0; margin-top:.5rem; }
+
+  .highlight-box { background:#f5f0e0; border:2px solid var(--gold); padding:1.8rem 2.2rem; margin:2.5rem 0; }
+  .highlight-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; }
+  .highlight-box p { font-size:.95rem; line-height:1.9; color:#3a3028; margin-bottom:0; }
+
+  .info-box { background:#eee8dc; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .info-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.42em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.2rem; }
+  .info-grid { display:grid; grid-template-columns:auto 1fr; gap:.45rem 1.2rem; font-size:.88rem; }
+  .info-grid dt { font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); white-space:nowrap; }
+  .info-grid dd { color:#3a3028; margin:0; }
+
+  footer { background:var(--ink); color:#5a5048; text-align:center; padding:2.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.22em; margin-top:4rem; line-height:2.2; }
+
+  @media(max-width:600px){
+    .photo-duo { grid-template-columns:1fr; }
+    .photo-wide { margin:2.5rem 0; }
+    .fengshui-grid { grid-template-columns:1fr; }
+    .compare-grid { grid-template-columns:1fr; }
+    .space-diagram, .fengshui-box, .highlight-box { padding:1.5rem; }
+    .pull-quote { padding:1.5rem 1.8rem; }
+    .masthead-meta { gap:1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="masthead-label">역사 답사 기록 &nbsp;·&nbsp; 경기도 구리</p>
+  <h1>조선 왕릉의 시작<br>건원릉(健元陵)</h1>
+  <p class="masthead-sub">고향을 그리워한 노왕(老王)의 마지막 이야기 — 그리고 조선 500년 왕릉의 원형</p>
+  <div class="masthead-meta">
+    <span>2026년 6월 4일</span>
+    <span>경기도 구리시 동구릉</span>
+    <span>유네스코 세계문화유산 (2009)</span>
+  </div>
+</header>
+
+<!-- HERO: p02 — 홍살문 + 참도 + 정자각 + 봉분 -->
+<div class="hero">
+  <img src="images/geunwonreung_01.jpg" alt="건원릉 홍살문과 참도, 정자각">
+  <div class="hero-caption">홍살문 너머로 참도(博石길)가 뻗고, 정자각이 서 있고, 그 뒤로 봉분이 솟아 있다.<br>속세와 성역의 경계 — 이 문 하나가 산 자의 세계와 죽은 왕의 세계를 가른다. / 2026.06.04 13:41</div>
+</div>
+
+<div class="container">
+
+  <div class="lead-block">
+    <p class="lead-tag">Prologue</p>
+    <p class="lead-text">
+      회암사지에서 이야기는 시작됐다. 권력을 잃고 산속 절에서 5년을 보낸 노왕이
+      1408년 74세로 생을 마감했다. 아들 태종은 아버지가 그토록 사랑했던 신덕왕후 강씨 곁이 아닌,
+      한양 동쪽 구리 땅에 아버지를 혼자 묻었다.
+      그 자리가 건원릉이다. 조선 42기 왕릉 중 첫 번째,
+      그리고 이후 모든 왕릉이 따르게 될 원형.
+    </p>
+  </div>
+
+  <!-- SCENE 01 -->
+  <section class="section">
+    <p class="section-label">Scene 01</p>
+    <h2>동구릉(東九陵) — 아홉 개의 능, 하나의 거대한 왕실 묘역</h2>
+
+    <div class="photo-single">
+      <img src="images/geunwonreung_02.jpg" alt="조선 왕릉 세계유산 비석">
+      <p class="photo-caption">동구릉 입구의 '조선왕릉 세계유산' 비석과 표석. 2009년 유네스코 세계문화유산 등재. 13:28</p>
+    </div>
+
+    <p class="drop-cap">동구릉(東九陵). 한양 동쪽에 있는 아홉 개의 능이라는 뜻이다. 태조의 건원릉이 들어선 이후, 조선 왕실은 이 땅에 계속해서 능을 더했다. 문종, 선조, 현종, 영조, 헌종까지 — 결국 9기 17위가 이 일대에 모였다. 단일 능역으로는 조선 최대 규모다.</p>
+
+    <p>2009년 유네스코 세계문화유산 등재. 비석에 새겨진 문장이 눈에 들어온다. "The Royal Tombs of the Joseon Dynasty represent 40 burial grounds of the kings and queens of the Joseon period 1392–1910." 왕조가 끝난 지 100년이 넘은 지금, 600년의 돌들이 이 땅에 그대로 있다.</p>
+
+    <p>이곳이 조선 왕실의 선택을 받은 이유가 있다. 한북정맥의 끝자락 검암산이 뒤를 감싸고, 왕숙천이 앞을 흐른다. '왕숙천(王宿川)'이라는 이름 자체가 "왕이 머문 내"라는 뜻 — 태조의 능이 들어서면서 붙여진 지명이다.</p>
+  </section>
+
+  <!-- SCENE 02 -->
+  <section class="section">
+    <p class="section-label">Scene 02</p>
+    <h2>속세와 성역의 경계 — 홍살문에서 정자각까지</h2>
+
+    <div class="photo-single">
+      <img src="images/geunwonreung_03.jpg" alt="동구릉 건원릉 진입로">
+      <p class="photo-caption">건원릉으로 향하는 진입로. 금천교를 건너 참도로 이어지는 흙길. 소나무 숲이 양쪽을 감싼다. 13:40</p>
+    </div>
+
+    <p>소나무 숲 사이로 길이 뻗어 있다. 발 아래로 흙의 감촉이 느껴졌다. 왕릉 진입로는 일부러 포장을 하지 않는다. 콘크리트 바닥에 익숙한 발이 여기서는 다른 질감을 읽는다. 이 길이 조금 다른 공간으로 들어가는 중임을 알려주는 방식이다.</p>
+
+    <!-- 공간 구조 다이어그램 -->
+    <div class="space-diagram">
+      <p class="space-title">건원릉 3구역 공간 구조 — 조선 왕릉 500년 표준</p>
+      <div class="space-flow">
+        <div class="space-node">
+          <div class="space-node-box stone">진입 공간</div>
+          <div class="space-node-desc">홍살문(紅箭門) · 금천교(禁川橋) · 판위<br>속세 → 성역의 경계. 붉은 문이 사기(邪氣)를 막는다.</div>
+        </div>
+        <div class="space-arrow">↑</div>
+        <div class="space-node">
+          <div class="space-node-box">제향 공간</div>
+          <div class="space-node-desc">참도(신도·어도) · 정자각(丁字閣) · 비각 · 수복방 · 수라간<br>산 자와 죽은 왕이 만나는 제사의 공간.</div>
+        </div>
+        <div class="space-arrow">↑</div>
+        <div class="space-node">
+          <div class="space-node-box moss">능침 공간</div>
+          <div class="space-node-desc">사초지 · 봉분 · 곡장 · 병풍석 · 석물군<br>왕의 유해가 영원히 잠드는 가장 높은 자리.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 홍살문 사진 — 안내판(p03) 앞으로 배치 -->
+    <div class="photo-single">
+      <img src="images/geunwonreung_01.jpg" alt="홍살문 너머 정자각과 봉분">
+      <p class="photo-caption">홍살문에서 바라본 참도·정자각·봉분. 태극 문양과 화살촉이 사기(邪氣)를 막는 벽사(辟邪)의 의미를 담고 있다. 이 문 앞에서 한 박자 멈추는 것이 예의다. 13:41</p>
+    </div>
+
+    <p>홍살문 앞에서 잠깐 멈췄다. 이 붉은 문 하나가 이쪽과 저쪽을 가른다. 문 안쪽은 왕의 혼백이 있는 공간, 문 바깥은 살아있는 자들의 세계. 그냥 걸어 들어가기가 뭔가 어색했다. 공간이 그렇게 만든다.</p>
+
+    <!-- 안내판 사진 (p03) — 홍살문 다음 -->
+    <div class="photo-single">
+      <img src="images/geunwonreung_05.jpg" alt="건원릉 안내판과 상설해설도">
+      <p class="photo-caption">건원릉(태조) 안내판과 상설해설도. 좌측 부조 지도, 중앙 한영 설명판, 우측 능제 상세 해설. 13:42</p>
+    </div>
+
+    <p>홍살문을 지나 안으로 들어서면 건원릉 안내판이 서 있다. 부조 지도에서 능 전체 배치를 한눈에 볼 수 있고, 우측 상설해설도에는 능침 각 요소의 이름과 역할이 빼곡하다. 현장에서 이 패널을 먼저 읽고 들어가면 눈에 들어오는 것들이 달라진다.</p>
+  </section>
+
+  <!-- SCENE 03 -->
+  <section class="section">
+    <p class="section-label">Scene 03</p>
+    <h2>조선 최초의 정자각 — 고려에서 조선으로</h2>
+
+    <!-- 참도+정자각 사진 (p04) — 정자각 설명 섹션으로 이동 -->
+    <div class="photo-single">
+      <img src="images/geunwonreung_06.jpg" alt="참도(박석길)와 정자각">
+      <p class="photo-caption">참도(博石길)에서 바라본 정자각(丁字閣). 왼쪽 높은 길이 신도(神道) — 왕의 혼령이 다니는 길. 오른쪽 낮은 길이 어도(御道) — 살아있는 왕이 걷는 길. 13:43</p>
+    </div>
+
+    <p class="drop-cap">참도(參道) 위에 섰다. 발 앞의 넓적한 박석들이 두 개의 길로 나뉘어 깔려 있다. 왼쪽이 조금 높다. 신도(神道), 왕의 혼령이 다니는 길이다. 살아있는 사람은 그 옆의 낮은 길,어도(御道),로 걸어야 한다. 왕이 죽어서도 가장 높은 곳을 걷는다. 조선의 질서는 죽음 이후에도 계속됐다.</p>
+
+    <p>정자각(丁字閣). 위에서 내려다보면 고무래 정(丁) 자 모양이다. 건원릉의 정자각은 조선 왕릉 중 최초로 지어진 것이며, 현재 보물로 지정되어 있다. 이후 모든 조선 왕릉의 정자각이 이 규모와 격식을 따랐다.</p>
+
+    <p>그런데 왜 丁 자인가. 고려의 능에는 이런 형식이 없었다. 고려는 영정(影幀, 초상화)을 안치한 능전(陵殿)에서 추모했다. 조선은 달랐다. 영정 대신 신주(神主, 위패)를 중심으로 유교식 제사를 지내도록 바꿨다. 그 제례의 기능에 맞게 설계된 건물이 정자각이다. 한 글자 모양의 건물이 왕조 교체를 상징한다.</p>
+
+    <div style="overflow-x:auto; margin:2.5rem 0;">
+      <div class="compare-grid" style="min-width:420px;">
+        <div class="cg-head"></div>
+        <div class="cg-head">공민왕릉 (고려)</div>
+        <div class="cg-head">건원릉 (조선)</div>
+        <div class="cg-label">능제 형식</div>
+        <div class="cg-cell">쌍릉 (왕+노국공주)</div>
+        <div class="cg-cell alt">단릉 (태조 홀로)</div>
+        <div class="cg-label">제향 건물</div>
+        <div class="cg-cell">일자각(一字閣) · 능전</div>
+        <div class="cg-cell alt">정자각(丁字閣) — 조선 최초</div>
+        <div class="cg-label">제례 성격</div>
+        <div class="cg-cell">불교적 추모 · 영정 안치</div>
+        <div class="cg-cell alt">유교적 신주 배례 · 축문</div>
+        <div class="cg-label">석호(石虎)</div>
+        <div class="cg-cell">온순하고 해학적 표정</div>
+        <div class="cg-cell alt">꼬리를 말아 올린 용맹한 형상</div>
+        <div class="cg-label">망주석</div>
+        <div class="cg-cell">나선형 화려한 줄무늬</div>
+        <div class="cg-cell alt">세로 곧은 줄무늬 (고려 잔재)</div>
+        <div class="cg-label">병풍석 십이지신</div>
+        <div class="cg-cell">평복 입고 손 모은 형상</div>
+        <div class="cg-cell alt">갑옷 입고 무기 든 수호 형상</div>
+      </div>
+    </div>
+
+    <p>결국 건원릉은 고려의 웅장한 석조 예술을 규모는 그대로 물려받으면서, 그 안에 담긴 정신을 불교에서 유교로 바꾼 건물이다. 새 왕조는 돌의 언어를 빌려 새로운 세계관을 쓴 것이다.</p>
+
+    <div class="ruin-note">
+      공민왕릉이 화려한 쌍릉이라면,<br>
+      건원릉은 그 압도적 규모를 물려받아 성리학적 엄숙함을 얹은<br>조선 왕릉 건축의 프로토타입이다.
+    </div>
+  </section>
+
+  <!-- SCENE 04 -->
+  <section class="section">
+    <p class="section-label">Scene 04</p>
+    <h2>혼유석과 봉분 — 잔디와 억새 사이</h2>
+
+    <div class="photo-single">
+      <img src="images/geunwonreung_07.jpg" alt="혼유석과 봉분 원경">
+      <p class="photo-caption">예감과 봉분 원경. 6월의 봉분은 잔디가 선명하다. 가을이 되면 봉분이 황금빛 억새로 뒤덮인다. 13:45</p>
+    </div>
+
+    <p>정자각 너머로 봉분이 보인다. 앞에는 예감 — 왕릉에서 제사 후 축문을 태우는 돌. 6월의 봉분은 잔디가 선명하게 초록이다. 하지만 이 봉분은 가을이 되면 다른 42기의 왕릉과 전혀 다른 모습이 된다. 황금빛 억새가 온 봉분을 뒤덮는다.</p>
+
+    <div class="highlight-box">
+      <p class="highlight-box-title">건원릉 최고의 관찰 포인트 — 억새 봉분</p>
+      <p>조선 왕릉 42기 중 봉분이 잔디가 아닌 억새로 덮인 곳은 건원릉이 유일하다. 태조는 임종 전 유언을 남겼다 — "고향 함흥의 흙과 억새를 가져다 내 무덤을 덮어라." 한양에서 쫓겨나듯 나와 절에서 늙어가면서도, 그는 함흥을 잊지 못했다. 태종은 아버지의 유언을 따라 함흥의 억새와 흙을 가져왔다. 이 억새는 매년 한 번, 한식(寒食)날에만 벌초를 허용한다. 600년 동안.</p>
+    </div>
+
+    <div class="photo-single">
+      <img src="images/geunwonreung_08.jpg" alt="봉분과 석호·석양">
+      <p class="photo-caption">봉분 정면. 좌우에 석호(石虎)와 석양(石羊)이 배치되어 있다. 건원릉의 석호는 꼬리를 힘차게 말아 올린 용맹한 형상 — 조선 초기 무인 정권의 강건한 기상. 13:47</p>
+    </div>
+
+    <p>봉분 좌우에 돌호랑이와 돌양이 웅크리고 있다. 건원릉의 석호는 꼬리를 등 위로 동글게 말아 올린 힘찬 형상이다. 고려 공민왕릉의 온순한 호랑이와는 다르다. 새 나라를 세운 무인의 능답게, 돌 하나에도 기상이 들어 있다.</p>
+
+    <div class="pull-quote">
+      <p>태조가 죽기 전 가장 가고 싶었던 곳은 함흥이었는데, 왜 그의 무덤은 함흥이 아니라 한양 동북쪽에 만들어졌을까? 이 질문 하나에 왕권, 정치, 효, 풍수, 조선 건국이 모두 연결된다.</p>
+      <cite>— 현장 해설 스크립트 중에서</cite>
+    </div>
+  </section>
+
+  <!-- SCENE 05 -->
+  <section class="section">
+    <p class="section-label">Scene 05</p>
+    <h2>두 개의 비(碑) — 건원릉 신도비와 건원릉 비문</h2>
+
+    <div class="photo-duo portrait">
+      <figure>
+        <img src="images/geunwonreung_09.jpg" alt="건원릉 신도비(보물)">
+        <figcaption>건원릉 신도비(보물). 흰 화강암, 거북 받침. 비문에 태조의 공적과 신하들 이름이 새겨져 있다. 13:46</figcaption>
+      </figure>
+      <figure>
+        <img src="images/geunwonreung_10.jpg" alt="건원릉 비문 — 태조고황제릉">
+        <figcaption>'太祖高皇帝陵' 비문. 검은 대리석, 거북 받침. 1900년 대한제국이 태조를 황제로 추존하며 세운 비. 13:46</figcaption>
+      </figure>
+    </div>
+
+    <p>비각 안에 두 개의 비석이 나란히 있다. 하나는 흰 화강암, 하나는 검은 대리석이다. 흰 것이 건원릉 신도비(神道碑, 보물) — 조선 건국과 태조의 공적을 기록한 조선 초기 비석이다. 검은 것은 '太祖高皇帝陵(태조고황제릉)' 비문 — 1900년 대한제국이 고종 황제로 즉위한 뒤 태조를 황제로 추존하면서 세운 것이다.</p>
+
+    <p>같은 무덤 앞에 500년의 시차를 두고 세워진 두 비석. 조선 왕에서 대한제국 황제로. 왕조의 운명이 바뀌어도 무덤은 그 자리에 있었다. 두 비석이 나란히 서서 500년을 증언하고 있다.</p>
+
+    <div class="ruin-note">
+      왕조는 바뀌었고 칭호도 바뀌었다.<br>
+      그러나 돌은 바뀌지 않았다.<br>
+      두 비석이 나란히 서서 500년을 증언하고 있다.
+    </div>
+  </section>
+
+  <!-- SCENE 06 -->
+  <section class="section">
+    <p class="section-label">Scene 06</p>
+    <h2>천하명당의 진짜 의미 — 건원릉 풍수의 변별점</h2>
+
+    <div class="fengshui-box">
+      <p class="space-title">건원릉 풍수 구조 — 사신사(四神砂) + 명당수</p>
+      <div class="fengshui-grid">
+        <div class="fs-cell"></div>
+        <div class="fs-cell center">
+          <div class="fs-label">주산 (현무)</div>
+          <div class="fs-name">검암산</div>
+          <div class="fs-desc">한북정맥 끝자락<br>주맥이 봉분으로 직통</div>
+        </div>
+        <div class="fs-cell"></div>
+        <div class="fs-cell center">
+          <div class="fs-label">청룡 (좌·동)</div>
+          <div class="fs-name">동쪽 능선</div>
+          <div class="fs-desc">다소 짧은 것이<br>유일한 아쉬움</div>
+        </div>
+        <div class="fs-cell center" style="background:#f0ebe0; display:flex; align-items:center; justify-content:center; flex-direction:column; padding:1.2rem;">
+          <div class="fs-label" style="color:var(--moss);">혈처(穴處)</div>
+          <div class="fs-name" style="font-size:1.1rem; color:var(--moss);">건원릉 봉분</div>
+          <div class="fs-desc">주맥 기운이<br>응집하는 자리</div>
+        </div>
+        <div class="fs-cell center">
+          <div class="fs-label">백호 (우·서)</div>
+          <div class="fs-name">서쪽 능선</div>
+          <div class="fs-desc">청룡과 함께<br>혈처를 감싼다</div>
+        </div>
+        <div class="fs-cell"></div>
+        <div class="fs-cell center">
+          <div class="fs-label">안산 (주작)</div>
+          <div class="fs-name">남쪽 낮은 구릉</div>
+          <div class="fs-desc">명당수: 왕숙천<br>'왕이 머문 내'</div>
+        </div>
+        <div class="fs-cell"></div>
+      </div>
+    </div>
+
+    <p>왕릉 해설에서 "배산임수의 명당"이라는 말은 사실 변별력이 없다. 조선 왕릉은 국가 최고의 풍수가들이 수년간 검토하여 선정했기 때문에 기본 점수는 모두 만점이다. 건원릉의 진짜 차별점은 따로 있다.</p>
+
+    <p>검암산 주맥이 중간에 곁가지를 치지 않고 태조의 봉분으로 자로 잰 듯이 곧바로 꽂힌다. 뒤에서 밀어주는 힘의 두께가 다른 능과 다르다. 그리고 능 앞으로 물이 들어오는 것은 보이고, 나가는 곳은 산자락에 가려 보이지 않는다. "물이 드는 곳은 보이고 나가는 곳은 보이지 않아야 재물과 기운이 고인다"는 풍수의 정석이다.</p>
+
+    <p>동구릉 전체를 하나의 그림으로 보면 더 흥미롭다. 하나의 거대한 명당 줄기에서 9개의 능이 각각 독립된 혈을 점유하고, 서로 시선이 충돌하지 않도록 배치되어 있다. 단일 묘지가 아니라 왕실 묘역 계획도시 같은 개념이다.</p>
+  </section>
+
+  <!-- SCENE 07 -->
+  <section class="section">
+    <p class="section-label">Scene 07</p>
+    <h2>건원릉 뒤에 숨은 쓸쓸함 — 세 사람이 따로 묻힌 이유</h2>
+
+    <p class="drop-cap">건원릉은 단릉이다. 태조가 혼자 묻혀 있다. 42기 왕릉 중 많은 경우 왕과 왕비가 함께 묻히거나(합장릉) 나란히 묻히는데(쌍릉), 왜 태조는 혼자인가.</p>
+
+    <p>태조에게는 두 부인이 있었다. 첫째 신의왕후 한씨는 조선 건국 전해인 1391년에 먼저 세상을 떠났다. 개경 근처에 묻혔다가 제릉(齊陵) 호를 받았는데, 지금은 북한 개성에 홀로 있다. 둘째 신덕왕후 강씨는 태조가 가장 사랑했던 처였다. 조선 최초의 왕비. 1396년 세상을 떠나자 태조는 아침저녁으로 곡소리를 들을 수 있도록 경복궁 가까운 한양 도성 안(지금의 정동)에 거대한 능을 만들었다. '정동(貞洞)'이라는 지명이 여기서 나왔다.</p>
+
+    <p>태조가 죽자마자, 태종 이방원의 복수가 시작됐다. 이방원에게 신덕왕후는 어머니가 아니었다. 자신을 밀어내고 막내아들을 세자로 앉힌 정적이었다. 태종은 정릉을 도성 밖 지금의 성북구로 강제 이장했다. 이장 과정에서 정릉의 병풍석들을 청계천 광통교의 교각으로 써버렸다. 모든 백성이 밟고 지나다니도록. 신덕왕후는 후궁으로 격하되어 종묘에도 신주가 오르지 못했다. 이후 273년이 지난 현종 때(1669년)에야 겨우 왕비로 복권됐다.</p>
+
+    <div class="pull-quote">
+      <p>태조가 그토록 사랑했던 신덕왕후 강씨 곁에 묻히기를 원했으나, 아들 이방원은 아버지의 유언을 무시하고 건원릉에 태조를 혼자 묻었다. 그래서 이 무덤은 처음부터 쓸쓸하다.</p>
+      <cite>— 태조·신의왕후·신덕왕후, 동구릉(구리)·제릉(개성)·정릉(서울 성북구)으로 셋이 흩어졌다</cite>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="section">
+    <p class="section-label">Closing</p>
+    <h2>조선 500년 왕릉의 출발점 — 이 언덕이 말하는 것</h2>
+
+    <p class="drop-cap">건원릉에서 가장 오래 남는 장면을 꼽으라면, 정자각 너머로 봉분이 보이는 그 구도다. 홍살문 → 참도 → 정자각 → 봉분. 이 일직선의 시퀀스가 회암사지의 남북 종축처럼, 낮은 곳에서 높은 곳으로, 속세에서 성역으로 이어진다. 회암사지에서 봤던 그 폐사지의 공간 언어와 같은 문법이 여기서도 작동하고 있다.</p>
+
+    <p>조선을 세운 사람이 회암사지의 주춧돌 위에 앉아 있었고, 그 사람이 죽어서 이 봉분 아래 누웠다. 두 장소를 걸으면서, 한 사람의 생애가 공간으로 읽혔다. 시작은 위화도 회군이었고, 끝은 함흥의 억새였다.</p>
+
+    <p>건원릉은 "최고의 명당"이 아니라, "조선의 시작을 상징하는 왕릉이며, 고향을 그리워한 노왕의 마지막 이야기"다. 이후 조선 41기의 왕릉이 모두 이 형식을 따랐다. 홍살문, 참도, 정자각, 능침. 태조가 잠든 이 구조가 500년 동안 조선 왕릉의 문법이 되었다.</p>
+
+    <div class="ruin-note">
+      건원릉은 단순히 태조의 무덤이 아니다.<br>
+      조선 왕조 500년 왕릉 문화의 출발점이며,<br>고향 함흥을 잊지 못한 노왕이 마지막으로 남긴 인간적인 흔적이다.
+    </div>
+
+    <p>태조는 그렇게 홀로 묻혔다. 그러나 그의 얼굴만은 다른 곳에 남아 있었다. 그 얼굴을 만나러 가는 곳이 경기전이다.</p>
+
+    <div class="info-box">
+      <p class="info-box-title">답사 정보 / Visitor Info</p>
+      <dl class="info-grid">
+        <dt>위치</dt><dd>경기도 구리시 동구릉로 197 (동구릉)</dd>
+        <dt>입장</dt><dd>성인 1,000원 · 화~일 06:00~18:00 · 월요일 휴관</dd>
+        <dt>소요</dt><dd>건원릉 단독 약 60분 / 동구릉 전체 2~3시간</dd>
+        <dt>억새 최적기</dt><dd>9~10월 (9월 말~10월 초 봉분 근접 개방 행사 가능)</dd>
+        <dt>세계유산</dt><dd>유네스코 세계문화유산 등재 (2009.06.30)</dd>
+        <dt>연계</dt><dd>회암사지 (약 45km, 양주시) → 건원릉으로 이어지는<br>태조 이성계 일생 답사, 마지막 답사지 경기전으로 이어진다</dd>
+      </dl>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>건원릉(健元陵) &nbsp;/&nbsp; 2026년 6월 4일 오후 답사 기록</p>
+  <p>유네스코 세계문화유산 &nbsp;·&nbsp; 조선 제1대 태조 이성계 능 &nbsp;·&nbsp; 경기도 구리시 동구릉</p>
+  <p style="margin-top:.8rem;">태조 이성계 역사 기행 · Site 09 — 건원릉<br>
+  황산 → 오목대 → 준경묘·영경묘 → 종묘 → 사직단 → 경복궁 → 정릉 → 회암사지 → <strong style="color:var(--sepia)">건원릉</strong> → 경기전</p>
+</footer>
+
+</body>
+</html>

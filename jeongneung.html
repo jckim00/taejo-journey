@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사랑과 권력 사이 — 정릉과 흥천사</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@300;400;600&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1410; --sepia:#8B6914; --moss:#5a6b4a; --stone:#9b9080;
+    --accent:#c4611a; --pale:#faf7f2; --parchment:#f5f0e8; --rose:#a8485a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--pale); color:var(--ink); font-family:'Noto Serif KR',serif; font-weight:300; line-height:2.0; }
+
+  .masthead { background:var(--ink); color:var(--parchment); text-align:center; padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+  .masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px); }
+  .masthead-label { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; color:#6a6058; text-transform:uppercase; margin-bottom:1.4rem; }
+  .masthead h1 { font-family:'Nanum Myeongjo',serif; font-size:clamp(2.2rem,5vw,4rem); font-weight:800; line-height:1.2; color:#fff; position:relative; }
+  .masthead-sub { font-family:'Noto Serif KR',serif; font-size:1.05rem; color:var(--stone); margin-top:1.4rem; font-style:italic; }
+  .masthead-meta { margin-top:2rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.2em; color:#4a4038; border-top:1px solid #2e2820; padding-top:1.4rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; }
+
+  .hero { width:100%; max-height:600px; overflow:hidden; position:relative; }
+  .hero img { width:100%; max-height:600px; object-fit:cover; object-position:center 45%; display:block; filter:sepia(12%) contrast(1.06) brightness(.97); }
+  .hero-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,.78)); color:#ddd8ce; padding:4rem 2rem 1.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.75rem; letter-spacing:.1em; line-height:1.8; }
+
+  .container { max-width:800px; margin:0 auto; padding:0 2rem; }
+
+  .lead-block { padding:4.5rem 0 3.5rem; border-bottom:1px solid #d8d0c4; }
+  .lead-tag { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; letter-spacing:.45em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; }
+  .lead-text { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.15rem,2.4vw,1.42rem); line-height:1.95; color:#2a201a; font-weight:700; }
+
+  .section { padding:3.5rem 0; border-bottom:1px solid #e4ddd5; }
+  .section:last-child { border-bottom:none; }
+  .section-label { font-family:'Nanum Gothic',sans-serif; font-size:.62rem; letter-spacing:.55em; text-transform:uppercase; color:#b0a898; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+  .section-label::after { content:''; flex:1; height:1px; background:#ddd5c8; }
+
+  h2 { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.35rem,3vw,1.8rem); font-weight:800; line-height:1.4; margin-bottom:1.6rem; color:var(--ink); }
+  p { font-size:1rem; color:#2e2620; margin-bottom:1.5rem; line-height:2.0; }
+  p:last-child { margin-bottom:0; }
+  .drop-cap::first-letter { font-family:'Nanum Myeongjo',serif; font-size:4.5rem; font-weight:800; float:left; line-height:.76; margin-right:.08em; margin-top:.1em; color:var(--sepia); }
+
+  .pull-quote { margin:3rem 0; padding:2rem 2.8rem; border-left:4px solid var(--sepia); background:#f0ebe0; position:relative; }
+  .pull-quote::before { content:'❝'; font-size:3.5rem; color:var(--sepia); opacity:.2; position:absolute; top:-.6rem; left:.8rem; line-height:1; }
+  .pull-quote p { font-family:'Nanum Myeongjo',serif; font-size:1.18rem; font-style:italic; font-weight:700; line-height:1.9; margin:0; color:#3a2e20; }
+  .pull-quote cite { display:block; margin-top:.9rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.18em; color:var(--stone); font-style:normal; }
+
+  .ruin-note { margin:2.5rem 0; padding:1.6rem 2rem; background:transparent; border-top:1px solid #c8c0b0; border-bottom:1px solid #c8c0b0; font-family:'Nanum Myeongjo',serif; font-size:.96rem; font-style:italic; color:#5a4e3c; line-height:2.0; text-align:center; }
+
+  .acts-box { background:#f0ebe0; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .acts-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.5rem; text-align:center; }
+  .act-item { display:flex; gap:1.2rem; padding:.9rem 0; border-bottom:1px dashed #d4ccbc; align-items:flex-start; }
+  .act-item:last-child { border-bottom:none; }
+  .act-num { font-family:'Nanum Myeongjo',serif; font-size:1.3rem; font-weight:800; color:var(--rose); min-width:2.2rem; }
+  .act-text { font-size:.88rem; line-height:1.8; color:#3a3028; }
+  .act-text strong { font-family:'Nanum Gothic',sans-serif; display:block; font-size:.92rem; margin-bottom:.2rem; color:var(--ink); }
+
+  .theseus-box { background:#f5f0e0; border:2px solid var(--sepia); padding:1.8rem 2.2rem; margin:2.5rem 0; }
+  .theseus-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.35em; text-transform:uppercase; color:var(--sepia); margin-bottom:1rem; }
+  .theseus-grid { display:grid; grid-template-columns:1fr auto 1fr; gap:.6rem; align-items:center; font-size:.84rem; margin-top:1rem; }
+  .theseus-grid .th-label { font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); text-align:right; }
+  .theseus-grid .th-arrow { text-align:center; color:var(--stone); }
+  .theseus-grid .th-val { color:#3a3028; }
+
+  .photo-single { margin:2.8rem 0; }
+  .photo-single img { width:100%; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-caption { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--stone); padding:.75rem 0 0; letter-spacing:.05em; border-top:1px solid #d8d0c4; margin-top:.5rem; line-height:1.8; }
+
+  .photo-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.8rem 0; }
+  .photo-duo figure { margin:0; }
+  .photo-duo img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-duo.portrait img { aspect-ratio:3/4; }
+  .photo-duo figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; line-height:1.7; }
+
+  .photo-trio { display:grid; grid-template-columns:2fr 1fr; gap:.8rem; margin:2.8rem 0; }
+  .photo-trio figure { margin:0; }
+  .photo-trio figure:first-child { grid-row:1/3; }
+  .photo-trio figure:first-child img { width:100%; height:360px; object-fit:cover; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-trio figure:not(:first-child) img { width:100%; height:174px; object-fit:cover; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-trio figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; line-height:1.7; }
+
+  .photo-wide { margin:2.8rem -2rem; position:relative; }
+  .photo-wide img { width:100%; display:block; filter:sepia(12%) contrast(1.04); max-height:500px; object-fit:cover; }
+  .photo-wide .photo-caption { padding:.75rem 2rem 0; margin-top:.5rem; }
+
+  .info-box { background:#eee8dc; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .info-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.42em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.2rem; }
+  .info-grid { display:grid; grid-template-columns:auto 1fr; gap:.45rem 1.2rem; font-size:.88rem; }
+  .info-grid dt { font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); white-space:nowrap; }
+  .info-grid dd { color:#3a3028; margin:0; }
+
+  footer { background:var(--ink); color:#5a5048; text-align:center; padding:2.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.22em; margin-top:4rem; line-height:2.2; }
+
+  @media(max-width:600px){
+    .photo-duo { grid-template-columns:1fr; }
+    .photo-trio { grid-template-columns:1fr; }
+    .photo-trio figure:first-child { grid-row:auto; }
+    .photo-trio figure:first-child img, .photo-trio figure:not(:first-child) img { height:220px; }
+    .photo-wide { margin:2.5rem 0; }
+    .acts-box, .theseus-box, .info-box { padding:1.5rem; }
+    .theseus-grid { grid-template-columns:1fr; text-align:left; }
+    .theseus-grid .th-label { text-align:left; }
+    .pull-quote { padding:1.5rem 1.8rem; }
+    .masthead-meta { gap:1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <p class="masthead-label">역사 답사 기록 &nbsp;·&nbsp; 서울 성북구</p>
+  <h1>사랑과 권력 사이<br>정릉(貞陵)과 흥천사</h1>
+  <p class="masthead-sub">조선 건국의 꿈이 무너진 자리 — 가장 아기자기한 능에 가장 무거운 이야기가 있었다</p>
+  <div class="masthead-meta">
+    <span>2026년 6월 30일</span>
+    <span>서울 성북구 정릉동</span>
+    <span>유네스코 세계문화유산 (2009)</span>
+  </div>
+</header>
+
+<!-- HERO: p03 — 정릉 능침 원경 (11:01) -->
+<div class="hero">
+  <img src="images/jeongneung_01.jpg" alt="정릉 능침 원경">
+  <div class="hero-caption">정릉 능침. 나무 사이로 보이는 봉분과 석물들이 단정하고 조용하다.<br>다른 왕릉에 비해 작고 소박하다 — 그 사실 자체가 이야기를 담고 있다. / 2026.06.30 11:01</div>
+</div>
+
+<div class="container">
+
+  <div class="lead-block">
+    <p class="lead-tag">Prologue</p>
+    <p class="lead-text">
+      경복궁에서 나라의 꿈을 완성한 태조에게도, 끝내 채우지 못한 자리가 하나 있었다.
+      그가 그토록 사랑했던 여인은 따로 묻혀 있다.
+      신덕왕후 강씨, 조선 최초의 왕비. 그녀의 능 정릉을 다녀왔다.
+      능제는 갖출 것을 다 갖췄지만 규모가 작고 아기자기했다.
+      그런데 그 작음이 오히려 더 많은 것을 말해주는 능이었다.
+      이 능에서는 풍수보다, 석물의 크기보다, 한 인간의 상실이 먼저 읽혔다.
+    </p>
+  </div>
+
+  <!-- SCENE 01: 조선 최초의 왕릉 -->
+  <section class="section">
+    <p class="section-label">Scene 01</p>
+    <h2>조선이 가장 먼저 지은 무덤</h2>
+
+    <p class="drop-cap">1396년. 종묘와 경복궁이 완공된 바로 다음 해, 조선 왕조가 가장 먼저 지은 무덤은 왕의 능이 아니라 왕비의 능이었다. 신덕왕후가 세상을 떠나자 태조는 직접 능지를 정했다. 건원릉보다 12년 빠르다. 정릉은 조선 최초의 왕릉이다.</p>
+
+    <div class="photo-single">
+      <img src="images/jeongneung_02.jpg" alt="서울 정릉 종합안내도">
+      <p class="photo-caption">정릉 입구의 종합안내도(Information Map). 재실·금천교·홍살문·정자각·비각·능침까지 전체 배치가 한눈에 들어온다. 10:05</p>
+    </div>
+
+    <p>태조가 처음 능을 만든 자리는 지금의 정동, 경복궁에서 매우 가까운 도성 한복판이었다. 왕릉으로는 이례적으로 가까운 거리. 좌청룡 우백호의 포국도 충분치 않은 협소한 자리였다. 그런데도 태조는 그곳을 골랐다. 풍수보다 마음이 앞섰다는 뜻이다. 살아서도 곁에 두었던 여인을, 죽어서도 아침저녁 곡소리가 들리는 거리에 두고 싶었던 것이다.</p>
+
+    <p>그러나 지금 우리가 보는 정릉은 그 정동의 정릉이 아니다. 1409년 태종이 도성 밖, 지금의 성북구로 옮겼다. 봉분도 새로 쌓았고 석물도 일부만 옮기고 나머지는 버렸다. 정자각과 홍살문도 새로 지었을 가능성이 크다. 조선 최초의 왕릉은 사라졌고, 우리가 보는 것은 정치적으로 다시 만들어진 '두 번째 정릉'이다.</p>
+  </section>
+
+  <!-- SCENE 02: 5막의 서사 -->
+  <section class="section">
+    <p class="section-label">Scene 02</p>
+    <h2>정릉의 5막 — 사랑에서 상실까지</h2>
+
+    <p>이 능을 제대로 이해하려면 한 여인의 생애를 5막짜리 비극으로 읽어야 한다.</p>
+
+    <div class="acts-box">
+      <p class="acts-title">정릉의 서사 — 사랑과 정치의 5막</p>
+      <div class="act-item">
+        <div class="act-num">1막</div>
+        <div class="act-text"><strong>사랑과 정치적 동반자</strong>신덕왕후는 태조의 계비이자 가장 총애한 왕비. 정도전과 함께 새 왕조의 설계에 깊이 관여했고, 자신의 아들 방석을 세자로 세웠다.</div>
+      </div>
+      <div class="act-item">
+        <div class="act-num">2막</div>
+        <div class="act-text"><strong>경복궁 곁에 묻히다</strong>1396년 신덕왕후 승하. 태조는 경복궁에서 매우 가까운 정동에 능을 조성했다. 살아서도, 죽어서도 곁에 두고 싶었던 마음.</div>
+      </div>
+      <div class="act-item">
+        <div class="act-num">3막</div>
+        <div class="act-text"><strong>왕자의 난</strong>정도전 피살, 세자 방석과 방번 피살. 신덕왕후가 꿈꾸던 정치 구상이 통째로 붕괴됐다.</div>
+      </div>
+      <div class="act-item">
+        <div class="act-num">4막</div>
+        <div class="act-text"><strong>태종의 복수</strong>능호 폐지, 도성 밖 천장, 석물 철거. 일부 석재는 청계천 광교 축조에 쓰였다. 승자의 역사 쓰기였다.</div>
+      </div>
+      <div class="act-item">
+        <div class="act-num">5막</div>
+        <div class="act-text"><strong>태조의 상실</strong>아내의 죽음, 어린 아들들의 죽음, 정도전의 죽음, 방원과의 결별. 이 모든 사건이 2년 남짓한 기간에 일어났다. 태조는 정치 의욕을 잃고, 훗날 회암사로 향한다.</div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>우리는 정릉에서 왕비의 무덤을 보는 것이 아니다. 이곳에서 조선 건국의 꿈과 한 인간 이성계의 가장 깊은 상실을 본다. 그리고 그 상실은 결국 회암사와 건원릉으로 이어진다.</p>
+      <cite>— 정릉 답사 자료 중에서</cite>
+    </div>
+
+    <p>이 작은 능이 그 모든 상실 이야기의 출발점이다. 정릉은 태조가 왕위를 내려놓고 향했던 회암사로 가는 길의, 시간상으로는 가장 앞선 정거장이다.</p>
+  </section>
+
+  <!-- SCENE 03: 재실 -->
+  <section class="section">
+    <p class="section-label">Scene 03</p>
+    <h2>재실에서 도서관으로 — 능지기의 집이 남긴 것</h2>
+
+    <div class="photo-duo">
+      <figure>
+        <img src="images/jeongneung_03.jpg" alt="정릉 재실 솟을대문">
+        <figcaption>재실로 들어서는 솟을대문과 견치석 담장. 10:06</figcaption>
+      </figure>
+      <figure>
+        <img src="images/jeongneung_04.jpg" alt="신덕황후 도서관 안내판">
+        <figcaption>재실 안내판과 '태조비 신덕황후 도서관' 동판. 10:06</figcaption>
+      </figure>
+    </div>
+
+    <p class="drop-cap">능에 들어서기 전, 재실(齋室)을 먼저 만났다. 제향을 모시기 전 관원들이 의관을 정제하고 마음을 가다듬던 공간. 2013년 발굴되어 2014년 복원됐다고 안내판에 적혀 있다. 한 번 불에 타 사라졌던 건물이 다시 세워진 것이다.</p>
+
+    <div class="photo-duo">
+      <figure>
+        <img src="images/jeongneung_05.jpg" alt="재실 정면">
+        <figcaption>재실 정면. 단정한 맞배지붕 한옥 구조. 10:07</figcaption>
+      </figure>
+      <figure>
+        <img src="images/jeongneung_06.jpg" alt="재실 측면">
+        <figcaption>재실과 부속 건물 측면. 10:08</figcaption>
+      </figure>
+    </div>
+
+    <p>흥미로운 점은 이 재실이 지금 '태조비 신덕황후 도서관'으로 운영되고 있다는 것이다. 제향을 준비하던 공간이 책을 읽는 공간으로 바뀌었다. 600여 년 전 권력에서 밀려났던 왕비의 이름이, 지금은 동네 아이들이 책을 빌리러 오는 도서관 간판에 적혀 있다. 역사의 아이러니가 이런 식으로도 작동한다.</p>
+  </section>
+
+  <!-- SCENE 04: 진입 공간 -->
+  <section class="section">
+    <p class="section-label">Scene 04</p>
+    <h2>작지만 갖출 것은 다 갖춘 — 정릉의 능제</h2>
+
+    <div class="photo-single">
+      <img src="images/jeongneung_07.jpg" alt="정릉 안내판과 상설도 해설">
+      <p class="photo-caption">정릉 안내판(국영문)과 상설도 해설. 10:11</p>
+    </div>
+
+    <div class="photo-duo">
+      <figure>
+        <img src="images/jeongneung_08.jpg" alt="정릉 금천교">
+        <figcaption>금천교(禁川橋). 속세와 성역을 가르는 첫 다리. 10:09</figcaption>
+      </figure>
+      <figure>
+        <img src="images/jeongneung_09.jpg" alt="정릉 홍살문">
+        <figcaption>홍살문. 태극 문양 위로 삼지창 모양 장식이 솟아 있다. 10:10</figcaption>
+      </figure>
+    </div>
+
+    <p class="drop-cap">금천교를 건너 홍살문을 지났다. 참도, 정자각, 능침으로 이어지는 조선 왕릉의 기본 구조가 여기서도 그대로 작동한다. 다만 규모가 다르다. 이후 답사하게 될 건원릉의 광활함과 비교하면 정릉은 아담하다. 참도도 짧고 정자각도 작고 능침까지의 거리도 멀지 않다.</p>
+
+    <div class="photo-single">
+      <img src="images/jeongneung_10.jpg" alt="정릉 정자각">
+      <p class="photo-caption">정자각(丁字閣). 제향을 모시는 중심 건물로, 건원릉의 정자각보다 작은 규모이지만 기본 구조는 동일하다. 10:13</p>
+    </div>
+
+    <p>이 작음이 의미심장하다. 같은 시대, 같은 왕의 부인이지만 정릉은 건원릉만큼 웅장하지 않다. 태종이 천장하면서 능역을 축소했기 때문이다. 왕릉의 격식은 갖추되 규모는 줄인다 — 이것이 정치적 메시지였다. 신덕왕후를 완전히 지우지는 않되, 그 위상은 분명히 낮춘다는 뜻.</p>
+
+    <div class="photo-single">
+      <img src="images/jeongneung_11.jpg" alt="정자각 내부 진설도">
+      <p class="photo-caption">정자각 내부에 전시된 진설도(陳設圖)와 기신제 절차 사진. 매년 9월 23일(음력) 기신제향이 거행된다. 10:14</p>
+    </div>
+
+    <p>정자각 안에는 진설도와 기신제 절차 사진이 전시되어 있었다. 제상, 향상, 축상이 놓인 자리가 표시되어 있고, 옆에는 흰 옷을 입은 제관들이 절을 올리는 사진들이 걸려 있다. 600여 년 전 권력에서 밀려난 왕비를 위해, 지금도 매년 가을 정식 제사가 올려진다.</p>
+  </section>
+
+  <!-- SCENE 05: 비각과 테세우스의 배 -->
+  <section class="section">
+    <p class="section-label">Scene 05</p>
+    <h2>같은 능인가, 다른 능인가 — 테세우스의 배</h2>
+
+    <div class="photo-single">
+      <img src="images/jeongneung_12.jpg" alt="정릉 비각 내부 신덕왕후정릉 비">
+      <p class="photo-caption">비각(碑閣) 내부. 신덕왕후의 행적을 기록한 비석이 모셔져 있다. 정자각 곁의 작은 사당이다. 10:14</p>
+    </div>
+
+    <p>비각 안 비석에는 신덕왕후의 사적이 새겨져 있다. 정자각보다 작고 단출한 이 건물 하나가 능 전체의 격을 다시 한 번 말해준다. 건원릉에서도 이와 비슷한 이야기 구조를 가진 비석 두 개를 만나게 된다. 조선 왕에서 대한제국 황제·황후로 — 시대가 바뀌어도 무덤은 그 자리에서 호칭을 바꿔가며 존재를 증명한다.</p>
+
+    <div class="theseus-box">
+      <p class="theseus-title">정릉을 둘러싼 철학적 질문 — 테세우스의 배</p>
+      <p style="margin-bottom:1rem; font-size:.92rem; line-height:1.85;">1409년 태종의 천장은 봉분만 옮긴 것이 아니었다. 유해와 재궁은 옮겼지만, 봉분은 새로 쌓았고, 석물은 일부만 가져오고 나머지는 청계천 광교 축조에 썼다. 홍살문과 정자각도 새로 지었을 가능성이 높다.</p>
+      <div class="theseus-grid">
+        <div class="th-label">유해·재궁</div><div class="th-arrow">→</div><div class="th-val">이전됨</div>
+        <div class="th-label">봉분</div><div class="th-arrow">→</div><div class="th-val">새로 조성</div>
+        <div class="th-label">병풍석·난간석</div><div class="th-arrow">→</div><div class="th-val">일부 철거, 광교에 재사용</div>
+        <div class="th-label">홍살문·정자각</div><div class="th-arrow">→</div><div class="th-val">새로 조성 가능성 높음</div>
+        <div class="th-label">능역 전체</div><div class="th-arrow">→</div><div class="th-val">현재 위치에서 재설계</div>
+      </div>
+    </div>
+
+    <p>피장자는 같지만 위치도 다르고 공간 구성도 다르고 석물도 다르고 건축물도 후대의 것이다. 그렇다면 이것은 같은 정릉인가, 다른 정릉인가. 부품을 하나씩 교체해도 같은 배라고 할 수 있는가 — 그 오래된 철학적 질문이 이 작은 능 앞에서 다시 떠올랐다. 정릉은 조선의 정릉이면서 동시에 태종이 다시 만든 정릉이다.</p>
+
+    <div class="ruin-note">
+      태종의 정치적 승리는 일시적이었다.<br>
+      왕조의 예제와 기억은 결국 신덕왕후와 정릉을 다시 받아들였다.<br>
+      그래서 정릉은 비극의 능이면서, 동시에 가장 단정하게 보존된 왕릉이다.
+    </div>
+  </section>
+
+  <!-- SCENE 06: 흥천사 -->
+  <section class="section">
+    <p class="section-label">Scene 06</p>
+    <h2>원찰 흥천사 — 명복을 빌기 위해 지은 1700칸의 절</h2>
+
+    <div class="photo-single">
+      <img src="images/jeongneung_13.jpg" alt="흥천사 정릉과 흥천사 이야기 안내판">
+      <p class="photo-caption">흥천사 입구의 '정릉과 흥천사 이야기' 안내판. 정동에서 현재 자리로 옮겨진 능의 역사가 정리되어 있다. 11:08</p>
+    </div>
+
+    <p class="drop-cap">정릉을 나와 흥천사로 향했다. 흥천사는 신덕왕후의 명복을 빌기 위해 태조가 직접 창건을 명한 원찰(願刹)이다. 1396년 능을 조성하자마자 짓기 시작해 1397년에 완공됐는데, 그 규모가 무려 1,700여 칸이었다고 한다. 한 여인을 위한 절치고는 상상하기 어려운 규모다.</p>
+
+    <div class="photo-single">
+      <img src="images/jeongneung_14.jpg" alt="흥천사 표석">
+      <p class="photo-caption">흥천사(興天寺) 표석. 도심 빌딩이 절 바로 뒤에 보인다. 11:14</p>
+    </div>
+
+    <p>태조는 정릉이 보이는 곳에 흥천사를 짓고, 매일 아침저녁으로 절의 종소리를 들으며 아내를 그리워했다고 전해진다. 실제로 태조는 정릉 인근에 자주 행차해 흥천사에서 재를 올리게 했다는 기록이 남아 있다. 사랑 하나가 도성 안에 거대한 사찰 하나를 세운 셈이다.</p>
+
+    <div class="photo-single">
+      <img src="images/jeongneung_15.jpg" alt="흥천사 명부전">
+      <p class="photo-caption">명부전(冥府殿). 화려한 단청과 불상이 좁은 마당 안에서도 위엄을 잃지 않는다. 11:17</p>
+    </div>
+
+    <div class="photo-duo">
+      <figure>
+        <img src="images/jeongneung_16.jpg" alt="흥천사 약사전">
+        <figcaption>약사전(藥師殿). 도심 한복판 절집 지붕 너머로 아파트가 보인다. 11:19</figcaption>
+      </figure>
+      <figure>
+        <img src="images/jeongneung_17.jpg" alt="흥천사 흥천루">
+        <figcaption>흥천루(興天樓) 현판. '興天壽' 편액이 나란히 걸려 있다. 11:20</figcaption>
+      </figure>
+    </div>
+
+    <p>흥천사는 임진왜란과 화재를 거치며 원래의 1,700칸 규모를 모두 잃었다. 지금 남은 건물들은 후대에 다시 지어진 것들이다. 그래도 도심 한복판, 고층 아파트 사이에서 검은 기와지붕과 단청을 지키고 있는 모습이 인상적이었다. 절의 몸집은 줄었지만 존재 이유 — 신덕왕후의 명복을 빈다는 그 처음의 목적 — 는 아직 남아 있다.</p>
+
+    <div class="pull-quote">
+      <p>정릉이 권력에 밀려난 왕비의 무덤이라면, 흥천사는 그 왕비를 끝까지 사랑했던 한 남자의 마음이다. 능이 정치의 기록이라면, 절은 감정의 기록이다.</p>
+      <cite>— 답사를 마치며</cite>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="section">
+    <p class="section-label">Closing</p>
+    <h2>가장 작은 능에서 가장 큰 이야기를 만나다</h2>
+
+    <p class="drop-cap">정릉은 능제로만 보면 평이하다. 홍살문, 참도, 정자각, 비각, 능침 — 조선 왕릉의 기본 틀에서 벗어나지 않는다. 오히려 규모는 건원릉보다 작고 아기자기하다. 풍수로 보아도 "천하대지"라는 거창한 수식어가 따라붙지 않는 무난한 자리다.</p>
+
+    <p>그런데 이 답사에서 가장 오래 남는 것은 능제도, 풍수도 아니었다. 한 여인이 살아서 가장 사랑받았고, 죽은 뒤 가장 매섭게 추락했다가, 260년 만에 다시 황후로 복권된 그 곡선이었다. 정동에서 성북구로, 왕비에서 폐서인급으로, 다시 황후로 — 같은 사람의 무덤이 세 번 다른 신분으로 불렸다.</p>
+
+    <p>정릉에서 본 작은 능과, 그 곁에 지어졌던 거대한 원찰 흥천사. 이 낙차 자체가 하나의 이야기를 들려준다. 사랑하는 사람을 먼저 보내고, 아들들을 잃고, 끝내 권력까지 빼앗긴 한 노인의 생애 — 그 상실은 정릉에서 끝나지 않는다.</p>
+
+    <p>사랑을 잃은 자리에서, 왕위마저 내려놓아야 했다. 쫓겨난 늙은 왕이 향한 곳은 궁궐이 아니라 산사였다. 그 산사가 회암사였다.</p>
+
+    <div class="ruin-note">
+      정릉은 조선 최고의 명당을 보여주는 능이 아니다.<br>
+      사랑과 권력이 풍수와 역사를 어떻게 다시 쓰는지를 보여주는 능이다.
+    </div>
+
+    <div class="info-box">
+      <p class="info-box-title">답사 정보 / Visitor Info</p>
+      <dl class="info-grid">
+        <dt>위치</dt><dd>서울 성북구 아리랑로19길 116 (정릉)</dd>
+        <dt>입장</dt><dd>성인 1,000원 · 화~일 06:00~18:00 · 월요일 휴관</dd>
+        <dt>소요</dt><dd>정릉 단독 약 40분 / 흥천사 도보 연계 시 약 1.5~2시간</dd>
+        <dt>흥천사</dt><dd>정릉에서 도보 약 15분 · 무료 관람</dd>
+        <dt>세계유산</dt><dd>유네스코 세계문화유산 등재 (2009.06.30)</dd>
+      </dl>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>정릉(貞陵) · 흥천사(興天寺) &nbsp;/&nbsp; 2026년 6월 30일 답사 기록</p>
+  <p>유네스코 세계문화유산 &nbsp;·&nbsp; 조선 제1대 태조비 신덕왕후 능 &nbsp;·&nbsp; 서울 성북구</p>
+  <p style="margin-top:.8rem;">태조 이성계 역사 기행 · Site 07 — 정릉<br>
+  황산 → 오목대 → 준경묘·영경묘 → 종묘 → 사직단 → 경복궁 → <strong style="color:var(--sepia)">정릉</strong> → 회암사지 → 건원릉 → 경기전</p>
+</footer>
+
+</body>
+</html>

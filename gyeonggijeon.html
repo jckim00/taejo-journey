@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아버지를 더 크게 만들다 — 경기전 역사 답사 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@300;400;600&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #1a1410;
+    --sepia:     #8B6914;
+    --moss:      #5a6b4a;
+    --stone:     #9b9080;
+    --accent:    #c4611a;
+    --pale:      #faf7f2;
+    --parchment: #f5f0e8;
+    --gold:      #c4a040;
+    --crimson:   #8a1a1a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--pale); color:var(--ink); font-family:'Noto Serif KR',serif; font-weight:300; line-height:2.0; }
+
+  .masthead { background:var(--ink); color:var(--parchment); text-align:center; padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+  .masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px); }
+  .masthead-label { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; color:#6a6058; text-transform:uppercase; margin-bottom:1.4rem; position:relative; }
+  .masthead h1 { font-family:'Nanum Myeongjo',serif; font-size:clamp(2.2rem,5vw,4rem); font-weight:800; line-height:1.2; color:#fff; position:relative; }
+  .masthead h1 em { font-style:normal; color:var(--gold); }
+  .masthead-sub { font-family:'Noto Serif KR',serif; font-size:1.05rem; color:var(--stone); margin-top:1.4rem; font-style:italic; position:relative; }
+  .masthead-meta { margin-top:2rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.2em; color:#4a4038; border-top:1px solid #2e2820; padding-top:1.4rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; position:relative; }
+
+  .hero { width:100%; max-height:600px; overflow:hidden; position:relative; }
+  .hero img { width:100%; max-height:600px; object-fit:cover; object-position:center 40%; display:block; filter:sepia(14%) contrast(1.06) brightness(.93); }
+  .hero-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,.8)); color:#ddd8ce; padding:4rem 2rem 1.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.75rem; letter-spacing:.1em; line-height:1.8; }
+
+  .container { max-width:800px; margin:0 auto; padding:0 2rem; }
+
+  .lead-block { padding:4.5rem 0 3.5rem; border-bottom:1px solid #d8d0c4; }
+  .lead-tag { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; letter-spacing:.45em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; }
+  .lead-text { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.15rem,2.4vw,1.42rem); line-height:1.95; color:#2a201a; font-weight:700; }
+
+  .section { padding:3.5rem 0; border-bottom:1px solid #e4ddd5; }
+  .section:last-child { border-bottom:none; }
+  .section-label { font-family:'Nanum Gothic',sans-serif; font-size:.62rem; letter-spacing:.55em; text-transform:uppercase; color:#b0a898; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+  .section-label::after { content:''; flex:1; height:1px; background:#ddd5c8; }
+
+  h2 { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.35rem,3vw,1.8rem); font-weight:800; line-height:1.4; margin-bottom:1.6rem; color:var(--ink); }
+  h3 { font-family:'Nanum Myeongjo',serif; font-size:1.05rem; font-weight:700; margin-bottom:.8rem; color:var(--sepia); }
+  p { font-size:1rem; color:#2e2620; margin-bottom:1.5rem; line-height:2.0; }
+  p:last-child { margin-bottom:0; }
+  .drop-cap::first-letter { font-family:'Nanum Myeongjo',serif; font-size:4.5rem; font-weight:800; float:left; line-height:.76; margin-right:.08em; margin-top:.1em; color:var(--sepia); }
+
+  .photo-single { margin:2.8rem 0; }
+  .photo-single img { width:100%; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-caption { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--stone); padding:.75rem 0 0; letter-spacing:.05em; border-top:1px solid #d8d0c4; margin-top:.5rem; line-height:1.8; }
+
+  .photo-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.8rem 0; }
+  .photo-duo figure { margin:0; }
+  .photo-duo img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-duo figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; line-height:1.7; }
+
+  .pull-quote { margin:3rem 0; padding:2rem 2.8rem; border-left:4px solid var(--sepia); background:#f0ebe0; position:relative; }
+  .pull-quote::before { content:'❝'; font-size:3.5rem; color:var(--sepia); opacity:.2; position:absolute; top:-.6rem; left:.8rem; line-height:1; }
+  .pull-quote p { font-family:'Nanum Myeongjo',serif; font-size:1.18rem; font-style:italic; font-weight:700; line-height:1.9; margin:0; color:#3a2e20; }
+  .pull-quote cite { display:block; margin-top:.9rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.18em; color:var(--stone); font-style:normal; }
+
+  .diagram-box { background:#f0ebe0; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .diagram-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.5rem; text-align:center; }
+
+  .timeline { margin:2.5rem 0; }
+  .timeline-item { display:grid; grid-template-columns:5.5rem 1fr; gap:1.2rem; padding:1rem 0; border-bottom:1px dashed #d8d0c4; }
+  .timeline-item:last-child { border-bottom:none; }
+  .timeline-year { font-family:'Nanum Gothic',sans-serif; font-weight:700; font-size:.85rem; color:var(--crimson); white-space:nowrap; }
+  .timeline-text { font-size:.92rem; color:#3a3028; line-height:1.8; }
+
+  .compare-grid { display:grid; grid-template-columns:auto 1fr 1fr; gap:1px; background:#d0c8bc; border:1px solid #d0c8bc; margin:2.5rem 0; font-size:.85rem; }
+  .cg-head { background:var(--sepia); color:#fff; font-family:'Nanum Gothic',sans-serif; font-weight:700; padding:.7rem .8rem; font-size:.7rem; letter-spacing:.06em; }
+  .cg-head.crimson { background:var(--crimson); }
+  .cg-label { background:#f0ebe0; font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); padding:.7rem .8rem; font-size:.78rem; }
+  .cg-cell { background:var(--pale); padding:.7rem .8rem; color:#3a3028; line-height:1.65; font-size:.82rem; }
+  .cg-cell.alt { background:#faf5ec; }
+
+  .highlight-box { background:#f5f0e0; border:2px solid var(--gold); padding:1.8rem 2.2rem; margin:2.5rem 0; }
+  .highlight-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; }
+  .highlight-box p { font-size:.95rem; line-height:1.9; color:#3a3028; margin-bottom:0; }
+
+  .info-box { background:#eee8dc; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .info-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.42em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.2rem; }
+  .info-grid { display:grid; grid-template-columns:auto 1fr; gap:.45rem 1.2rem; font-size:.88rem; }
+  .info-grid dt { font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); white-space:nowrap; }
+  .info-grid dd { color:#3a3028; margin:0; }
+
+  .ruin-note { margin:2.5rem 0; padding:1.6rem 2rem; border-top:1px solid #c8c0b0; border-bottom:1px solid #c8c0b0; font-family:'Nanum Myeongjo',serif; font-size:.96rem; font-style:italic; color:#5a4e3c; line-height:2.0; text-align:center; }
+
+  footer { background:var(--ink); color:#5a5048; text-align:center; padding:2.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.22em; margin-top:4rem; line-height:2.2; }
+
+  @media(max-width:600px){
+    .photo-duo { grid-template-columns:1fr; }
+    .compare-grid { grid-template-columns:1fr; }
+    .diagram-box { padding:1.5rem; }
+    .pull-quote { padding:1.5rem 1.8rem; }
+    .masthead-meta { gap:1rem; }
+    .timeline-item { grid-template-columns:1fr; gap:.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-label">영웅의 길 · 답사기록 10부 · 마지막 이야기</div>
+  <h1><em>아버지</em>를 더 크게 만들다<br>— 경기전(慶基殿)</h1>
+  <p class="masthead-sub">정도전과 신덕왕후는 지웠지만, 태조만은 오히려 더 크게 세운 태종의 계산</p>
+  <div class="masthead-meta">
+    <span>전북 전주시 완산구 풍남동</span>
+    <span>1410년(태종 10) 창건 · 1614년(광해군 6) 중건</span>
+    <span>사적 · 경기전·전주사고·조경묘·어진박물관</span>
+  </div>
+</header>
+
+<div class="hero">
+  <img src="images/gyeonggijeon_01.jpg" alt="경기전 정문 삼문">
+  <div class="hero-caption">경기전 정문. 이 문 안쪽에는 태조 이성계의 얼굴이 있다 — 그리고 그 얼굴을 이 자리에 세운 건, 정작 그의 아들 태종이었다.</div>
+</div>
+
+<main class="container">
+
+  <!-- 리드 -->
+  <section class="lead-block">
+    <div class="lead-tag">Prologue · 열 번째이자 마지막 답사지</div>
+    <p class="lead-text">
+      황산에서 이성계는 왜구를 이겼다. 오목대에서 그는 야심을 드러냈다. 그리고 1408년, 그는 죽었다. 이 시리즈의 마지막 답사지인 경기전은 이성계 자신의 이야기가 아니다 — 그가 죽은 지 겨우 2년 뒤, 그의 아들 태종이 아버지의 얼굴을 전주에 세운 이야기다. 정도전을 죽이고 신덕왕후 세력을 무너뜨린 바로 그 아들이, 어째서 아버지만은 더 크게 만들었을까. 태조 서사는 여기서 완성된다 — 그것도 태조 자신이 아니라, 그를 딛고 왕이 된 아들의 손으로.
+    </p>
+  </section>
+
+  <!-- Scene 01 -->
+  <section class="section">
+    <div class="section-label">Scene 01 · 아들의 계산</div>
+    <h2>"태종이 아버지를 기리려고 지었다"는 절반의 설명이다</h2>
+    <p class="drop-cap">
+      경기전을 이야기할 때 흔히 "태종이 아버지를 기리기 위해 지었다"고 설명한다. 틀린 말은 아니다. 다만 그렇게만 말하면 이 공간이 세워진 진짜 이유, 그러니까 태종이라는 정치인이 어떤 계산 위에서 이 결정을 내렸는지가 지워진다.
+    </p>
+    <p>
+      먼저 시기부터 짚어야 한다. 경기전은 1410년(태종 10)에 창건됐다. 그 직전 2년의 흐름을 나란히 놓으면 이렇다.
+    </p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">1408</div>
+        <div class="timeline-text">태조 승하.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1409</div>
+        <div class="timeline-text">신덕왕후의 능인 정릉을 도성 밖으로 천장(遷葬).</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1410</div>
+        <div class="timeline-text">경기전 창건.</div>
+      </div>
+    </div>
+    <p>
+      즉 경기전은 왕자의 난과 신덕왕후 세력에 대한 정리가 사실상 마무리된 직후에 세워졌다. 그리고 하필 전주였다. 전주는 전주 이씨의 본관이자 조상의 고향, 왕조가 일어난 발상지였다 — 오목대에서 이미 확인했듯 목조 이안사가 살던 땅이고, 이성계 자신도 황산대첩 개선길에 들러 잔치를 벌였던 곳이다. 경기전은 그러니까 '왕조의 뿌리'를 상징하는 자리에 세워진 셈이다.
+    </p>
+  </section>
+
+  <!-- Scene 01-B : 종묘와 경기전 -->
+  <section class="section">
+    <div class="section-label">Scene 01-B · 신주와 얼굴</div>
+    <h2>종묘가 있는데, 왜 굳이 또 얼굴을 모셨을까</h2>
+    <p>
+      여기서 의문이 하나 남는다. 한양 종묘에는 이미 태조의 신주가 모셔져 있었다. 그런데도 태종은 전주에 따로 태조의 얼굴, 즉 어진을 봉안했다. 신주와 어진은 같은 사람을 모시지만 역할이 다르다.
+    </p>
+    <div class="compare-grid">
+      <div class="cg-head" style="background:var(--ink);">구분</div>
+      <div class="cg-head">종묘(신주)</div>
+      <div class="cg-head crimson">경기전(어진)</div>
+
+      <div class="cg-label">모시는 것</div>
+      <div class="cg-cell">왕의 영혼</div>
+      <div class="cg-cell alt">왕의 모습</div>
+
+      <div class="cg-label">성격</div>
+      <div class="cg-cell alt">제사의 공간</div>
+      <div class="cg-cell">왕조의 상징</div>
+
+      <div class="cg-label">기억하는 주체</div>
+      <div class="cg-cell">왕실 중심</div>
+      <div class="cg-cell alt">왕실뿐 아니라 국가와 지방이 함께 기억</div>
+    </div>
+    <p>
+      종묘가 왕실 내부에서 조상을 제사 지내는 자리라면, 경기전은 지방의 백성들까지 왕의 얼굴을 직접 보고 기억하게 만드는 자리다. 정통성은 궁궐 안에서만 확인하는 게 아니라, 왕조의 발상지에서 국가 전체가 확인해야 하는 것이었다.
+    </p>
+  </section>
+
+  <!-- Scene 01-C : 태종의 정치 -->
+  <section class="section">
+    <div class="section-label">Scene 01-C · 지운 사람, 키운 사람</div>
+    <h2>정도전은 죽였고, 아버지는 더 크게 만들었다</h2>
+    <p>
+      태종의 정치를 되짚어 보면 이 결정이 더 선명해진다. 그는 정도전을 제거했고, 이복동생 방석을 죽였고, 신덕왕후 세력을 무너뜨렸다. 왕위에 오르기까지 그가 지운 사람은 한둘이 아니었다.
+    </p>
+    <p>
+      그런데 단 한 사람, 아버지 태조의 정통성만은 절대로 흔들 수 없었다. 이유는 간단하다 — 태종 자신의 왕위도 결국 태조에게서 나온 것이었기 때문이다. 아버지의 정통성이 흔들리면 그 정통성 위에 서 있는 자신의 왕위도 함께 흔들린다. 그래서 그는 정적이 된 사람은 지우되, 왕조의 창업자만은 오히려 더 크게 만드는 방식을 택했다. 종묘의 격을 다지고, 경기전을 세우고, 건원릉의 제향을 정비한 것이 모두 이 시기에 겹쳐 있는 이유다.
+    </p>
+    <div class="highlight-box">
+      <div class="highlight-box-title">경기전이 하는 정치적 선언</div>
+      <p>
+        전주는 왕조가 시작된 자리다. 그 자리에 태조의 얼굴을 모신다는 건 "왕조의 정통성은 태조에게 있고, 그 태조를 이어받은 사람이 바로 나(태종)다"라는 선언과 같다. 사람들을 지운 자리를, 아버지를 더 크게 세우는 방식으로 채운 것 — 그것이 경기전이 세워진 진짜 이유다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Scene 02 : 전주사고 -->
+  <section class="section">
+    <div class="section-label">Scene 02 · 실록을 지킨 사람들</div>
+    <h2>전국 네 곳의 사고 중, 딱 하나만 살아남았다</h2>
+    <p>
+      경기전 경내에는 조선왕조실록을 보관하던 전주사고(全州史庫)와 실록각(實錄閣)이 있다. 조선은 한양 춘추관 외에 충주·성주·전주 세 곳에 사고를 더 두어 실록을 나누어 보관했는데, 1592년 임진왜란이 터지자 춘추관·충주·성주 사고의 실록이 모두 불타 없어졌다. 오직 전주사고의 실록만 병화를 면했다.
+    </p>
+    <div class="photo-single">
+      <img src="images/gyeonggijeon_02.jpg" alt="실록각">
+      <div class="photo-caption">실록각(實錄閣). 전주사고에서 옮겨진 실록을 보관하던 누각으로, 땅에서 띄운 고상식 구조다.</div>
+    </div>
+    <p>
+      그 실록이 살아남은 건 우연이 아니라 손홍록과 안의라는 두 선비의 판단 때문이었다. 이들은 전란이 전주까지 번지기 전에 실록을 내장산 용굴암으로 옮겨 1년 가까이 직접 지켰다. 이때 지켜낸 실록 784건 514책, 그리고 기타 전적 64종 556책이 오늘날 국보 조선왕조실록의 뿌리가 됐고, 1997년 유네스코 세계기록유산으로 지정됐다. 1597년 정유재란 때 실록각 건물 자체는 결국 불탔지만, 실록은 이미 다른 곳에 있었기에 무사했다. 지금의 전주사고는 1991년 발굴조사를 거쳐 복원한 건물이다.
+    </p>
+  </section>
+
+  <!-- Scene 03 : 조경묘 -->
+  <section class="section">
+    <div class="section-label">Scene 03 · 얼굴보다 오래된 이름</div>
+    <h2>조경묘 — 이성계도 몰랐을 21대조의 자리</h2>
+    <div class="photo-single">
+      <img src="images/gyeonggijeon_03.jpg" alt="조경묘 삼문">
+      <div class="photo-caption">조경묘 삼문. 전주 이씨의 시조 이한(李翰)과 시조비의 위패를 모신 조선 왕실의 시조 사당이다.</div>
+    </div>
+    <p>
+      경기전 북쪽에는 조경묘(肇慶廟)라는 별도의 사당이 있다. '조경'은 '조선 왕조 창업의 경사가 시작되다'라는 뜻이다. 이곳에 모신 이한은 이성계의 21대조로, 전주 이씨의 시조다. 정작 조경묘 자체는 이성계가 세운 게 아니라 훨씬 뒤인 1771년(영조 47) 경기전 옆에 세워졌고, 위패 글씨는 영조가 세손 시절의 정조에게 쓰게 했다.
+    </p>
+    <p>
+      경기전이 이성계 한 사람의 얼굴을 모신 자리라면, 조경묘는 그 얼굴이 나온 뿌리, 그러니까 이성계 자신도 만나본 적 없는 21대 위의 조상을 모신 자리다. 전주라는 도시 하나에 조선 왕실의 시작점(조경묘)과 그 왕조를 연 사람의 얼굴(경기전)이 함께 놓여 있는 셈이다.
+    </p>
+  </section>
+
+  <!-- Scene 04 : 어진박물관 -->
+  <section class="section">
+    <div class="section-label">Scene 04 · 유일하게 남은 원본</div>
+    <h2>스물일곱 왕 중, 온전히 전해지는 얼굴은 셋뿐이다</h2>
+    <div class="photo-single">
+      <img src="images/gyeonggijeon_04.jpg" alt="어진박물관 외관">
+      <div class="photo-caption">어진박물관. 경기전 경내에 있으며, 태조어진과 함께 조선 역대 왕들의 어진(대개는 후대 표준영정)을 함께 전시한다.</div>
+    </div>
+    <p>
+      조선 왕들은 대부분 생전에 자신의 초상화를 제작했다. 기록상 태조의 초상화만도 26축에 이르렀다고 전해질 만큼, 왕조 초기부터 어진 제작과 봉안 체계는 꽤 촘촘했다. 그런데 그렇게 많이 그려진 어진들 중, 태조부터 순종까지 27대 임금의 초상화 가운데 현재 원형으로 남아있는 것은 태조·영조·철종, 단 셋뿐이다. 나머지는 여러 전란으로 소실됐고, 특히 한국전쟁 때 부산으로 옮겨졌던 어진들이 1954년 화재로 상당수 불에 탔다.
+    </p>
+    <div class="pull-quote">
+      <p>경기전 태조어진은 온전한 모습으로 전해지는 유일한 왕의 초상이다.</p>
+      <cite>— 어진박물관 안내문, 「조선왕실의 어진」</cite>
+    </div>
+    <div class="photo-single">
+      <img src="images/gyeonggijeon_05.jpg" alt="태조어진">
+      <div class="photo-caption">태조어진. 현재의 어진은 1872년(고종 9) 영희전본을 바탕으로 새로 모사한 것이며, 청색 곤룡포 차림에 익선관을 쓴 정면상이다.</div>
+    </div>
+    <p>
+      이 방에는 세종·정조·고종·순종의 '어진'도 나란히 걸려 있지만, 성격이 다르다. 세종과 정조의 얼굴은 아예 남아있는 초상이 없어 후대 화가가 기록과 후손의 골격을 참고해 새로 그린 표준영정이고, 고종과 순종은 남아있는 사진을 바탕으로 모사한 그림이다. 태조의 얼굴만이, 대대로 옛 어진을 그대로 옮겨 그린 계보를 통해 지금까지 이어져 왔다.
+    </p>
+    <!--
+    어진박물관 내 태조 외 어진 상세 (표준영정·모사본 성격 — 태조어진과 구분해 각주 처리)
+    - 세종어진: 1973년경 김기창 화백 추정 제작, 1979년 국가 표준영정 공인. 실제 용안은 전해지지 않음.
+    - 정조어진: 근래 이길범 화백이 추정하여 그린 상상도. 1989년 국가 표준영정 공인. 실제 용안 불명.
+    - 고종어진: 고종의 사진을 보고 그린 어진(2001년, 권오창 모사). 대한제국 선포 후 황제 예복인 황룡포 차림.
+    - 순종어진: 순종의 사진을 보고 그린 어진(2001년, 권오창 모사). 십이장복(대례복) 차림.
+    - 철종어진(보물 1492호)만은 실제 1861년 원본 기반으로, 한국전쟁 중 부산 이안 시 1954년 화재로 1/3가량 소실된 것을 복원. 어진박물관 소장본은 2016년 이철규 화백의 모사본.
+    -->
+  </section>
+
+  <!-- Scene 05 : 수난사 -->
+  <section class="section">
+    <div class="section-label">Scene 05 · 오백 년의 도망</div>
+    <h2>이 얼굴 하나를 지키려고, 다섯 번을 옮겨 도망쳤다</h2>
+    <p>
+      태조어진이 지금 자리에 가만히 앉아있게 된 건 최근의 일이다. 조선시대 내내 이 그림은 전쟁과 재해가 터질 때마다 짐이 되어 실려 나갔다.
+    </p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">1592~1597</div>
+        <div class="timeline-text">임진왜란이 터지자 태조어진을 조선왕조실록과 함께 정읍 내장산으로 옮겨 1년간 지켰다. 이후 아산 객사, 강화도를 거쳐 정유재란 때는 함경도 묘향산 보현사 별전에 봉안해 화를 피했다. 그사이 왜군에게 점령된 전주성에서 경기전 건물은 결국 불타 없어졌다.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1614</div>
+        <div class="timeline-text">광해군 6년, 지금의 경기전 건물을 중건하고 태조어진을 다시 모셔왔다.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1636</div>
+        <div class="timeline-text">병자호란이 일어나자 태조어진을 무주 적상산성으로 피난시켰다가, 이듬해 다시 경기전으로 모셔왔다.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1767</div>
+        <div class="timeline-text">전주성에 큰불이 나 민가 1천여 호가 불탔다. 불길이 경기전에 미치자 태조어진을 전주향교 명륜당으로 옮겨 화마를 피했다.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1894</div>
+        <div class="timeline-text">동학농민혁명으로 전주성이 전란에 휩싸이자, 태조어진을 위봉산성으로 이안했다. 위봉산성은 애초에 유사시 태조어진을 수호하기 위해 숙종 때 쌓은 성이었다.</div>
+      </div>
+    </div>
+    <p>
+      전쟁이 날 때마다 사람이 아니라 그림 한 장을 먼저 안전한 곳으로 피신시켰다는 사실은, 이 초상화가 단순한 미술품이 아니라 왕조의 정통성 그 자체로 취급됐다는 뜻이다. 이성계라는 사람은 1408년에 죽었지만, 그의 얼굴은 그 후로도 400년 넘게 전란이 날 때마다 실제로 옮겨 다녀야 했다.
+    </p>
+  </section>
+
+  <!-- Scene 06 : 1872년 봉안 -->
+  <section class="section">
+    <div class="section-label">Scene 06 · 새 얼굴을 모시는 법</div>
+    <h2>300명이 8일을 걸어 옮긴 그림 한 장</h2>
+    <p>
+      지금 경기전에 있는 태조어진은 1872년(고종 9)에 새로 모사한 것이다. 기존 어진이 오래되어 색이 희미해지자, 경복궁 태원전에서 영희전본을 바탕으로 축소해 새로 그렸다. 그해 9월 20일 손시(오전 8시 반~9시 반)에 한양을 출발한 행렬은 정확히 7박 8일을 걸어 9월 27일 손시에 전주 경기전에 새 어진을 봉안했다. 「어진이모도감의궤」에는 이 봉안 행렬에 300여 명이 참여했다고 기록돼 있다.
+    </p>
+    <div class="photo-single">
+      <img src="images/gyeonggijeon_06.jpg" alt="태조어진 봉안 노정도">
+      <div class="photo-caption">1872년 태조어진 봉안 노정도. 한양 → 시흥 → 수원 → 진위 → 직산 → 천안 → 광정 → 공주 → 노성 → 은진 → 여산 → 삼례 → 전주 순으로, 8일에 걸쳐 이동했다.</div>
+    </div>
+    <p>
+      그림을 옮기는 데는 전용 가마가 따로 있었다. 어진 자체를 모시는 가마는 신연(神輦), 향로와 향합을 옮기는 데는 향정(香亭)을 썼다 — 조경묘 쪽에는 시조 이한의 위패를 옮기는 채여(彩輿)가 따로 있었다. 이 가마들의 실물은 지금 어진박물관에 전시돼 있다.
+    </p>
+    <div class="ruin-note">
+      새 어진을 경기전에 봉안한 바로 그날 오후, 기존의 낡은 어진은 세초(洗草) — 그림을 물에 씻어 지우는 절차를 거쳤다.<br>
+      그러고는 백자 항아리에 담겨 경기전 북쪽 계단 아래 묻혔다.<br>
+      얼굴을 새로 들이는 일과 옛 얼굴을 땅에 묻는 일이, 같은 하루 안에서 이루어졌다.
+    </div>
+  </section>
+
+  <!-- Scene 07 : 일제강점기 -->
+  <section class="section">
+    <div class="section-label">Scene 07 · 가장 가까운 수난</div>
+    <h2>전쟁도 견딘 자리가, 식민지 시대엔 통째로 헐렸다</h2>
+    <p>
+      임진왜란도, 병자호란도, 동학농민혁명도 피해간 경기전이었지만 일제강점기는 피하지 못했다. 1907년부터 1911년까지 경기전 정면을 두르던 전주부성 성곽이 모두 철거됐다. 1919년에는 경기전 서쪽 부속채를 헐고 그 자리에 일본인 소학교(광복 후 전주중앙국민학교)를 세웠다. 경기전 동쪽, 옛 전주사고가 불탄 자리에 임시로 어진을 모시던 별전마저 1937년 헐렸다. 이로써 경기전은 정전 영역만 겨우 남고 나머지는 모두 사라졌다.
+    </p>
+    <p>
+      광복 이후에도 수난은 이어졌다. 1963년에는 헐린 별전 자리에 전라북도박물관(1976년 전주시립박물관으로 개칭)이 들어섰고, 경기전 내삼문과 외삼문 사이 마당은 석물과 탑을 늘어놓은 야외 전시장으로 쓰였다 — 제사를 지내는 자리가 관람용 공간으로 바뀐 것이다.
+    </p>
+    <p>
+      회복은 1990년대 들어 시작됐다. 1990년 경기전 정문이 다시 세워졌고, 1991년 전주시립박물관을 철거한 자리를 발굴해 전주사고를 복원했다. 1995~97년 경기전 북쪽에 남아있던 초등학교 건물을 철거·이전했고, 2002년부터 본격적인 복원 공사가 시작돼 2004년 지금의 모습을 되찾았다.
+    </p>
+  </section>
+
+  <!-- Scene 08 : 어정 -->
+  <section class="section">
+    <div class="section-label">Scene 08 · 얼굴을 씻긴 물</div>
+    <h2>어정(御井) — 정몽주가 마신 우물과는 다른 우물</h2>
+    <div class="photo-single">
+      <img src="images/gyeonggijeon_07.jpg" alt="경기전 어정">
+      <div class="photo-caption">경기전의 어정(御井). 둥근 돌 뚜껑을 덮은 우물로, 담을 두르고 문을 달아 성역으로 관리했다.</div>
+    </div>
+    <p>
+      경기전 경내에는 어정(御井)이라는 우물이 있다. 어정은 임금의 음식을 짓거나 마실 물을 긷던 우물, 또는 종묘·사직단처럼 임금이 직접 참여하는 제례에 쓰이던 우물을 통틀어 부르는 말이다. 태조 이성계의 영정을 모셨던 경주의 집경전, 평양의 영숭전, 그리고 이곳 전주의 경기전 우물도 모두 어정이라 불렸다. 성스럽게 취급해야 했으므로 대개 담을 두르고 문을 달아 두었다.
+    </p>
+    <p>
+      이 시리즈의 두 번째 답사지였던 오목대에서, 정몽주가 잔치 자리를 뛰쳐나가다 목이 말라 물을 청했다는 우물을 다룬 적이 있다. 그 우물과 이 어정은 서로 다른 우물이다 — 오목대 쪽 우물은 정몽주 개인의 일화에서 이름을 얻은 곳이고, 이 어정은 경기전이라는 왕실 제례 공간에 딸린 격이 다른 시설이다. 이름이 비슷하게 들릴 수 있어 분명히 구분해 둔다.
+    </p>
+  </section>
+
+  <!-- Scene 09 : 마무리 -->
+  <section class="section">
+    <div class="section-label">Scene 09 · 열 편의 끝</div>
+    <h2>이성계의 이야기가 아니라, 이성계를 완성시킨 이야기</h2>
+    <p>
+      황산에서 시작한 이 시리즈는 여기, 경기전에서 끝난다. 남원 황산에서 왜구를 무너뜨린 한 장수가, 전주 오목대에서 처음으로 자기 안의 야심을 노래로 흘렸고, 그 야심은 결국 조선이라는 나라가 되었다. 그런데 정작 이 시리즈의 마지막 장을 쓴 건 이성계 자신이 아니었다. 그가 죽은 지 2년 만에, 정도전을 죽이고 신덕왕후 세력을 무너뜨리며 왕위에 오른 아들이 아버지의 얼굴을 전주에 세우기로 결정했다.
+    </p>
+    <p>
+      태종에게 아버지의 정통성은 손댈 수 없는 유일한 영역이었다 — 자신의 왕위 자체가 거기서 나왔기 때문이다. 그래서 그는 정적은 지우고, 창업자는 키웠다. 경기전은 그 계산이 만들어낸 결과물이다. 이 시리즈가 열 편에 걸쳐 따라온 건 결국 이성계 한 사람의 무용담이 아니라, 그 무용담이 어떻게 한 국가의 정통성으로 완성되어 갔는가 하는 이야기였다. 그리고 그 완성을 마무리 지은 건, 아버지가 아니라 아들이었다.
+    </p>
+    <div class="ruin-note">
+      황산에서 그는 적을 이겼다.<br>
+      오목대에서 그는 야심을 드러냈다.<br>
+      그리고 경기전에서, 그는 아들의 손에 의해 비로소 왕조의 뿌리가 되었다.<br>
+      열 곳을 걸어 도착한 이 마지막 자리에서, 이야기는 여기서 접는다.
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="section">
+    <div class="section-label">Closing</div>
+    <h2>영웅의 길, 그 끝에서</h2>
+    <p>
+      황산에서 시작된 한 사람의 이름이, 경기전에 이르러 비로소 완성되었다. 나라를 세운 사람도, 결국 한 장의 초상으로 남았다. 그렇게 영웅의 길이 끝난다.
+    </p>
+  </section>
+
+  <!-- 정보 -->
+  <section class="section">
+    <div class="section-label">Info · 답사 정보</div>
+    <div class="info-box">
+      <div class="info-box-title">기본 정보</div>
+      <dl class="info-grid">
+        <dt>위치</dt><dd>전북 전주시 완산구 태조로 44 (풍남동, 전주 한옥마을 인근)</dd>
+        <dt>지정</dt><dd>사적 · 경기전</dd>
+        <dt>구성</dt><dd>경기전 정전(태조어진 봉안) · 전주사고 · 실록각 · 조경묘 · 어진박물관 · 어정</dd>
+        <dt>가는 길</dt><dd>전주 한옥마을 관광안내소에서 도보 접근 가능</dd>
+        <dt>함께 보면 좋은 곳</dt><dd>오목대(이 시리즈 2부, 도보 연계 가능), 전주 한옥마을</dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  태조 이성계 역사 기행 · Site 10 (마지막) — 경기전<br>
+  전북 전주 · 사적 · 조선왕조 시조어진 봉안처<br>
+  황산 → 오목대 → 준경묘·영경묘 → 종묘 → 사직단 → 경복궁 → 정릉 → 회암사지 → 건원릉 → <strong style="color:var(--sepia)">경기전</strong>
+</footer>
+
+</body>
+</html>

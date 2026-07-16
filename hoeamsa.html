@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>태조의 마지막 쉼터 — 양주 회암사지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@300;400;600&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --sepia: #8B6914;
+    --parchment: #f5f0e8;
+    --stone: #9b9080;
+    --moss: #5a6b4a;
+    --accent: #c4611a;
+    --pale: #faf7f2;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--pale); color:var(--ink); font-family:'Noto Serif KR',serif; font-weight:300; line-height:1.9; }
+
+  .masthead { background:var(--ink); color:var(--parchment); text-align:center; padding:3rem 2rem 2.5rem; position:relative; overflow:hidden; }
+  .masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.015) 2px,rgba(255,255,255,.015) 4px); }
+  .masthead-label { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.35em; color:var(--stone); text-transform:uppercase; margin-bottom:1.2rem; }
+  .masthead h1 { font-family:'Nanum Myeongjo',serif; font-size:clamp(2rem,5vw,3.8rem); font-weight:800; line-height:1.2; color:#fff; position:relative; }
+  .masthead-sub { font-family:'Noto Serif KR',serif; font-size:1.05rem; color:var(--stone); margin-top:1.2rem; font-style:italic; }
+  .masthead-meta { margin-top:2rem; font-family:'Nanum Gothic',sans-serif; font-size:.72rem; letter-spacing:.2em; color:#6a6058; border-top:1px solid #3a3530; padding-top:1.2rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; }
+
+  .hero { width:100%; max-height:580px; overflow:hidden; position:relative; }
+  .hero img { width:100%; max-height:580px; object-fit:cover; object-position:center 50%; display:block; filter:sepia(12%) contrast(1.05); }
+  .hero-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,.72)); color:#e8e0d4; padding:3rem 2rem 1.5rem; font-family:'Nanum Gothic',sans-serif; font-size:.78rem; letter-spacing:.1em; }
+
+  .container { max-width:820px; margin:0 auto; padding:0 2rem; }
+
+  .lead-block { padding:4rem 0 3rem; border-bottom:1px solid #d8d0c4; }
+  .lead-tag { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; text-transform:uppercase; color:var(--accent); margin-bottom:.8rem; }
+  .lead-text { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.15rem,2.5vw,1.45rem); line-height:1.85; color:#2a201a; font-weight:700; }
+
+  .axis-box { background:#f0ebe0; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .axis-title { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.4em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.5rem; text-align:center; }
+  .axis-diagram { display:flex; flex-direction:column; align-items:center; gap:0; position:relative; }
+  .axis-diagram::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,var(--sepia),#c4a060); transform:translateX(-50%); z-index:0; }
+  .axis-zone { position:relative; z-index:1; background:var(--sepia); color:#fff; font-family:'Nanum Gothic',sans-serif; font-size:.78rem; font-weight:700; padding:.45rem 1.4rem; text-align:center; min-width:200px; }
+  .axis-zone.alt { background:#5a6b4a; }
+  .axis-zone.light { background:#9b9080; }
+  .axis-arrow { position:relative; z-index:1; font-size:.85rem; color:var(--sepia); line-height:1.6; }
+  .axis-note { margin-top:1.2rem; font-size:.82rem; color:#5a5048; text-align:center; line-height:1.7; }
+
+  .section { padding:3rem 0; border-bottom:1px solid #e4ddd5; }
+  .section:last-child { border-bottom:none; }
+  .section-label { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; letter-spacing:.5em; text-transform:uppercase; color:var(--stone); margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+  .section-label::after { content:''; flex:1; height:1px; background:#d0c8bc; }
+
+  h2 { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.4rem,3vw,1.85rem); font-weight:800; line-height:1.4; margin-bottom:1.5rem; color:var(--ink); }
+  p { font-size:1rem; color:#2e2620; margin-bottom:1.4rem; }
+  p:last-child { margin-bottom:0; }
+  .drop-cap::first-letter { font-family:'Nanum Myeongjo',serif; font-size:4.2rem; font-weight:800; float:left; line-height:.78; margin-right:.1em; margin-top:.08em; color:var(--sepia); }
+
+  .pull-quote { margin:2.5rem 0; padding:2rem 2.5rem; border-left:4px solid var(--sepia); background:#f0ebe0; position:relative; }
+  .pull-quote::before { content:'❝'; font-size:3rem; color:var(--sepia); opacity:.25; position:absolute; top:-.5rem; left:1rem; line-height:1; }
+  .pull-quote p { font-family:'Nanum Myeongjo',serif; font-size:1.15rem; font-style:italic; font-weight:700; line-height:1.85; margin:0; color:#3a2e20; }
+  .pull-quote cite { display:block; margin-top:.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.72rem; letter-spacing:.15em; color:var(--stone); font-style:normal; }
+
+  .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#d0c8bc; border:1px solid #d0c8bc; margin:2.5rem 0; }
+  .compare-cell { background:var(--pale); padding:1.5rem; }
+  .compare-cell h3 { font-family:'Nanum Gothic',sans-serif; font-size:.75rem; letter-spacing:.25em; text-transform:uppercase; color:var(--sepia); margin-bottom:1rem; padding-bottom:.5rem; border-bottom:1px solid #d8d0c4; }
+  .compare-cell ul { list-style:none; font-size:.9rem; line-height:1.85; color:#3a3028; }
+  .compare-cell ul li::before { content:'— '; color:var(--stone); }
+
+  .photo-single { margin:2.5rem 0; }
+  .photo-single img { width:100%; display:block; filter:sepia(10%) contrast(1.05); }
+  .photo-caption { font-family:'Nanum Gothic',sans-serif; font-size:.72rem; color:var(--stone); padding:.7rem 0 0; letter-spacing:.05em; border-top:1px solid #d8d0c4; margin-top:.5rem; }
+
+  .photo-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.5rem 0; }
+  .photo-duo figure { margin:0; }
+  .photo-duo img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; filter:sepia(10%) contrast(1.05); }
+  .photo-duo figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; }
+
+  .photo-trio { display:grid; grid-template-columns:2fr 1fr; gap:.8rem; margin:2.5rem 0; }
+  .photo-trio figure { margin:0; }
+  .photo-trio figure:first-child { grid-row:1/3; }
+  .photo-trio figure:first-child img { width:100%; height:360px; object-fit:cover; display:block; filter:sepia(10%) contrast(1.05); }
+  .photo-trio figure:not(:first-child) img { width:100%; height:174px; object-fit:cover; display:block; filter:sepia(10%) contrast(1.05); }
+  .photo-trio figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; }
+
+  .photo-wide { margin:2.5rem -2rem; position:relative; }
+  .photo-wide img { width:100%; display:block; filter:sepia(10%) contrast(1.05); max-height:460px; object-fit:cover; }
+  .photo-wide .photo-caption { padding:.7rem 2rem 0; margin-top:.5rem; }
+
+  .heritage-list { margin:2rem 0; display:flex; flex-direction:column; gap:.8rem; }
+  .heritage-item { display:flex; gap:1.2rem; align-items:flex-start; padding:1.2rem; background:#f5f0e8; border:1px solid #e0d8cc; }
+  .badge { font-family:'Nanum Gothic',sans-serif; font-size:.62rem; letter-spacing:.1em; background:var(--sepia); color:#fff; padding:.25em .6em; white-space:nowrap; flex-shrink:0; align-self:flex-start; margin-top:.2rem; }
+  .badge.moss { background:var(--moss); }
+  .heritage-text { font-size:.88rem; line-height:1.7; color:#2e2620; }
+  .heritage-text strong { font-family:'Nanum Gothic',sans-serif; font-weight:700; display:block; margin-bottom:.2rem; font-size:.9rem; }
+
+  .info-box { background:#eee8dc; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .info-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.4em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.2rem; }
+  .info-grid { display:grid; grid-template-columns:auto 1fr; gap:.4rem 1.2rem; font-size:.88rem; }
+  .info-grid dt { font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); white-space:nowrap; }
+  .info-grid dd { color:#3a3028; margin:0; }
+
+  footer { background:var(--ink); color:#6a6058; text-align:center; padding:2.5rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.2em; margin-top:4rem; }
+
+  @media(max-width:600px){
+    .photo-duo { grid-template-columns:1fr; }
+    .photo-trio { grid-template-columns:1fr; }
+    .photo-trio figure:first-child { grid-row:auto; }
+    .photo-trio figure:first-child img, .photo-trio figure:not(:first-child) img { height:220px; }
+    .compare-grid { grid-template-columns:1fr; }
+    .photo-wide { margin:2.5rem 0; }
+    .masthead-meta { gap:1rem; }
+    .pull-quote, .info-box, .axis-box { padding:1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <p class="masthead-label">역사 답사 기록 &nbsp;·&nbsp; 경기도 양주</p>
+  <h1>태조의 마지막 쉼터<br>양주 회암사지</h1>
+  <p class="masthead-sub">왕위를 내려놓은 노인이 산속 폐허에서 찾은 것</p>
+  <div class="masthead-meta">
+    <span>2026년 5월 26일</span>
+    <span>경기도 양주시 회천읍</span>
+    <span>사적 제128호 · 유네스코 세계유산 잠정목록</span>
+  </div>
+</header>
+
+<!-- HERO: p10 — 폐사지 전경(북향), 멀리 현대 도시 -->
+<div class="hero">
+  <img src="images/hoeamsa_01.jpg" alt="양주 회암사지 전경">
+  <div class="hero-caption">회암사지 전경(북향). 주춧돌이 끝없이 이어지고 멀리 현대 도시 아파트군이 보인다. / 2026.05.26 10:09</div>
+</div>
+
+<div class="container">
+
+  <!-- LEAD -->
+  <div class="lead-block">
+    <p class="lead-tag">Prologue</p>
+    <p class="lead-text">
+      "양주에 있는 대찰에서 옛 왕이 세월을 보냈다"는 시구가 있다.
+      그 절이 바로 여기, 회암사다. 조선을 세운 태조 이성계가 왕자의 난으로
+      아들 태종에게 권력을 빼앗긴 뒤, 스승 무학대사가 머물던 이 산사에 기대어
+      마음을 달랬던 곳. 지금은 돌 주춧돌과 계단과 축대만 남아 있지만,
+      그 쓸쓸함이 오히려 태조의 처지를 더 잘 말해준다.
+    </p>
+  </div>
+
+  <!-- SCENE 01: 일직선 종축 배치 해설 -->
+  <section class="section">
+    <p class="section-label">Scene 01</p>
+    <h2>다른 절과 결정적으로 달랐던 것 — 일직선 종축 배치</h2>
+
+    <p class="drop-cap">회암사지를 처음 본 사람은 한 가지 낯선 인상을 받는다. 건물들이 산을 등지고 <em>일자(一字)로</em> 줄지어 배치되어 있다는 것이다. 앞쪽 낮은 곳에서 시작해 뒤쪽 높은 곳으로 올라가며 구역이 차례차례 이어진다. 우리가 흔히 아는 한국 사찰의 배치 방식과는 전혀 다르다.</p>
+
+    <p>우리나라 대부분의 사찰은 일주문→천왕문→누각→대웅전을 거치는 중심축을 공유하면서도, 각 건물이 마당(中庭)을 사이에 두고 좌우로 펼쳐지는 <strong>분산형·중정형 구조</strong>를 취한다. 그런데 회암사지는 그렇지 않다. 정면 3~7칸 규모의 전각들이 단(段)을 달리하며 <strong>남북 종축 위에 직렬로 쌓인다.</strong> 마치 궁궐의 침전 구역을 떠올리게 하는 배치다.</p>
+
+    <div class="axis-box">
+      <p class="axis-title">회암사지 종축 배치 구조 (남 → 북 / 낮은 곳 → 높은 곳)</p>
+      <div class="axis-diagram">
+        <div class="axis-zone light">제1·2권역 — 진입부 / 승방·부속 시설</div>
+        <div class="axis-arrow">↑</div>
+        <div class="axis-zone">제3권역 — 중심 불전 영역</div>
+        <div class="axis-arrow">↑</div>
+        <div class="axis-zone alt">제4권역 — 왕실 행사·법회 공간</div>
+        <div class="axis-arrow">↑</div>
+        <div class="axis-zone">제5권역 — 어실(御室) 추정지 / 최상단</div>
+      </div>
+      <p class="axis-note">전체 8개 권역, 220여 동 건물지 · 남북 약 340m 종축<br>원나라 라마불교 영향 + 고려 궁궐 건축 문법이 결합된 독특한 구조</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-cell">
+        <h3>일반 한국 사찰</h3>
+        <ul>
+          <li>중정(마당) 중심 분산 배치</li>
+          <li>좌우로 전각 배열</li>
+          <li>영역 간 경계가 유연함</li>
+          <li>산지 지형에 자유롭게 적응</li>
+        </ul>
+      </div>
+      <div class="compare-cell">
+        <h3>회암사지</h3>
+        <ul>
+          <li>남북 종축 직렬 배치</li>
+          <li>단(段)마다 전각 정면 배열</li>
+          <li>구역 간 계단·축대로 구분</li>
+          <li>궁궐식 위계 구조 반영</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>이 배치의 기원은 14세기 원나라를 통해 전해진 라마불교 사원 건축 양식에 있다. 고려 말 지공선사와 나옹선사가 이 형식을 들여오면서, 회암사는 당시 동아시아 선종 사찰의 최신 건축 문법을 도입한 국제적 가람이 되었다. 태조 이성계는 그 절을 더욱 확장해 사실상 '산속의 궁궐'로 만들었다.</p>
+  </section>
+
+  <!-- SCENE 02: 방문 동선 — 입구 → 입간판 → 종축 전경 → 일주문 → 진입로 → 무학대사 공간 -->
+  <section class="section">
+    <p class="section-label">Scene 02</p>
+    <h2>천보산 자락에 닿다 — 그리고 회암사까지</h2>
+
+    <!-- ① 치유의 궁궐 표지물 (09:54) -->
+    <div class="photo-single">
+      <img src="images/hoeamsa_02.jpg" alt="태조 이성계 치유의 궁궐 표지물">
+      <p class="photo-caption">'태조 이성계 치유의 궁궐' 표지물. 09:54, 첫발을 내딛다.</p>
+    </div>
+
+    <p>서울 노원에서 승용차로 30분 남짓. 양주시 회천읍으로 들어서면 천보산이 서서히 눈에 차오른다. '태조 이성계 치유의 궁궐'이라는 표지판이 어딘가 과하게 다정한 문구처럼 보이지만, 사실 틀린 말이 아니다. 태조가 이곳에서 5년 넘게 머물렀다는 기록이 엄연히 남아 있으니.</p>
+
+    <!-- ② 역사치유숲 입간판+반달 조형물 (10:43) -->
+    <div class="photo-single">
+      <img src="images/hoeamsa_03.jpg" alt="역사치유숲 양주회암사지 입간판과 반달 조형물">
+      <p class="photo-caption">'역사·치유숲 양주회암사지' 입간판과 반달 조형물. 뒤로 천보산의 암봉이 보인다. 10:43</p>
+    </div>
+
+    <!-- ③ 남쪽 진입부 종축 전경 (10:01) — 입간판 다음, 일주문 이전 -->
+    <div class="photo-single">
+      <img src="images/hoeamsa_04.jpg" alt="회암사지 남쪽 진입부 중앙 계단축">
+      <p class="photo-caption">남쪽 진입부에서 바라본 전경. 중앙 석계(石階)가 종축을 따라 북쪽 상단으로 이어지고, 좌우에 건물지 석렬이 대칭으로 펼쳐진다. 뒤로 천보산. 10:01</p>
+    </div>
+
+    <p>종축 배치가 글이나 도면이 아닌 실물로 눈에 들어오는 순간이 바로 이 자리다. 중앙 석계를 따라 시선이 자연스럽게 위로 올라간다. 낮은 곳에서 높은 곳으로, 앞에서 뒤로. 이 일직선의 흐름이 회암사지가 다른 사찰과 다른 이유다.</p>
+
+    <!-- ④ 일주문 (10:36) -->
+    <div class="photo-single">
+      <img src="images/hoeamsa_05.jpg" alt="회암사 일주문">
+      <p class="photo-caption">천보산 회암사 일주문. '天寶山 檜巖寺' 현판 아래 불기 2570년 부처님 오신날 봉축 현수막. 이틀 전인 5월 24일 법요식이 열렸다. 10:36</p>
+    </div>
+
+    <p>일주문 현판 아래 '양주천하제일(楊州天下第一)'이라는 글귀가 보인다. 전성기 회암사를 두고 이렇게 불렀다는 기록이 있는데, 그 자부심이 지금의 일주문에도 새겨져 있다.</p>
+
+    <!-- ⑤ 경내 진입로 (10:30) -->
+    <div class="photo-single">
+      <img src="images/hoeamsa_06.jpg" alt="회암사 경내 진입로">
+      <p class="photo-caption">회암사 경내 진입로. 석축 담장과 기와 건물, 굽은 소나무가 경내의 분위기를 만든다. 10:30</p>
+    </div>
+
+    <!-- ⑥ 무학대사 석조 유물 (10:25) -->
+    <p>경내 한편, 소나무 그늘 아래 석조 유물군이 모여 있다. 무학대사(無學大師, 1327~1405)와 관련된 부도·비석들이다. 무학은 태조 이성계의 왕사(王師)이자 한양 도읍지 결정에 함께했던 인물로, 태조가 왕위를 내놓은 뒤 이 회암사에서 함께 노년을 보낸 스승이다.</p>
+
+    <div class="photo-duo">
+      <figure>
+        <img src="images/hoeamsa_07.jpg" alt="무학대사 비석과 부도 원경">
+        <figcaption>소나무 아래 비석(좌)과 부도(원경). 파란 연등이 걸려 있다. 10:25</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hoeamsa_08.jpg" alt="무학대사 비석과 귀부, 부도">
+        <figcaption>비석·귀부·부도가 한 공간에 모여 있다. 뒤로 계단과 연등. 10:25</figcaption>
+      </figure>
+    </div>
+
+    <div class="pull-quote">
+      <p>스승이 머무는 절에 기대어 왕은 세월을 보냈다. 권력도, 아들도, 백성도 곁에 없는 자리에서 그가 붙잡은 것은 오래된 인연 하나뿐이었다.</p>
+      <cite>— 태조와 무학대사, 회암사에서의 5년</cite>
+    </div>
+  </section>
+
+  <!-- SCENE 03: 무학대사탑 -->
+  <section class="section">
+    <p class="section-label">Scene 03</p>
+    <h2>보물 제388호 — 무학대사탑</h2>
+
+    <div class="photo-single">
+      <img src="images/hoeamsa_09.jpg" alt="보물 제388호 무학대사탑">
+      <p class="photo-caption">보물 제388호 양주 회암사지 무학대사탑. 팔각 기단 위에 구형(球形) 탑신을 얹은 고려 후기~조선 초 양식. 기단부에 용·구름·연꽃 문양이 새겨져 있다. 10:08</p>
+    </div>
+
+    <p>팔각형 기단 위에 둥근 탑신을 올리고, 정갈한 옥개석을 얹은 형태다. 고려 후기부터 조선 초에 걸쳐 나타나는 이 양식은 원나라를 통해 전해진 라마불교 조형 언어를 담고 있다. 같은 시기 경천사지십층석탑과도 계보를 같이하는 형식이다. 기단부의 용·구름 문양과 연꽃 조각이 세월을 버티고 고스란히 남아 있다.</p>
+  </section>
+
+  <!-- SCENE 04: 폐사지 -->
+  <section class="section">
+    <p class="section-label">Scene 04</p>
+    <h2>궁궐 같은 절, 그 광활한 터</h2>
+
+    <p class="drop-cap">폐사지 구역으로 발을 옮기는 순간, 공간의 질감이 달라진다. 남북 종축을 따라 계단식으로 올라가는 구역들, 수십 채 건물이 빼곡히 들어서 있던 주춧돌들. 건물 간격, 석재의 격식, 계단의 폭. 모두 일반 사찰 수준을 훨씬 넘어선다.</p>
+
+    <div class="photo-trio">
+      <figure>
+        <img src="images/hoeamsa_10.jpg" alt="폐사지 전경 왼편 — 삼층석탑">
+        <figcaption>왼편 앵글의 전경. 좌측에 삼층석탑이 보인다. 10:37</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hoeamsa_11.jpg" alt="폐사지 건물지 가까이">
+        <figcaption>건물지를 가까이서 본 모습. 10:38</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hoeamsa_12.jpg" alt="폐사지 중앙부">
+        <figcaption>중앙부 전경. 안내 석판이 곳곳에. 10:05</figcaption>
+      </figure>
+    </div>
+
+    <p>1997년부터 시작된 발굴 조사에서 220여 동의 건물지가 확인됐다. 출토된 용무늬 기와와 왕실 도자기는 이 절이 사찰이면서 동시에 상왕(上王)의 거처였음을 보여준다. 전체 규모가 경복궁의 절반에 이른다는 분석도 있다.</p>
+
+    <div class="photo-single">
+      <img src="images/hoeamsa_13.jpg" alt="회암사지 원거리 전경">
+      <p class="photo-caption">멀리서 바라본 전경. 계단식 석축 위로 건물지가 층층이 쌓이고, 천보산 숲이 뒤를 감싼다. 10:57</p>
+    </div>
+  </section>
+
+  <!-- SCENE 05: 당간지주 + 제5권역 -->
+  <section class="section">
+    <p class="section-label">Scene 05</p>
+    <h2>당간지주와 제5권역 — 가장 높은 자리</h2>
+
+    <div class="photo-single">
+      <img src="images/hoeamsa_14.jpg" alt="당간지주 세 기">
+      <p class="photo-caption">당간지주(幢竿支柱) 세 기. 절 앞에 깃대를 세우던 석조물로, 철책 안에 보존되어 있다. 셋이 나란히 남은 사례는 드물다. 뒤로 천보산 암봉. 10:02</p>
+    </div>
+
+    <p>사지 남쪽에 서 있는 세 개의 돌기둥. 당간지주다. 기둥의 높이와 간격에서 전성기 이 절이 얼마나 크고 당당했을지가 짐작된다.</p>
+
+    <div class="photo-single">
+      <img src="images/hoeamsa_15.jpg" alt="제5권역 계단식 석축">
+      <p class="photo-caption">제5권역(Zone 5). 가장 북쪽 높은 곳. 계단식 석축이 여러 단으로 쌓여 있고, 오른쪽 아래에 안내판이 보인다. 태조가 머물렀던 어실(御室) 관련 시설이 있었을 것으로 추정된다. 10:07</p>
+    </div>
+
+    <p>제5권역은 일직선 종축의 최상단이다. 높이 약 1.8미터의 석축이 동서를 감싸는 구조로, 이 권역에 태조가 실제로 머물렀던 어실지(御室址)가 포함되어 있을 가능성이 높다고 연구자들은 본다. 함흥차사 설화의 실제 배경지이기도 하다.</p>
+  </section>
+
+  <!-- SCENE 06: 1954년 유물 현황판 -->
+  <section class="section">
+    <p class="section-label">Scene 06</p>
+    <h2>1954년의 기억과 남겨진 보물들</h2>
+
+    <div class="photo-single">
+      <img src="images/hoeamsa_16.jpg" alt="1954년 회암사지 유물 현황판">
+      <p class="photo-caption">1954년 당시 회암사지 유물 현황 안내판. 현재 보물로 지정된 6점의 유물이 당시 흑백 사진으로 기록되어 있다. 10:38</p>
+    </div>
+
+    <p>흑백 사진 속 유물들이 지금 내 눈앞에 남아 있는 것들과 같은 자리에, 같은 모습으로 서 있다. 70년의 세월 동안 전쟁도 지나갔고 도시화도 밀려왔지만 돌은 그 자리에 그대로였다.</p>
+
+    <div class="heritage-list">
+      <div class="heritage-item">
+        <span class="badge">보물 387호</span>
+        <div class="heritage-text"><strong>양주 회암사지 선각왕사비</strong>인도 출신 고승 지공선사를 기리는 비. 고려 말 회암사가 동아시아 선종의 국제 거점이었음을 말해준다.</div>
+      </div>
+      <div class="heritage-item">
+        <span class="badge">보물 388호</span>
+        <div class="heritage-text"><strong>무학대사탑 및 무학대사탑비</strong>팔각 원당형 부도. 고려 후기~조선 초 조형 양식의 정수.</div>
+      </div>
+      <div class="heritage-item">
+        <span class="badge">보물 389호</span>
+        <div class="heritage-text"><strong>무학대사탑 앞 쌍사자 석등</strong>두 마리 사자가 화사석을 받치는 특이한 형식. 왕실 사찰의 격식.</div>
+      </div>
+      <div class="heritage-item">
+        <span class="badge moss">도 유형문화재 49·50·51호</span>
+        <div class="heritage-text"><strong>지공·나옹 선사 부도 및 석등 / 무학대사 사리탑</strong>고려 말~조선 초 3대 고승의 흔적이 한 자리에 모여 있다.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE 07: UNESCO 전망판 -->
+  <section class="section">
+    <p class="section-label">Scene 07</p>
+    <h2>UNESCO 전망판이 말하는 것</h2>
+
+    <div class="photo-single">
+      <img src="images/hoeamsa_17.jpg" alt="UNESCO 안내 전망판">
+      <p class="photo-caption">입구의 UNESCO 전망판. 회암사지 전체 조감 배치도와 한영 이중 설명. 배치도에서 남북 종축 일직선 구조가 한눈에 보인다. 11:05</p>
+    </div>
+
+    <p>답사를 마치고 나오는 길, 입구 쪽 대형 전망판 앞에 다시 섰다. 전망판 안의 조감도에서 건물들이 정확히 남북 종축을 따라 일직선으로 배열되어 있는 것이 한눈에 들어온다. 현장을 돌고 나서 보니 아까와는 다르게 읽혔다. 단마다 어떤 건물이 있었는지, 태조가 머물던 자리가 어디였는지가 그려지기 시작했다.</p>
+
+    <p>2023년 유네스코 세계유산 잠정목록에 등재된 이 터. 남아 있는 건물은 없지만, 오히려 그렇기에 더 넓고 더 선명하게 공간의 역사가 읽히는 곳이다.</p>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="section">
+    <p class="section-label">Closing</p>
+    <h2>쓸쓸함이 역사가 되는 자리</h2>
+
+    <p class="drop-cap">회암사지를 나서면서 한 가지 생각이 머릿속에 남았다. 조선을 세우고, 왕위를 내어주고, 산중의 절에서 여생을 마감한 그 늙은 왕이 이 일직선의 돌 위에서 무엇을 바라보았을까. 앞에서 뒤로, 낮은 데서 높은 데로 이어지는 종축 위에서, 그는 끝내 마음의 안식을 찾았을까.</p>
+
+    <p>답사는 답을 주지 않는다. 다만 그 질문을 품고 서 있기에 가장 좋은 자리를 알려줄 뿐이다. 양주 회암사지는 그런 자리다.</p>
+
+    <div class="pull-quote">
+      <p>건물은 사라졌지만 돌은 남아 있다. 남아 있는 돌이 없어진 것들을 더 잘 말해준다.</p>
+      <cite>— 2026년 5월 26일 오전, 회암사지에서</cite>
+    </div>
+
+    <p>산사에서 여생을 보낸 노왕도, 결국 죽음을 피할 수는 없었다. 그를 묻을 자리가 필요했다. 그 자리가 건원릉이었다.</p>
+
+    <div class="info-box">
+      <p class="info-box-title">답사 정보 / Visitor Info</p>
+      <dl class="info-grid">
+        <dt>위치</dt><dd>경기도 양주시 회천읍 회암리 일원</dd>
+        <dt>입장</dt><dd>무료 (회암사지박물관은 별도, 월요일 휴관)</dd>
+        <dt>주차</dt><dd>박물관 주차장 이용 (무료, 넓음)</dd>
+        <dt>소요</dt><dd>폐사지 약 60~90분 / 박물관 포함 약 2시간</dd>
+        <dt>특징</dt><dd>남북 종축 일직선 배치 — 일반 한국 사찰과 전혀 다른 구조</dd>
+        <dt>세계유산</dt><dd>유네스코 세계유산 잠정목록 등재 (2023)</dd>
+        <dt>연계</dt><dd>동구릉 건원릉 (약 45km, 구리시) — 태조의 마지막 안식처로 이어지는 다음 답사지</dd>
+      </dl>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>양주 회암사지 &nbsp;/&nbsp; 2026년 5월 26일 오전 답사 기록</p>
+  <p style="margin-top:.5rem;">사적 제128호 &nbsp;·&nbsp; 유네스코 세계유산 잠정목록 &nbsp;·&nbsp; 경기도 양주</p>
+  <p style="margin-top:.8rem;">태조 이성계 역사 기행 · Site 08 — 회암사지<br>
+  황산 → 오목대 → 준경묘·영경묘 → 종묘 → 사직단 → 경복궁 → 정릉 → <strong style="color:var(--sepia)">회암사지</strong> → 건원릉 → 경기전</p>
+</footer>
+
+</body>
+</html>

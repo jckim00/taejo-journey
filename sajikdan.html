@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>왕의 집보다 나라의 집 — 사직단 역사 답사 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@300;400;600&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #1a1410;
+    --sepia:     #8B6914;
+    --moss:      #5a6b4a;
+    --stone:     #9b9080;
+    --accent:    #c4611a;
+    --pale:      #faf7f2;
+    --parchment: #f5f0e8;
+    --gold:      #c4a040;
+    --crimson:   #8a1a1a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--pale); color:var(--ink); font-family:'Noto Serif KR',serif; font-weight:300; line-height:2.0; }
+
+  /* masthead */
+  .masthead { background:var(--ink); color:var(--parchment); text-align:center; padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+  .masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px); }
+  .masthead-label { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; color:#6a6058; text-transform:uppercase; margin-bottom:1.4rem; position:relative; }
+  .masthead h1 { font-family:'Nanum Myeongjo',serif; font-size:clamp(2.2rem,5vw,4rem); font-weight:800; line-height:1.2; color:#fff; position:relative; }
+  .masthead h1 em { font-style:normal; color:var(--gold); }
+  .masthead-sub { font-family:'Noto Serif KR',serif; font-size:1.05rem; color:var(--stone); margin-top:1.4rem; font-style:italic; position:relative; }
+  .masthead-meta { margin-top:2rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.2em; color:#4a4038; border-top:1px solid #2e2820; padding-top:1.4rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; position:relative; }
+
+  /* hero */
+  .hero { width:100%; max-height:600px; overflow:hidden; position:relative; }
+  .hero img { width:100%; max-height:600px; object-fit:cover; object-position:center 35%; display:block; filter:sepia(14%) contrast(1.06) brightness(.93); }
+  .hero-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,.8)); color:#ddd8ce; padding:4rem 2rem 1.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.75rem; letter-spacing:.1em; line-height:1.8; }
+
+  /* 본문 */
+  .container { max-width:800px; margin:0 auto; padding:0 2rem; }
+
+  .lead-block { padding:4.5rem 0 3.5rem; border-bottom:1px solid #d8d0c4; }
+  .lead-tag { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; letter-spacing:.45em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; }
+  .lead-text { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.15rem,2.4vw,1.42rem); line-height:1.95; color:#2a201a; font-weight:700; }
+
+  .section { padding:3.5rem 0; border-bottom:1px solid #e4ddd5; }
+  .section:last-child { border-bottom:none; }
+  .section-label { font-family:'Nanum Gothic',sans-serif; font-size:.62rem; letter-spacing:.55em; text-transform:uppercase; color:#b0a898; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+  .section-label::after { content:''; flex:1; height:1px; background:#ddd5c8; }
+
+  h2 { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.35rem,3vw,1.8rem); font-weight:800; line-height:1.4; margin-bottom:1.6rem; color:var(--ink); }
+  p { font-size:1rem; color:#2e2620; margin-bottom:1.5rem; line-height:2.0; }
+  p:last-child { margin-bottom:0; }
+  .drop-cap::first-letter { font-family:'Nanum Myeongjo',serif; font-size:4.5rem; font-weight:800; float:left; line-height:.76; margin-right:.08em; margin-top:.1em; color:var(--sepia); }
+
+  /* 사진 */
+  .photo-single { margin:2.8rem 0; }
+  .photo-single img { width:100%; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-caption { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--stone); padding:.75rem 0 0; letter-spacing:.05em; border-top:1px solid #d8d0c4; margin-top:.5rem; line-height:1.8; }
+
+  .photo-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.8rem 0; }
+  .photo-duo figure { margin:0; }
+  .photo-duo img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-duo figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; line-height:1.7; }
+
+  /* pull quote */
+  .pull-quote { margin:3rem 0; padding:2rem 2.8rem; border-left:4px solid var(--sepia); background:#f0ebe0; position:relative; }
+  .pull-quote::before { content:'❝'; font-size:3.5rem; color:var(--sepia); opacity:.2; position:absolute; top:-.6rem; left:.8rem; line-height:1; }
+  .pull-quote p { font-family:'Nanum Myeongjo',serif; font-size:1.18rem; font-style:italic; font-weight:700; line-height:1.9; margin:0; color:#3a2e20; }
+  .pull-quote cite { display:block; margin-top:.9rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.18em; color:var(--stone); font-style:normal; }
+
+  /* 다이어그램 */
+  .diagram-box { background:#f0ebe0; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .diagram-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.5rem; text-align:center; }
+
+  /* 추존 4조 계보 */
+  .ances-flow { display:flex; flex-direction:column; align-items:center; gap:0; }
+  .ances-node { display:flex; align-items:stretch; gap:1rem; width:100%; max-width:520px; padding:.7rem 0; }
+  .ances-gen { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; color:var(--stone); letter-spacing:.1em; width:56px; flex-shrink:0; display:flex; align-items:center; justify-content:flex-end; padding-right:.6rem; border-right:2px solid #d4ccbc; }
+  .ances-box { flex:1; }
+  .ances-name { font-family:'Nanum Myeongjo',serif; font-size:1rem; font-weight:700; color:var(--ink); }
+  .ances-title { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--crimson); font-weight:700; letter-spacing:.06em; margin-left:.5rem; }
+  .ances-desc { font-family:'Nanum Gothic',sans-serif; font-size:.75rem; color:#5a4e3c; line-height:1.65; margin-top:.2rem; }
+  .ances-arrow { font-size:.8rem; color:#c0b8a8; text-align:center; width:100%; max-width:520px; padding:.1rem 0 .1rem 56px; }
+
+  /* 비교 표 */
+  .compare-grid { display:grid; grid-template-columns:auto 1fr 1fr; gap:1px; background:#d0c8bc; border:1px solid #d0c8bc; margin:2.5rem 0; font-size:.86rem; }
+  .cg-head { background:var(--sepia); color:#fff; font-family:'Nanum Gothic',sans-serif; font-weight:700; padding:.7rem 1rem; font-size:.72rem; letter-spacing:.1em; }
+  .cg-head.crimson { background:var(--crimson); }
+  .cg-label { background:#f0ebe0; font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); padding:.7rem 1rem; font-size:.8rem; }
+  .cg-cell { background:var(--pale); padding:.7rem 1rem; color:#3a3028; line-height:1.7; }
+  .cg-cell.alt { background:#faf5ec; }
+
+  /* 강조 박스 */
+  .highlight-box { background:#f5f0e0; border:2px solid var(--gold); padding:1.8rem 2.2rem; margin:2.5rem 0; }
+  .highlight-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; }
+  .highlight-box p { font-size:.95rem; line-height:1.9; color:#3a3028; margin-bottom:0; }
+
+  /* 정보 박스 */
+  .info-box { background:#eee8dc; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .info-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.42em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.2rem; }
+  .info-grid { display:grid; grid-template-columns:auto 1fr; gap:.45rem 1.2rem; font-size:.88rem; }
+  .info-grid dt { font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); white-space:nowrap; }
+  .info-grid dd { color:#3a3028; margin:0; }
+
+  /* 정전 칸 시각화 */
+  .jeongjeon-bar { display:flex; align-items:stretch; gap:1px; background:#c0b8a8; border:1px solid #c0b8a8; margin:2rem 0; overflow:hidden; }
+  .jj-cell { background:var(--pale); padding:.9rem .5rem; text-align:center; flex:1; }
+  .jj-cell.filled { background:#f0ebe0; }
+  .jj-cell.taejo { background:var(--crimson); }
+  .jj-num { font-family:'Nanum Gothic',sans-serif; font-size:.6rem; color:var(--stone); display:block; margin-bottom:.2rem; }
+  .jj-name { font-family:'Nanum Myeongjo',serif; font-size:.78rem; font-weight:700; color:var(--ink); }
+  .jj-cell.taejo .jj-num, .jj-cell.taejo .jj-name { color:#fff; }
+
+  .ruin-note { margin:2.5rem 0; padding:1.6rem 2rem; border-top:1px solid #c8c0b0; border-bottom:1px solid #c8c0b0; font-family:'Nanum Myeongjo',serif; font-size:.96rem; font-style:italic; color:#5a4e3c; line-height:2.0; text-align:center; }
+
+  footer { background:var(--ink); color:#5a5048; text-align:center; padding:2.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.22em; margin-top:4rem; line-height:2.2; }
+
+  @media(max-width:600px){
+    .photo-duo { grid-template-columns:1fr; }
+    .compare-grid { grid-template-columns:1fr; }
+    .diagram-box { padding:1.5rem; }
+    .pull-quote { padding:1.5rem 1.8rem; }
+    .masthead-meta { gap:1rem; }
+    .jeongjeon-bar { flex-wrap:wrap; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- masthead -->
+<header class="masthead">
+  <div class="masthead-label">태조 이성계 역사 기행 · Site 05</div>
+  <h1>왕의 집보다 <em>나라의 집</em>을<br>먼저 세우다 — 사직단(社稷壇)</h1>
+  <p class="masthead-sub">종묘가 조상에게 바친 제단이라면, 사직단은 백성의 밥상에 바친 제단이었다</p>
+  <div class="masthead-meta">
+    <span>서울 종로구 사직동</span>
+    <span>사적 · 대문은 보물 제177호</span>
+    <span>조선 1395년 조성</span>
+  </div>
+</header>
+
+<!-- 히어로 -->
+<div class="hero">
+  <img src="images/sajikdan_01.jpg" alt="사직단 대문">
+  <div class="hero-caption">
+    사직단 대문(社稷壇 大門). '社稷壇' 현판이 걸린 이 문 하나가 신성한 제단과 속세를 가른다.<br>
+    2026년 7월 답사 · 보물 제177호
+  </div>
+</div>
+
+<!-- 본문 -->
+<main class="container">
+
+  <!-- 리드 -->
+  <div class="lead-block">
+    <div class="lead-tag">Prologue</div>
+    <p class="lead-text">
+      종묘에서 이미 확인한 원칙이 있다. 《주례》의 "좌묘우사(左廟右社)" — 임금이 남쪽을 보고 앉았을 때, 왼쪽(동쪽)엔 조상의 사당을, 오른쪽(서쪽)엔 토지와 곡식의 신을 모신 제단을 두라는 규정이다. 종묘가 그 왼쪽 절반이었다면, 사직단은 나머지 절반이다. 이성계가 나라를 세우고 가장 먼저 챙긴 두 가지 중 하나 — 조상이 아니라 백성의 밥상이다.
+    </p>
+  </div>
+
+  <!-- Scene 01 -->
+  <section class="section">
+    <div class="section-label">Scene 01</div>
+    <h2>종묘의 반대편 — 왜 사직인가</h2>
+
+    <p class="drop-cap">
+      태조 3년(1394) 한양으로 도읍을 옮기자마자, 이성계는 종묘와 함께 사직단 조성도 지시했다. 두 시설은 완공 시점도 거의 겹친다 — 경복궁이 완공된 1395년, 사직단도 함께 모습을 갖췄다. 종묘가 경복궁 동쪽에, 사직단이 서쪽에 자리 잡은 것은 우연이 아니라 《주례》의 규정을 문자 그대로 따른 결과다.
+    </p>
+
+    <p>
+      종묘가 "나는 정통한 혈통에서 나온 왕이다"라는 선언이었다면, 사직단은 다른 종류의 선언이다. "나는 백성의 땅과 곡식을 책임지는 왕이다." 조상에게 바치는 제사와 백성의 밥상을 책임지는 제사 — 이 둘을 합쳐 부르는 말이 '종묘사직(宗廟社稷)'이다. 사극에서 신하들이 "종묘사직을 보존하소서"라고 외칠 때, 그 네 글자는 왕실의 정통성과 백성의 생존을 한데 묶어 '국가' 그 자체를 가리키는 말이었다.
+    </p>
+
+    <div class="pull-quote">
+      <p>경복궁은 왕의 집이다. 그러나 종묘와 사직은 나라의 집이다. 태조는 자신의 집보다 나라의 집을 먼저 세웠다.</p>
+      <cite>— 사직단 답사의 핵심 문장</cite>
+    </div>
+
+    <p>
+      이성계는 평생을 전장에서 보낸 무장 출신이다. 백성이 굶주리면 왕조가 얼마나 쉽게 흔들리는지, 누구보다 몸으로 알고 있던 사람이었다. 그가 종묘 못지않게 사직단 조성을 서두른 이유를 무장 출신 왕의 정치적 감각으로 읽는 해석도 있다 — 다만 이 부분은 사료가 직접 남긴 이성계의 육성이 아니라, 그의 행보에서 후대가 읽어낸 해석이라는 점은 분명히 해두어야 한다.
+    </p>
+  </section>
+
+  <!-- Scene 02 -->
+  <section class="section">
+    <div class="section-label">Scene 02</div>
+    <h2>답사 동선 — 대문에서 제단까지</h2>
+
+    <p>
+      서울 종로구 사직동, 지하철 3호선 사직역에서 도보 5분. 사직공원 안쪽으로 들어서면 낮은 담장(유·壝)으로 둘러싸인 네모난 돌 제단이 보인다. 오늘날 이 일대는 '사직공원'이라는 이름 때문에 그저 동네 공원처럼 여겨지기 쉽지만, 원래는 국가 최고 등급의 제사가 열리던 신성 구역이었다.
+    </p>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_02.jpg" alt="사직단 신문과 제단 전경">
+      <div class="photo-caption">
+        신문(神門) 너머로 보이는 제단 전경. 흙바닥이 드러난 단 위에 목재 신위대(神位臺) 하나만 놓여 있다. 화려함을 걷어낸 자리가 오히려 신성함을 만든다. 뒤로 도심 고층 건물들이 이 제단의 오랜 나이를 새삼 실감케 한다.
+      </div>
+    </div>
+
+    <p>
+      조금 더 물러나 보면 사직단이 도심 한복판에 얼마나 깊숙이 파묻혀 있는지 실감된다. 600년 전 국가 최고 제단이었던 자리가, 지금은 여론조사기관 건물과 오피스 타워 사이에 끼어 있다.
+    </p>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_03.jpg" alt="사직단 원경">
+      <div class="photo-caption">
+        사직단 원경. 왼쪽 멀리 보이는 건물이 여론조사기관 갤럽 사옥이다. 신문 위로 태극 문양 장식이 얹혀 있다.
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 03 -->
+  <section class="section">
+    <div class="section-label">Scene 03</div>
+    <h2>사단과 직단 — 네모난 제단 두 기</h2>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_04.jpg" alt="사직단 신문 두 개">
+      <div class="photo-caption">
+        사직단의 신문 두 개가 앞뒤로 겹쳐 보이는 구도. 사단과 직단이 각각 자기 담장과 신문을 두른 채 나란히 배치된, 사직단 특유의 이중 제단 구조를 한 프레임에서 짐작하게 한다.
+      </div>
+    </div>
+
+    <p>
+      사직단은 이름 그대로 두 제단의 합이다. 동쪽에 놓인 것이 토지의 신에게 제사 지내는 사단(社壇), 서쪽에 놓인 것이 곡식의 신에게 제사 지내는 직단(稷壇)이다. 현장 안내판에 따르면 두 단은 모양과 크기가 동일한 정사각형으로, 한 변이 7.65미터이고 높이는 약 1미터다. 원 모양이 아니라 네모 모양으로 지은 데는 이유가 있다. 하늘에 제사 지내는 원구단(圜丘壇)이 둥근 형태였던 것과 달리, 땅과 곡식에 바치는 제단은 네모나야 한다는 오래된 관념이 있었다 — "하늘은 둥글고 땅은 네모나다(天圓地方)"는 동아시아의 우주관이 제단의 생김새에까지 반영된 셈이다.
+    </p>
+
+    <p>
+      단 주위로는 유(壝)라는 낮은 담을 둘렀고, 그 바깥으로 사방에 신문을 낸 담을 다시 둘러 이중 구조를 만들었다. 그 바깥에는 제사 준비를 위한 부속 시설이 있었다. 지금 우리가 보는 것은 그 전체 구조 가운데 복원된 일부다.
+    </p>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_05.jpg" alt="사직단 안내판과 배치도">
+      <div class="photo-caption">
+        입구의 안내판. 오른쪽 등각(等角) 배치도에서 사단·직단 두 제단과 사방 신문, 이중 담장의 전체 구조가 한눈에 들어온다.
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 04 -->
+  <section class="section">
+    <div class="section-label">Scene 04</div>
+    <h2>보물 제177호 대문 — 불타고, 다시 지어진 문</h2>
+
+    <p>
+      사직단의 정문은 보물 제177호로 지정돼 있다. 겉모습은 앞면 3칸, 옆면 2칸의 소박한 맞배지붕 건물이라 얼핏 지나치기 쉽지만, 이 문에는 정정해야 할 이야기 하나가 딸려 있다.
+    </p>
+
+    <div class="highlight-box">
+      <div class="highlight-box-title">팩트체크</div>
+      <p>
+        이 대문이 "임진왜란 때도 불타지 않고 살아남았다"는 이야기가 종종 전해지는데, 문화재청 공식 기록은 정반대다. 대문은 태조 3년(1394) 사직단을 지을 때 함께 세워졌지만, 임진왜란 때 다른 전각들과 마찬가지로 불에 탔다. 지금 서 있는 건물은 그 이후에 다시 지어진 것이다. 정확한 재건 연도는 알려져 있지 않지만, 숙종 46년(1720) "큰바람에 기울어진 것을 다시 세웠다"는 실록 기록으로 미루어, 그보다 앞선 시기 — 임진왜란 이후 어느 시점 — 에 재건된 것으로 추정한다.
+      </p>
+    </div>
+
+    <p>
+      지금 이 문이 서 있는 자리도 원래 자리가 아니다. 1962년 서울시 도시계획에 따라 원래 위치보다 14미터 뒤쪽으로 옮겨졌다. 그러니까 이 대문은 두 번 자리를 지켜낸 게 아니라, 한 번 불타 없어졌다가 다시 세워졌고, 다시 한번 통째로 밀려난 문이다. "전쟁도 버텨낸 문"이라는 서사보다, "불타고 밀려나면서도 결국 이 자리에 남은 문"이라는 서사가 사실에 더 가깝고, 어떤 의미에서는 더 곡진하다.
+    </p>
+  </section>
+
+  <!-- Scene 05 -->
+  <section class="section">
+    <div class="section-label">Scene 05</div>
+    <h2>전사청 — 제사 음식을 짓던 자리</h2>
+
+    <p>
+      사직단 경내 한쪽에는 전사청(典祀廳) 일원이 복원돼 있다. 제례에 쓸 음식을 준비하던 구역이다. 전사관이 제수를 점검하던 전사청 본채, 제기를 보관하던 제기고, 온갖 기물을 두던 잡물고, 희생으로 쓸 소·양·돼지를 잡던 재생정, 음식을 두던 찬만대, 일하는 사람들이 머물던 수복방과 저구가(방아를 찧던 곳), 그리고 우물까지 — 일제강점기를 거치며 이 시설들은 모두 철거되고 공원 부지로 쓰이다가, 2021년에야 다시 복원됐다.
+    </p>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_06.jpg" alt="전사청 일원 건물과 우물">
+      <div class="photo-caption">
+        복원된 전사청 일원. 오른쪽 원형 석조물이 우물이다. 뒤로 소나무숲과 도서관 건물이 보여, 조선시대 제사 공간과 오늘의 서울이 한 프레임 안에 겹친다.
+      </div>
+    </div>
+
+    <p>
+      전사청 내부에는 사직대제(社稷大祭)를 소개하는 영상이 상영되고 있었다. 국가유산청이 제작한 영상으로, 제례의 전체 흐름을 간략히 보여준다.
+    </p>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_07.jpg" alt="사직대제 소개 영상">
+      <div class="photo-caption">
+        전사청 내부에 설치된 '사직대제(社稷大祭)' 소개 영상. 국가유산청 제작.
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 06 -->
+  <section class="section">
+    <div class="section-label">Scene 06</div>
+    <h2>제기(祭器) — 왕이 직접 무릎 꿇었던 상차림</h2>
+
+    <p>
+      전사청 전시실에는 실제 사직대제에 쓰이는 제기들이 진열돼 있다. 술을 담는 코끼리 모양 술항아리 상준(象尊), 향을 피우는 향로, 곡식을 담는 궤(簋)와 보(簠), 고깃국을 담는 형(鉶) 등 — 종류마다 담는 내용물과 용도가 정해져 있다.
+    </p>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_08.jpg" alt="제기 전시 진열장">
+      <div class="photo-caption">
+        전사청 전시실의 제기 진열장. 청동 술항아리와 그릇들이 여러 단에 걸쳐 정리돼 있다.
+      </div>
+    </div>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_09.jpg" alt="사직대제 준소상 재현">
+      <div class="photo-caption">
+        사직대제의 준소상(尊所床) 재현. 코끼리 모양 술항아리 상준(象尊) 두 개와 촛대, 축문을 담은 바구니가 놓여 있다. 초헌·아헌·종헌 세 차례에 걸쳐 올릴 술을 각각 담아 두는 자리다.
+      </div>
+    </div>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_10.jpg" alt="제기 종류 설명 포스터">
+      <div class="photo-caption">
+        제기 종류를 설명하는 안내 포스터. 작(술잔), 향로, 형(고깃국 그릇), 궤·보(곡식 그릇), 산뢰·상준(술항아리) 등 일곱 가지 제기의 쓰임이 그림과 함께 정리돼 있다.
+      </div>
+    </div>
+
+    <p>
+      제사상 차림도 재현돼 있었다. '后稷氏之神(후직씨지신)' — 곡식의 신 후직의 위패 앞에, 정해진 격식대로 그릇들이 놓인다. 대나무 그릇 변(籩)에는 마른 음식을, 나무 그릇 두(豆)에는 젖은 음식을 담아 좌우로 각 12개씩 대칭 배치하고, 그 가운데 곡식을 담은 보(簠)와 궤(簋), 소·양·돼지 고깃국을 담은 형(鉶) 세 개가 놓인다.
+    </p>
+
+    <div class="photo-single">
+      <img src="images/sajikdan_11.jpg" alt="사직대제 제사상 차림 재현">
+      <div class="photo-caption">
+        사직대제 제사상 차림 재현. '后稷氏之神' 위패 앞에 정해진 격식대로 제기가 진설돼 있다.
+      </div>
+    </div>
+
+    <p>
+      한 나라의 왕이 일 년에 여러 차례, 특히 가뭄이 심할 때는 직접 이 자리에 나와 절을 올렸다. 종묘에서 왕이 조상 앞에 무릎을 꿇었듯, 사직단에서는 토지와 곡식의 신 앞에 무릎을 꿇었다. 이 상차림 하나하나가, 왕이 백성의 밥상 앞에서 스스로를 낮췄던 흔적이다.
+    </p>
+  </section>
+
+  <!-- Scene 07 -->
+  <section class="section">
+    <div class="section-label">Scene 07</div>
+    <h2>공원이 된 제단 — 일제강점기의 수난과 복원</h2>
+
+    <p>
+      사직단은 조선 왕조 내내 국가 최고 등급의 제사 공간이었다. 그러나 1910년을 전후해 일제가 제사를 강제로 폐지하면서, 부속 건물들이 철거되고 두 개의 제단만 남긴 채 공원으로 격하됐다. '사직공원'이라는 이름 자체가 이 격하의 흔적이다. 국가가 하늘과 백성에게 제사를 올리던 신성 구역이, 산책하는 공원으로 이름이 바뀐 것이다.
+    </p>
+
+    <p>
+      1963년 사적으로 지정되면서 회복이 시작됐다. 1980년대에 담장과 부속 시설 일부가 복원됐고, 1988년부터는 전주 이씨 대동종약원이 사직대제를 매년 다시 거행하고 있다. 전사청 일원은 그보다 한참 뒤인 2021년에야 복원됐다. 조선을 세운 이가 가장 먼저 지은 두 시설 중 하나가, 100년 넘게 걸려서야 조금씩 제 모습을 되찾고 있는 셈이다.
+    </p>
+
+    <div class="pull-quote">
+      <p>종묘와 사직이 없으면 궁궐은 그냥 큰 집일 뿐이다. 반대로 종묘와 사직이 있으면, 왕이 없어도 나라는 이어질 수 있다.</p>
+      <cite>— 종묘사직이라는 말의 무게</cite>
+    </div>
+  </section>
+
+  <!-- Closing -->
+  <section class="section">
+    <div class="section-label">Closing</div>
+    <h2>왕의 집보다 먼저 지은 나라의 집</h2>
+
+    <p>
+      종묘에서 이성계는 "나는 정통한 혈통에서 나온 왕"이라고 선언했다. 사직단에서는 "나는 백성의 땅과 곡식을 책임지는 왕"이라고 선언했다. 두 선언을 합친 말이 '종묘사직' — 곧 국가 그 자체를 가리키는 말이 됐다. 종묘가 하늘과 조상 앞에서의 정통성을 세우는 자리였다면, 사직단은 매년 왕이 직접 나와 백성의 밥상 앞에 무릎을 꿇던 자리였다.
+    </p>
+
+    <p>
+      경복궁은 왕의 집이다. 종묘와 사직은 나라의 집이다. 이성계는 자신이 살 집보다, 나라가 서 있을 두 개의 집을 먼저 지었다. 지금은 도심 한복판 공원 안, 낮은 담장에 둘러싸인 네모난 돌 제단 두 기로 남아 있지만, 그 자리가 품고 있던 무게는 궁궐 못지않았다.
+    </p>
+
+    <p>
+      조상과 토지를 모셨다. 이제 마지막으로 왕이 머물 궁궐을 세울 차례였다. 그렇게 경복궁이 시작된다.
+    </p>
+  </section>
+
+  <!-- 답사 정보 -->
+  <section class="section">
+    <div class="info-box">
+      <p class="info-box-title">답사 정보 / Visitor Info</p>
+      <dl class="info-grid">
+        <dt>위치</dt><dd>서울 종로구 사직동 (사직공원 내, 지하철 3호선 사직역 1번 출구 도보 5분)</dd>
+        <dt>입장</dt><dd>무료 · 상시 개방</dd>
+        <dt>소요</dt><dd>사직단·전사청 일원 약 30~40분</dd>
+        <dt>지정</dt><dd>사직단 — 사적 · 사직단 대문 — 보물 제177호</dd>
+        <dt>제례</dt><dd>사직대제 — 매년 전주 이씨 대동종약원 주관으로 거행 (1988년부터 복원)</dd>
+        <dt>연계</dt><dd>종묘 (약 3km) — 좌묘우사, 나라의 두 집을 함께 답사하는 코스</dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>사직단(社稷壇) &nbsp;/&nbsp; 2026년 7월 답사 기록</p>
+  <p>사적 · 대문 보물 제177호 &nbsp;·&nbsp; 조선 태조 4년(1395) 조성 &nbsp;·&nbsp; 서울 종로구 사직동</p>
+  <p style="margin-top:.8rem;">태조 이성계 역사 기행 · Site 05 — 사직단<br>
+  황산 → 오목대 → 준경묘·영경묘 → 종묘 → <strong style="color:var(--sepia)">사직단</strong> → 경복궁 → 정릉 → 회암사지 → 건원릉 → 경기전</p>
+</footer>
+
+</body>
+</html>

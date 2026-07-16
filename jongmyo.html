@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>왕보다 조상이 먼저였다 — 종묘 역사 답사 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Serif+KR:wght@300;400;600&family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #1a1410;
+    --sepia:     #8B6914;
+    --moss:      #5a6b4a;
+    --stone:     #9b9080;
+    --accent:    #c4611a;
+    --pale:      #faf7f2;
+    --parchment: #f5f0e8;
+    --gold:      #c4a040;
+    --crimson:   #8a1a1a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--pale); color:var(--ink); font-family:'Noto Serif KR',serif; font-weight:300; line-height:2.0; }
+
+  /* masthead */
+  .masthead { background:var(--ink); color:var(--parchment); text-align:center; padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+  .masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px); }
+  .masthead-label { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; color:#6a6058; text-transform:uppercase; margin-bottom:1.4rem; position:relative; }
+  .masthead h1 { font-family:'Nanum Myeongjo',serif; font-size:clamp(2.2rem,5vw,4rem); font-weight:800; line-height:1.2; color:#fff; position:relative; }
+  .masthead h1 em { font-style:normal; color:var(--gold); }
+  .masthead-sub { font-family:'Noto Serif KR',serif; font-size:1.05rem; color:var(--stone); margin-top:1.4rem; font-style:italic; position:relative; }
+  .masthead-meta { margin-top:2rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.2em; color:#4a4038; border-top:1px solid #2e2820; padding-top:1.4rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; position:relative; }
+
+  /* hero */
+  .hero { width:100%; max-height:600px; overflow:hidden; position:relative; }
+  .hero img { width:100%; max-height:600px; object-fit:cover; object-position:center 35%; display:block; filter:sepia(14%) contrast(1.06) brightness(.93); }
+  .hero-caption { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,.8)); color:#ddd8ce; padding:4rem 2rem 1.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.75rem; letter-spacing:.1em; line-height:1.8; }
+
+  /* 본문 */
+  .container { max-width:800px; margin:0 auto; padding:0 2rem; }
+
+  .lead-block { padding:4.5rem 0 3.5rem; border-bottom:1px solid #d8d0c4; }
+  .lead-tag { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; letter-spacing:.45em; text-transform:uppercase; color:var(--accent); margin-bottom:.9rem; }
+  .lead-text { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.15rem,2.4vw,1.42rem); line-height:1.95; color:#2a201a; font-weight:700; }
+
+  .section { padding:3.5rem 0; border-bottom:1px solid #e4ddd5; }
+  .section:last-child { border-bottom:none; }
+  .section-label { font-family:'Nanum Gothic',sans-serif; font-size:.62rem; letter-spacing:.55em; text-transform:uppercase; color:#b0a898; margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+  .section-label::after { content:''; flex:1; height:1px; background:#ddd5c8; }
+
+  h2 { font-family:'Nanum Myeongjo',serif; font-size:clamp(1.35rem,3vw,1.8rem); font-weight:800; line-height:1.4; margin-bottom:1.6rem; color:var(--ink); }
+  p { font-size:1rem; color:#2e2620; margin-bottom:1.5rem; line-height:2.0; }
+  p:last-child { margin-bottom:0; }
+  .drop-cap::first-letter { font-family:'Nanum Myeongjo',serif; font-size:4.5rem; font-weight:800; float:left; line-height:.76; margin-right:.08em; margin-top:.1em; color:var(--sepia); }
+
+  /* 사진 */
+  .photo-single { margin:2.8rem 0; }
+  .photo-single img { width:100%; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-caption { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--stone); padding:.75rem 0 0; letter-spacing:.05em; border-top:1px solid #d8d0c4; margin-top:.5rem; line-height:1.8; }
+
+  .photo-duo { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:2.8rem 0; }
+  .photo-duo figure { margin:0; }
+  .photo-duo img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; filter:sepia(10%) contrast(1.04); }
+  .photo-duo figcaption { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; color:var(--stone); padding:.5rem 0 0; border-top:1px solid #d8d0c4; margin-top:.4rem; line-height:1.7; }
+
+  /* pull quote */
+  .pull-quote { margin:3rem 0; padding:2rem 2.8rem; border-left:4px solid var(--sepia); background:#f0ebe0; position:relative; }
+  .pull-quote::before { content:'❝'; font-size:3.5rem; color:var(--sepia); opacity:.2; position:absolute; top:-.6rem; left:.8rem; line-height:1; }
+  .pull-quote p { font-family:'Nanum Myeongjo',serif; font-size:1.18rem; font-style:italic; font-weight:700; line-height:1.9; margin:0; color:#3a2e20; }
+  .pull-quote cite { display:block; margin-top:.9rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.18em; color:var(--stone); font-style:normal; }
+
+  /* 다이어그램 */
+  .diagram-box { background:#f0ebe0; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .diagram-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.5rem; text-align:center; }
+
+  /* 추존 4조 계보 */
+  .ances-flow { display:flex; flex-direction:column; align-items:center; gap:0; }
+  .ances-node { display:flex; align-items:stretch; gap:1rem; width:100%; max-width:520px; padding:.7rem 0; }
+  .ances-gen { font-family:'Nanum Gothic',sans-serif; font-size:.65rem; color:var(--stone); letter-spacing:.1em; width:56px; flex-shrink:0; display:flex; align-items:center; justify-content:flex-end; padding-right:.6rem; border-right:2px solid #d4ccbc; }
+  .ances-box { flex:1; }
+  .ances-name { font-family:'Nanum Myeongjo',serif; font-size:1rem; font-weight:700; color:var(--ink); }
+  .ances-title { font-family:'Nanum Gothic',sans-serif; font-size:.7rem; color:var(--crimson); font-weight:700; letter-spacing:.06em; margin-left:.5rem; }
+  .ances-desc { font-family:'Nanum Gothic',sans-serif; font-size:.75rem; color:#5a4e3c; line-height:1.65; margin-top:.2rem; }
+  .ances-arrow { font-size:.8rem; color:#c0b8a8; text-align:center; width:100%; max-width:520px; padding:.1rem 0 .1rem 56px; }
+
+  /* 비교 표 */
+  .compare-grid { display:grid; grid-template-columns:auto 1fr 1fr; gap:1px; background:#d0c8bc; border:1px solid #d0c8bc; margin:2.5rem 0; font-size:.86rem; }
+  .cg-head { background:var(--sepia); color:#fff; font-family:'Nanum Gothic',sans-serif; font-weight:700; padding:.7rem 1rem; font-size:.72rem; letter-spacing:.1em; }
+  .cg-head.crimson { background:var(--crimson); }
+  .cg-label { background:#f0ebe0; font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); padding:.7rem 1rem; font-size:.8rem; }
+  .cg-cell { background:var(--pale); padding:.7rem 1rem; color:#3a3028; line-height:1.7; }
+  .cg-cell.alt { background:#faf5ec; }
+
+  /* 강조 박스 */
+  .highlight-box { background:#f5f0e0; border:2px solid var(--gold); padding:1.8rem 2.2rem; margin:2.5rem 0; }
+  .highlight-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; }
+  .highlight-box p { font-size:.95rem; line-height:1.9; color:#3a3028; margin-bottom:0; }
+
+  /* 정보 박스 */
+  .info-box { background:#eee8dc; border:1px solid #d4ccbc; padding:2rem 2.5rem; margin:2.5rem 0; }
+  .info-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.42em; text-transform:uppercase; color:var(--sepia); margin-bottom:1.2rem; }
+  .info-grid { display:grid; grid-template-columns:auto 1fr; gap:.45rem 1.2rem; font-size:.88rem; }
+  .info-grid dt { font-family:'Nanum Gothic',sans-serif; font-weight:700; color:var(--sepia); white-space:nowrap; }
+  .info-grid dd { color:#3a3028; margin:0; }
+
+  /* 정전 칸 시각화 */
+  .jeongjeon-bar { display:flex; align-items:stretch; gap:1px; background:#c0b8a8; border:1px solid #c0b8a8; margin:2rem 0; overflow:hidden; }
+  .jj-cell { background:var(--pale); padding:.9rem .5rem; text-align:center; flex:1; }
+  .jj-cell.filled { background:#f0ebe0; }
+  .jj-cell.taejo { background:var(--crimson); }
+  .jj-num { font-family:'Nanum Gothic',sans-serif; font-size:.6rem; color:var(--stone); display:block; margin-bottom:.2rem; }
+  .jj-name { font-family:'Nanum Myeongjo',serif; font-size:.78rem; font-weight:700; color:var(--ink); }
+  .jj-cell.taejo .jj-num, .jj-cell.taejo .jj-name { color:#fff; }
+
+  .ruin-note { margin:2.5rem 0; padding:1.6rem 2rem; border-top:1px solid #c8c0b0; border-bottom:1px solid #c8c0b0; font-family:'Nanum Myeongjo',serif; font-size:.96rem; font-style:italic; color:#5a4e3c; line-height:2.0; text-align:center; }
+
+  footer { background:var(--ink); color:#5a5048; text-align:center; padding:2.8rem; font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.22em; margin-top:4rem; line-height:2.2; }
+
+  @media(max-width:600px){
+    .photo-duo { grid-template-columns:1fr; }
+    .compare-grid { grid-template-columns:1fr; }
+    .diagram-box { padding:1.5rem; }
+    .pull-quote { padding:1.5rem 1.8rem; }
+    .masthead-meta { gap:1rem; }
+    .jeongjeon-bar { flex-wrap:wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- masthead -->
+<header class="masthead">
+  <div class="masthead-label">태조 이성계 역사 기행 · Site 04</div>
+  <h1>왕보다 <em>조상</em>이 먼저였다<br>종묘(宗廟)</h1>
+  <p class="masthead-sub">새 왕조가 가장 먼저 세운 건물은 왕궁이 아니었다 — 죽은 자들의 전당이었다</p>
+  <div class="masthead-meta">
+    <span>서울 종로구 훈정동</span>
+    <span>유네스코 세계문화유산 (1995)</span>
+    <span>조선 1395년 창건</span>
+  </div>
+</header>
+
+<!-- 히어로 — 정전 전경 -->
+<div class="hero">
+  <img src="images/jongmyo_01.jpg" alt="종묘 정전 전경">
+  <div class="hero-caption">
+    종묘 정전(正殿) 전경. 정면 19칸 — 세계에서 가장 긴 단일 목조 건물로 알려져 있다.<br>
+    태조 이성계는 조선을 세운 이듬해(1395) 한양 천도와 함께 이 건물을 가장 먼저 완공했다.
+  </div>
+</div>
+
+<!-- 본문 -->
+<main class="container">
+
+  <!-- 리드 -->
+  <div class="lead-block">
+    <div class="lead-tag">Prologue</div>
+    <p class="lead-text">
+      새 나라를 세운 사람이 제일 먼저 지은 건물이 무엇이었을까.
+      왕이 사는 궁궐? 아니다. 이성계가 한양에서 가장 먼저 완공한 건물은 죽은 조상을 모시는 사당이었다.
+      종묘. 그것은 "나는 하늘에서 뚝 떨어진 왕이 아니라, 정통한 혈통에서 나온 왕이다"라는 선언이었다.
+    </p>
+  </div>
+
+  <!-- Scene 01 — 왜 종묘가 먼저인가 -->
+  <section class="section">
+    <div class="section-label">Scene 01</div>
+    <h2>궁보다 먼저 지은 이유 — 정통성이란 무엇인가</h2>
+
+    <p class="drop-cap">
+      1394년 10월, 이성계는 개경에서 한양으로 수도를 옮겼다. 짐을 풀자마자 착공에 들어간 것은 경복궁이 아니었다. 종묘였다. 종묘는 그해 10월에 가장 먼저 착공에 들어갔고, 경복궁 공사는 그 뒤에 시작됐다. 두 건물은 완공도 같은 해, 같은 달(1395년 9월)에 마쳤지만, 착수의 순서만큼은 분명히 종묘가 먼저였다.
+    </p>
+
+    <p>
+      이건 단순한 공사 순서의 문제가 아니다. 유교 국가에서는 종묘와 사직(社稷)이 왕궁보다 우선순위가 높다는 원칙이 있었다. 《주례(周禮)》의 "좌묘우사(左廟右社)" — 왕궁을 기준으로 왼쪽에 종묘, 오른쪽에 사직을 두라는 규정이 그 뿌리다. 이성계와 정도전은 이 원칙을 그대로 따랐다. 아니, 정확히는 이 원칙을 '활용'했다.
+    </p>
+
+    <div class="pull-quote">
+      <p>"고려를 무너뜨린 사람이 새 나라의 왕이 될 자격이 있는가?" — 이 질문에 대한 이성계의 답이 종묘다. 조상이 있고, 그 조상의 덕을 이어받은 혈통이 있다. 내 뒤에는 근거가 있다.</p>
+      <cite>— 종묘 창건의 정치적 맥락</cite>
+    </div>
+
+    <p>
+      오목대에서 대풍가를 부르던 장수가, 이제 죽은 조상들을 앞세워 왕위의 정당성을 주장하는 군주가 됐다. 종묘는 그 전환을 돌에 새긴 건물이다.
+    </p>
+
+    <!-- 정전 사진 -->
+    <div class="photo-single">
+      <img src="images/jongmyo_01.jpg" alt="종묘 정전">
+      <div class="photo-caption">
+        종묘 정전 전경. 가운데 신문(神門)에서 좌우로 신실(神室)이 끝없이 이어진다.
+        태조 때는 7칸이었으나 왕이 늘어날수록 건물을 증축해 현재 19칸에 이르렀다.
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 02 — 추존 4조 -->
+  <section class="section">
+    <div class="section-label">Scene 02</div>
+    <h2>살아있는 왕보다 죽은 조상이 강했다 — 추존 4조(追尊四祖)</h2>
+
+    <p>
+      종묘 정전에는 역대 왕의 신주가 모셔진다. 그런데 이성계는 자기 자신을 모시기 전에, 먼저 죽은 조상 네 명을 왕으로 만들었다. 왕이 된 적 없는 사람에게 사후에 왕 칭호를 주는 것 — 이것을 '추존(追尊)'이라 한다.
+    </p>
+
+    <p>
+      마치 입학도 못한 학교에서 명예졸업장을 주는 것처럼, 이성계는 할아버지의 할아버지까지 거슬러 올라가 차례로 왕 자리를 부여했다. 왜? 답은 하나다. <strong>"나는 아무것도 없는 데서 갑자기 튀어나온 왕이 아니다. 내 집안은 원래 왕이 될 집안이었다."</strong>
+    </p>
+
+    <!-- 추존 4조 계보 다이어그램 -->
+    <div class="diagram-box">
+      <div class="diagram-title">추존 4조(追尊四祖) — 태조 이성계의 선대 계보</div>
+      <div class="ances-flow">
+
+        <div class="ances-node">
+          <div class="ances-gen">4대조</div>
+          <div class="ances-box">
+            <div class="ances-name">이안사(李安社) <span class="ances-title">목조(穆祖) 추존</span></div>
+            <div class="ances-desc">전주 이씨 시조. 전주에서 삼척·함경도 방면으로 이주해 여진 세력과 연계. 원나라 다루가치(행정관)직 역임. 고향을 버리고 북방으로 향한 결단이 이씨 가문 부상의 기원.</div>
+          </div>
+        </div>
+        <div class="ances-arrow">↓</div>
+
+        <div class="ances-node">
+          <div class="ances-gen">3대조</div>
+          <div class="ances-box">
+            <div class="ances-name">이행리(李行里) <span class="ances-title">익조(翼祖) 추존</span></div>
+            <div class="ances-desc">목조의 아들. 원나라 세력권 아래서 동북면 기반을 확대. 여진족과 고려 사이 균형 외교로 세력 유지. 이씨 가문이 함경도 지역 실력자로 자리잡는 데 결정적 역할.</div>
+          </div>
+        </div>
+        <div class="ances-arrow">↓</div>
+
+        <div class="ances-node">
+          <div class="ances-gen">2대조</div>
+          <div class="ances-box">
+            <div class="ances-name">이춘(李椿) <span class="ances-title">도조(度祖) 추존</span></div>
+            <div class="ances-desc">익조의 아들. 공민왕 시기 고려에 귀부(歸附), 고려 관직을 받으며 가문을 고려 체제 안으로 편입. 이씨 가문의 "탈(脫) 원나라·친 고려" 전환의 실행자.</div>
+          </div>
+        </div>
+        <div class="ances-arrow">↓</div>
+
+        <div class="ances-node">
+          <div class="ances-gen">아버지</div>
+          <div class="ances-box">
+            <div class="andes-name" style="font-family:'Nanum Myeongjo',serif;font-size:1rem;font-weight:700;color:var(--ink)">이자춘(李子春) <span class="ances-title">환조(桓祖) 추존</span></div>
+            <div class="ances-desc">도조의 아들이자 이성계의 아버지. 쌍성총관부 탈환(1356) 시 공민왕과 연합해 고려에 적극 협력. 동북면 실력자로 고려 관직 수여. 이성계가 물려받은 군사 기반과 정치적 신뢰의 직접 원천.</div>
+          </div>
+        </div>
+        <div class="ances-arrow">↓</div>
+
+        <div class="ances-node">
+          <div class="ances-gen">태조</div>
+          <div class="ances-box">
+            <div style="font-family:'Nanum Myeongjo',serif;font-size:1.05rem;font-weight:800;color:var(--crimson)">이성계(李成桂) — 태조(太祖)</div>
+            <div class="ances-desc">1392년 조선 건국. 선대 4대의 기반 위에서 왕조 창업 완성. 즉위 직후 4조를 추존해 종묘에 봉안 — 혈통 정통성의 제도적 확립.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p>
+      목조→익조→도조→환조로 이어지는 4대 계보는, 전주에서 북방으로, 원나라 세력권에서 다시 고려로 돌아오는 이씨 가문의 생존과 성장 서사다. 이성계는 이 서사를 "왕조의 뿌리"로 포장해 종묘에 영구 기록했다.
+    </p>
+
+    <div class="highlight-box">
+      <div class="highlight-box-title">핵심 포인트</div>
+      <p>추존은 단순한 효도가 아니다. 왕이 된 적 없는 조상에게 왕 칭호를 주는 행위는, 그 자체로 "이 가문은 왕이 될 운명이었다"는 정치적 선언이다. 조선 건국의 정당성을 혈통과 하늘의 뜻으로 포장하는 가장 강력한 수단이 바로 종묘 추존이었다.</p>
+    </div>
+  </section>
+
+  <!-- Scene 03 — 정전 내부 제례 -->
+  <section class="section">
+    <div class="section-label">Scene 03</div>
+    <h2>제례(祭禮) — 왕이 조상 앞에 무릎을 꿇는 공간</h2>
+
+    <!-- 제례 재현 사진 -->
+    <div class="photo-single">
+      <img src="images/jongmyo_03.jpg" alt="종묘 정전 내부 제례 재현">
+      <div class="photo-caption">
+        종묘 정전 내부 제례 재현 사진(전시 패널). 신실(神室) 앞에 제수(祭需)가 차려진 모습.
+        제기(祭器)·향로·촛대가 일렬로 놓이고, 뒤쪽 황색 휘장 안에 신주(神主)가 모셔진다.
+        현재도 매년 5월 첫째 일요일 종묘제례(宗廟祭禮, 유네스코 무형유산)가 이 공간에서 봉행된다.
+      </div>
+    </div>
+
+    <p>
+      정전 내부는 평소에 비공개다. 신주(神主)가 모셔진 공간은 제례 때만 문이 열린다. 이 사진은 박물관 전시 패널에서 촬영한 것인데, 오히려 평소에는 볼 수 없는 공간을 정확하게 보여준다.
+    </p>
+
+    <p>
+      방 하나하나가 신실(神室)이다. 각 신실 안에 왕과 왕비의 신주가 나무패에 새겨져 봉안된다. 신주란 쉽게 말하면 "이 나무패 안에 돌아가신 분의 혼이 머문다"고 믿는 유교식 위패다. 왕이 살아있는 동안 제일 두려워해야 할 것은 이 신주들 앞에 서는 일이었다 — 조상이 보고 있다는 뜻이니까.
+    </p>
+
+    <div class="pull-quote">
+      <p>왕은 종묘 앞에서 무릎을 꿇었다. 살아있는 신하들 앞에서는 절대 무릎을 꿇지 않는 왕이, 죽은 조상 앞에서만은 엎드렸다. 그 무릎이 왕권을 더 강하게 만들었다.</p>
+      <cite>— 종묘 제례의 정치적 의미</cite>
+    </div>
+
+    <p>
+      역설처럼 들리지만 사실이다. 왕이 조상 앞에 고개를 숙이는 의식을 백성과 신하들이 보면, 이 왕조가 얼마나 오래된 하늘의 뜻을 받은 집안인지가 눈앞에 펼쳐진다. 종묘 제례는 왕의 겸손이 아니라, 왕조 정통성의 연례 퍼포먼스였다.
+    </p>
+
+    <!-- 제수 음식 설명 -->
+    <div class="info-box">
+      <div class="info-box-title">정전 제수(祭需) — 상 위에 차려진 것들</div>
+      <dl class="info-grid">
+        <dt>희생(犧牲)</dt><dd>소·양·돼지 — 조상에게 올리는 가장 격식 있는 제물</dd>
+        <dt>제기(祭器)</dt><dd>청동·은·도자기 제기에 곡물·과일·술·포 등 각종 음식 진설</dd>
+        <dt>향로(香爐)</dt><dd>향을 피워 혼백을 부르는 의식 도구 — 신주에 혼이 강림하는 신호</dd>
+        <dt>촛대</dt><dd>어둠을 밝혀 조상의 혼이 편히 머물 수 있게 하는 장치</dd>
+        <dt>축문(祝文)</dt><dd>왕이 조상에게 바치는 글 — "나라를 잘 다스리겠습니다" 서약의 형식</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Scene 04 — 정전 vs 영녕전 -->
+  <section class="section">
+    <div class="section-label">Scene 04</div>
+    <h2>정전(正殿)과 영녕전(永寧殿) — 두 건물이 나뉜 이유</h2>
+
+    <div class="photo-single">
+      <img src="images/jongmyo_04.jpg" alt="영녕전">
+      <div class="photo-caption">
+        영녕전(永寧殿). 정전보다 규모가 작고 지붕선이 단순하다. 왼쪽 건물과 오른쪽 건물이 중간 건물을 사이에 두고 연결된 형태 — '工'자형 평면 구조. 신실 수는 현재 16칸.
+      </div>
+    </div>
+
+    <p>
+      종묘에는 건물이 두 채다. 정전(正殿)과 영녕전(永寧殿). 처음 온 방문객들은 왜 두 채인지 의아해한다. 답은 간단하다 — 정전이 꽉 찼기 때문이다.
+    </p>
+
+    <p>
+      원래 정전에만 모두 모실 계획이었다. 그런데 왕이 계속 늘어나면서 자리가 부족해졌다. 세종 때 영녕전을 새로 지어, 추존 4조(목조·익조·도조·환조)와 왕위에서 물러난 왕들의 신주를 영녕전으로 옮겼다.
+    </p>
+
+    <div class="compare-grid">
+      <div class="cg-head">구분</div>
+      <div class="cg-head">정전(正殿)</div>
+      <div class="cg-head crimson">영녕전(永寧殿)</div>
+
+      <div class="cg-label">건립</div>
+      <div class="cg-cell">1395년 태조 때 창건</div>
+      <div class="cg-cell alt">1421년 세종 때 신설</div>
+
+      <div class="cg-label">신실 수</div>
+      <div class="cg-cell">현재 19칸</div>
+      <div class="cg-cell alt">현재 16칸</div>
+
+      <div class="cg-label">봉안 대상</div>
+      <div class="cg-cell">실제 통치한 역대 왕·왕비 신주</div>
+      <div class="cg-cell alt">추존 4조 + 폐위·단명 등 일부 왕</div>
+
+      <div class="cg-label">건물 격식</div>
+      <div class="cg-cell">높은 월대(月臺)·단청 화려함</div>
+      <div class="cg-cell alt">낮은 월대·상대적으로 소박</div>
+
+      <div class="cg-label">태조와의 관계</div>
+      <div class="cg-cell">태조 신주가 정전 제1실에 봉안</div>
+      <div class="cg-cell alt">태조의 선대 4조가 이곳에 봉안</div>
+    </div>
+
+    <p>
+      다시 말해 태조 이성계 본인은 정전 제1실에 있고, 그가 사후 왕으로 만들어준 4대 선조들은 영녕전에 있다. 두 건물을 합쳐야 비로소 이성계의 '혈통 정치' 전략이 완성된다.
+    </p>
+
+    <!-- 정전 신실 배치 시각화 -->
+    <div class="diagram-box">
+      <div class="diagram-title">정전 — 태조 신주 위치 (태조 기준 초기 배치 개념도)</div>
+      <div class="jeongjeon-bar">
+        <div class="jj-cell taejo">
+          <span class="jj-num">제1실</span>
+          <span class="jj-name">태조</span>
+        </div>
+        <div class="jj-cell filled">
+          <span class="jj-num">제2실</span>
+          <span class="jj-name">태종</span>
+        </div>
+        <div class="jj-cell filled">
+          <span class="jj-num">제3실</span>
+          <span class="jj-name">세종</span>
+        </div>
+        <div class="jj-cell filled">
+          <span class="jj-num">제4실</span>
+          <span class="jj-name">세조</span>
+        </div>
+        <div class="jj-cell">
+          <span class="jj-num">···</span>
+          <span class="jj-name">증축</span>
+        </div>
+      </div>
+      <p style="font-family:'Nanum Gothic',sans-serif;font-size:.72rem;color:var(--stone);text-align:center;margin-top:.8rem;line-height:1.7;">
+        태조는 서쪽 첫 번째 칸(제1실)에 봉안 — 가장 높은 자리. 왕이 추가될수록 동쪽으로 신실이 늘어남.<br>
+        현재 19칸 중 태조의 위치는 변하지 않는다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Scene 05 — 왕권 강화 장치로서의 종묘 -->
+  <section class="section">
+    <div class="section-label">Scene 05</div>
+    <h2>종묘는 어떻게 왕권을 강화했나</h2>
+
+    <p>
+      종묘가 단순한 사당이었다면 조선이 가장 먼저 지을 이유가 없었다. 종묘는 태조 이성계가 설계한 왕권 강화 시스템의 핵심 부품이었다. 구체적으로 세 가지 방식으로 작동했다.
+    </p>
+
+    <div class="diagram-box">
+      <div class="diagram-title">종묘의 왕권 강화 3가지 메커니즘</div>
+
+      <div style="display:flex;flex-direction:column;gap:1px;background:#d0c8bc;border:1px solid #d0c8bc;margin-top:.5rem;">
+
+        <div style="display:grid;grid-template-columns:2.4rem 1fr;background:var(--pale);">
+          <div style="background:var(--crimson);display:flex;align-items:center;justify-content:center;font-family:'Nanum Myeongjo',serif;font-size:1.2rem;font-weight:800;color:#fff;padding:.8rem;">一</div>
+          <div style="padding:1rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--crimson);letter-spacing:.06em;margin-bottom:.3rem;">정통성 독점</div>
+            <div style="font-size:.9rem;color:#3a3028;line-height:1.8;">왕이 되려면 종묘에 고해야 한다. 종묘에 조상 신주가 있다는 것은 "하늘이 인정한 혈통"이라는 뜻. 다른 세력이 왕위를 넘보려면 이 논리를 깨야 하는데, 유교 사회에서 그것은 사실상 불가능했다.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:2.4rem 1fr;background:var(--parchment);">
+          <div style="background:var(--sepia);display:flex;align-items:center;justify-content:center;font-family:'Nanum Myeongjo',serif;font-size:1.2rem;font-weight:800;color:#fff;padding:.8rem;">二</div>
+          <div style="padding:1rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--sepia);letter-spacing:.06em;margin-bottom:.3rem;">국가 의례 독점</div>
+            <div style="font-size:.9rem;color:#3a3028;line-height:1.8;">왕만이 종묘에서 제례를 주관할 수 있다. 전쟁 출정, 중요 정책 결정, 왕세자 책봉 — 모든 국가 대사는 종묘에 고하는 절차로 시작됐다. 국가의 공식 행위를 왕의 제례권과 묶어버린 것이다.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:2.4rem 1fr;background:var(--pale);">
+          <div style="background:var(--moss);display:flex;align-items:center;justify-content:center;font-family:'Nanum Myeongjo',serif;font-size:1.2rem;font-weight:800;color:#fff;padding:.8rem;">三</div>
+          <div style="padding:1rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--moss);letter-spacing:.06em;margin-bottom:.3rem;">반역 억제 장치</div>
+            <div style="font-size:.9rem;color:#3a3028;line-height:1.8;">종묘를 부정하는 것은 조상을 부정하는 것이고, 조상을 부정하는 것은 유교 사회에서 짐승과 같은 행위로 간주됐다. 신하가 왕을 몰아내려면 먼저 종묘의 논리를 이겨야 했다 — 조선 500년 동안 이 장벽이 버텼다.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p>
+      이성계는 칼로 나라를 세웠지만, 종묘로 나라를 지켰다. 무력으로 만든 왕조는 더 강한 무력에 무너질 수 있다. 하지만 조상과 하늘의 뜻으로 만든 왕조는 그 논리 체계 전체를 부숴야만 무너뜨릴 수 있다. 태조 이성계가 선택한 것은 후자였다.
+    </p>
+
+    <div class="ruin-note">
+      "사직이 위태로울 때 종묘에 고한다" — 조선 내내 반복된 이 문장이,<br>
+      종묘가 단순한 사당을 넘어 국가 존립의 근거 자체였음을 말해준다.
+    </div>
+  </section>
+
+  <!-- Scene 06 — 현장에서 보이는 것들 -->
+  <section class="section">
+    <div class="section-label">Scene 06 · 현장에서</div>
+    <h2>아는 만큼 보이는 것들</h2>
+
+    <p>
+      종묘는 처음 보면 그냥 길고 붉은 건물이다. 특별히 화려하지도 않고, 용이나 봉황 장식도 없다. 오히려 너무 단조로워서 지루하다고 느끼는 사람도 있다.
+    </p>
+    <p>
+      그런데 그 단조로움이 의도다. 종묘는 죽은 자들의 공간이기 때문에, 살아있는 자들의 화려함을 철저히 배제했다. 경복궁의 근정전이 왕의 권위를 과시하는 공간이라면, 종묘의 정전은 왕조차 고개를 숙이는 공간이다. 단청도 억제했고, 높이도 낮췄다. 그 낮음과 길음이 오히려 압도적인 이유다.
+    </p>
+
+    <div class="highlight-box">
+      <div class="highlight-box-title">답사 포인트</div>
+      <p>
+        정전 앞 월대(月臺)에 올라 건물 전체를 바라볼 것. 중앙 신문(神門)에서 좌우로 신실이 끝없이 이어지는 풍경 — 그 선의 길이가 조선 500년의 길이다. 정전 19칸 안에는 태조부터 순종까지 19명의 왕과 왕비 신주가 봉안되어 있다. 월대 아래 박석(薄石)이 깔린 정원을 걷다가 멈추고, 이 건물을 짓게 한 사람이 600년 전 어떤 계산을 했는지 생각해 볼 것.
+      </p>
+    </div>
+
+    <p>
+      종묘는 1995년 유네스코 세계문화유산으로 등재됐고, 종묘제례와 종묘제례악은 2001년 유네스코 인류무형문화유산으로 등재됐다. 매년 5월 첫째 일요일, 정전 앞마당에서 조선 왕실 제례 의식이 그대로 재현된다. 이 날 방문하면 태조 이성계가 설계한 의식을 눈앞에서 볼 수 있다.
+    </p>
+
+    <div class="info-box">
+      <div class="info-box-title">기본 정보</div>
+      <dl class="info-grid">
+        <dt>위치</dt><dd>서울시 종로구 종로 157 (훈정동 1)</dd>
+        <dt>관람 시간</dt><dd>화~일 09:00–18:00 (11~1월 ~17:30) · 월요일 휴관</dd>
+        <dt>입장료</dt><dd>일반 1,000원 (만 24세 이하·만 65세 이상 무료)</dd>
+        <dt>관람 방식</dt><dd>평일 자유 관람 / 정기 해설 투어 하루 수회 운영</dd>
+        <dt>유의 사항</dt><dd>정전 내부는 제례 행사 시에만 공개 (평소 외관만 관람)</dd>
+        <dt>종묘제례</dt><dd>매년 5월 첫째 일요일 — 정전 앞마당 공개 봉행</dd>
+      </dl>
+    </div>
+  </section>
+
+
+  <!-- Scene 07 — 신덕왕후와 종묘 -->
+  <section class="section">
+    <div class="section-label">Scene 07 · 종묘의 이면</div>
+    <h2>종묘에서 지워진 여자 — 신덕왕후 강씨</h2>
+
+    <p class="drop-cap">
+      태조 이성계가 가장 사랑한 여자는 첫째 부인 신의왕후 한씨가 아니었다. 나중에 맞은 계비 신덕왕후 강씨였다. 태조는 1396년 신덕왕후가 세상을 떠나자 지금의 정동(덕수궁 근처)에 능을 조성하고 — 도성 안에 왕비 능을 둔 것은 조선 왕릉 역사에서 이것이 유일하다 — 매일 그곳을 바라보며 슬퍼했다는 기록이 있다.
+    </p>
+
+    <div class="highlight-box">
+      <div class="highlight-box-title">팩트체크</div>
+      <p>
+        여기서 많은 사람이 오해하는 지점이 하나 있다. <strong>신덕왕후의 신주는 죽자마자 종묘에 들어가지 못했다.</strong> 남편 태조가 아직 살아있었기 때문이다. 종묘 정전은 왕과 왕비 두 사람의 신주가 함께 들어가야 하는 곳이었다 — 부부가 나란히 앉는 방과 같은 구조다. 아내가 먼저 세상을 떠나도 남편이 살아있는 동안에는 그 신주가 궁궐 안 임시 사당(혼전·魂殿)에서 대기해야 했다. 마치 가족사진은 온 가족이 다 모여야 찍을 수 있는 것과 같은 이치다. 신덕왕후의 신주는 그녀가 살던 인안전(仁安殿)에 모셔진 채, 남편이 죽는 날만 기다리는 신세가 됐다.
+      </p>
+    </div>
+
+    <p>
+      공평하게 말하면, 이 원칙은 신의왕후에게도 똑같이 적용됐다. 그녀 역시 1391년에 죽었지만 태조가 살아있는 동안에는 종묘에 못 들어가고 인소전(仁昭殿)이라는 별도의 사당에서 기다려야 했다. 즉 <strong>태조가 살아있는 한 두 왕비 모두 종묘 밖에 있었다</strong> — 여기까지는 신의왕후도 신덕왕후도 처지가 같았다.
+    </p>
+
+    <p>
+      진짜 승부는 1408년, 태조가 세상을 떠나면서 갈렸다. 원칙대로라면 태조의 신주와 함께, 살아생전 그의 아내였던 두 왕비의 신주가 모두 종묘로 들어가야 정상이다. 그런데 새로 왕이 된 태종 이방원은 그렇게 하지 않았다. 그는 친어머니 신의왕후의 사당(인소전)에 아버지 태조의 신주를 합사하고 사당 이름을 문소전(文昭殿)으로 바꿨다. 계모인 신덕왕후는 이 합사 대상에서 처음부터 제외됐다. <strong>"당신은 여기 있을 자격이 없으니 나가라"가 아니라, 애초에 "당신은 명단에 없다"였던 것</strong> — 출향(黜享)이라는 말보다 훨씬 조용하고, 훨씬 확실한 배제 방식이다.
+    </p>
+
+    <div class="pull-quote">
+      <p>종묘에 넣는 것이 정치였다면, 애초에 넣지 않는 것은 더 조용하고 더 확실한 정치였다.</p>
+      <cite>— 신덕왕후 배제 사건의 본질</cite>
+    </div>
+
+    <!-- 타임라인 -->
+    <div class="diagram-box">
+      <div class="diagram-title">신덕왕후 강씨 — 종묘 배제와 복위 연표</div>
+      <div style="display:flex;flex-direction:column;gap:1px;background:#d0c8bc;border:1px solid #d0c8bc;margin-top:.5rem;">
+
+        <div style="display:grid;grid-template-columns:5rem 1fr;gap:0;background:var(--pale);">
+          <div style="background:var(--sepia);padding:.9rem .8rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.95rem;font-weight:800;color:#fff;line-height:1.3;">1392</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--sepia);margin-bottom:.3rem;">조선 건국 · 계비 책봉</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">이성계 즉위. 신덕왕후 강씨가 조선의 첫 번째 계비로 책봉됨. 태조는 강씨 소생 막내아들 방석을 세자로 책봉 — 한씨 소생 아들들(이방원 포함)과의 갈등 씨앗.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5rem 1fr;gap:0;background:var(--parchment);">
+          <div style="background:#6a5a4a;padding:.9rem .8rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.95rem;font-weight:800;color:#fff;line-height:1.3;">1396</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:#6a5a4a;margin-bottom:.3rem;">신덕왕후 강씨 사망 · 정릉 조성</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">신덕왕후 사망. 태조는 지금의 정동(현 덕수궁 근처) 도성 안에 정릉을 조성 — 도성 안 왕비 능은 조선 역사에서 유일한 사례. 신주는 남편 태조가 살아있어 종묘에 들어가지 못하고, 궁궐 안 임시 사당 인안전(仁安殿)에 안치됨.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5rem 1fr;gap:0;background:var(--pale);">
+          <div style="background:var(--crimson);padding:.9rem .8rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.95rem;font-weight:800;color:#fff;line-height:1.3;">1398</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--crimson);margin-bottom:.3rem;">왕자의 난 · 방석 피살</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">이방원(훗날 태종)이 왕자의 난을 일으켜 세자 방석과 정도전 등을 제거. 신덕왕후의 아들들이 모두 제거됨. 태조는 상왕으로 물러남.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5rem 1fr;gap:0;background:var(--parchment);">
+          <div style="background:var(--crimson);padding:.9rem .8rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.95rem;font-weight:800;color:#fff;line-height:1.3;">1408</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--crimson);margin-bottom:.3rem;">태조 사망 · 신덕왕후, 합사 명단에서 제외</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">태조 사망. 태종은 친어머니 신의왕후의 사당(인소전)에 태조 신주를 합사하고 이름을 <strong>문소전(文昭殿)</strong>으로 바꿈. 신덕왕후는 이 합사 대상에서 처음부터 빠짐. 곧이어 정릉을 도성 밖 현재의 성북구로 강제 이장.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5rem 1fr;gap:0;background:var(--parchment);">
+          <div style="background:var(--crimson);padding:.9rem .8rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.95rem;font-weight:800;color:#fff;line-height:1.3;">1410</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--crimson);margin-bottom:.3rem;">태조·신의왕후 종묘 정전 정식 부묘 · 신덕왕후는 배제</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">태조의 삼년상(담제)이 끝나자 태조와 신의왕후의 신주가 종묘 정전 제1실에 나란히 봉안됨(부묘). 신덕왕후의 신주는 이 명단에 없었다 — 그녀는 사망 이후 273년간, 단 한 번도 종묘 안에 들어가 본 적이 없게 된다. 같은 해 정릉의 석물은 청계천 광통교 돌다리 건설에 재사용됨.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:5rem 1fr;gap:0;background:var(--pale);">
+          <div style="background:var(--moss);padding:.9rem .8rem;text-align:center;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Nanum Myeongjo',serif;font-size:.95rem;font-weight:800;color:#fff;line-height:1.3;">1669</span>
+          </div>
+          <div style="padding:.9rem 1.2rem;">
+            <div style="font-family:'Nanum Gothic',sans-serif;font-size:.7rem;font-weight:700;color:var(--moss);margin-bottom:.3rem;">현종 10년 · 복위 · 종묘 최초 봉안</div>
+            <div style="font-size:.88rem;color:#3a3028;line-height:1.75;">사망 273년 만에 송시열의 건의로 현종이 신덕왕후를 복위. 신주가 <strong>생애 처음으로</strong> 종묘 정전에 봉안됨. 정릉도 이 시기 왕릉 격으로 재정비.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p>
+      태종이 신덕왕후를 종묘에 들이지 않은 이유는 표면적으로 "적통(嫡統) 왕비가 아니다"는 명분이었지만, 실상은 다르다. 신덕왕후는 자신의 아들 방석을 세자로 올리려 했고, 그 과정에서 이방원과 정면으로 충돌했다. 방석이 세자였다는 것은 이방원이 왕이 될 수 없었다는 뜻이다. 왕자의 난으로 방석을 제거한 이방원에게 신덕왕후는 적(敵)이었다. 종묘 합사 명단에서 빼놓은 것은 단순한 격하가 아니라 <strong>정치적 숙청의 사후 완결판</strong>이었다.
+    </p>
+
+    <div class="highlight-box">
+      <div class="highlight-box-title">종묘가 얼마나 강력한 정치 도구인지 보여주는 증거</div>
+      <p>
+        태종은 살아있는 사람을 죽이는 것만으로는 충분하지 않다고 판단했다. 죽은 신덕왕후의 신주를 애초에 종묘에 들이지 않고, 도성 안 정릉을 밖으로 옮기고, 정릉 석물을 광통교 다리 돌로 써버렸다 — 사람들이 밟고 다니게. "당신은 왕비가 아니었다"는 선언을 돌에 새긴 것이다. 종묘에서 조용히 지워버리는 배제는 죽은 자에 대한 가장 강력한 정치 행위였다.
+      </p>
+    </div>
+
+    <p>
+      그리고 273년 후 현종이 복위시킨 것 역시 정치였다. 태종의 행위가 부당했다는 것을 공식 선언함으로써, 현종은 자신의 도덕적 권위를 높였다. 누구의 신주를 종묘에 들이고, 누구를 명단에서 빼놓을지 결정하는 행위는 조선 500년 내내 살아있는 왕들의 권력 게임이었다.
+    </p>
+
+    <div class="ruin-note">
+      태조가 종묘를 가장 먼저 지은 이유가 이것이다.<br>
+      정통성을 쥔 자가 종묘를 쥐고, 종묘를 쥔 자가 나라를 쥔다.<br>
+      그러나 그 종묘에 아내가 끝내 들어가지 못하는 것을 태조는 막지 못했다.<br>
+      권력의 논리는 사랑보다 강했다.
+    </div>
+
+  </section>
+
+  <!-- Closing -->
+  <section class="section">
+    <div class="section-label">Closing</div>
+    <h2>조상 다음은 땅이었다</h2>
+    <p>
+      조상을 모셨다면 이제 백성을 먹여 살릴 땅을 모셔야 했다. 그래서 종묘 다음은 사직이었다.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  태조 이성계 역사 기행 · Site 04 — 종묘<br>
+  서울 종로구 · 유네스코 세계문화유산 1995 · 조선 1395년 창건<br>
+  황산 → 오목대 → 준경묘·영경묘 → <strong style="color:var(--sepia)">종묘</strong> → 사직단 → 경복궁 → 정릉 → 회암사지 → 건원릉 → 경기전
+</footer>
+
+</body>
+</html>
