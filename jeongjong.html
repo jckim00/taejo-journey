@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>물러남으로 살아남은 왕 — 정종(定宗)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&amp;family=Noto+Serif+KR:wght@300;400;600&amp;family=Nanum+Gothic:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink:       #1a1410;
+    --sepia:     #8B6914;
+    --moss:      #5a6b4a;
+    --stone:     #9b9080;
+    --accent:    #c4611a;
+    --pale:      #faf7f2;
+    --parchment: #f5f0e8;
+    --gold:      #c4a040;
+    --crimson:   #8a1a1a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--pale); color:var(--ink); font-family:'Noto Serif KR',serif; font-weight:300; line-height:2.0; }
+
+  /* masthead */
+  .masthead { background:var(--ink); color:var(--parchment); text-align:center; padding:3.5rem 2rem 3rem; position:relative; overflow:hidden; }
+  .masthead::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px); }
+  .masthead-label { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.4em; color:#6a6058; text-transform:uppercase; margin-bottom:1.4rem; position:relative; }
+  .masthead h1 { font-family:'Nanum Myeongjo',serif; font-size:clamp(2rem,4.6vw,3.6rem); font-weight:800; line-height:1.3; color:#fff; position:relative; }
+  .masthead h1 em { font-style:normal; color:var(--gold); }
+  .masthead-sub { font-family:'Noto Serif KR',serif; font-size:1.02rem; color:var(--stone); margin-top:1.4rem; font-style:italic; position:relative; }
+  .masthead-rule { width:48px; height:1px; background:var(--sepia); margin:1.8rem auto; opacity:.6; position:relative; }
+  .masthead-meta { margin-top:.4rem; font-family:'Nanum Gothic',sans-serif; font-size:.7rem; letter-spacing:.15em; color:#8a8078; display:flex; gap:1.2rem; justify-content:center; flex-wrap:wrap; position:relative; }
+  .masthead-meta span:not(:last-child)::after { content:'·'; margin-left:1.2rem; color:#4a4038; }
+
+  main { max-width:640px; margin:0 auto; padding:3.4rem 1.6rem 2rem; }
+
+  .lead-block { margin-bottom:3rem; padding-bottom:2.6rem; border-bottom:1px solid #e4ddd0; }
+  .lead-tag { font-family:'Nanum Gothic',sans-serif; font-size:.66rem; letter-spacing:.35em; color:var(--accent); text-transform:uppercase; margin-bottom:1rem; }
+  .lead-text { font-size:1.12rem; line-height:2.05; color:#2a2420; }
+
+  .section { margin-bottom:2.8rem; }
+  .section-label { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.3em; color:var(--sepia); text-transform:uppercase; margin-bottom:.7rem; }
+  .section h2 { font-family:'Nanum Myeongjo',serif; font-size:1.5rem; font-weight:700; color:var(--ink); margin-bottom:1.1rem; line-height:1.5; }
+  .section p { font-size:1.02rem; color:#3a342e; margin-bottom:1.1rem; }
+  .section p:last-child { margin-bottom:0; }
+  .section strong { color:var(--crimson); font-weight:600; }
+
+  .highlight-box { background:var(--parchment); border-left:3px solid var(--accent); padding:1.3rem 1.5rem; margin:1.6rem 0; border-radius:0 4px 4px 0; }
+  .highlight-box-title { font-family:'Nanum Gothic',sans-serif; font-size:.68rem; letter-spacing:.25em; color:var(--accent); text-transform:uppercase; margin-bottom:.6rem; font-weight:700; }
+  .highlight-box p { font-size:.95rem; color:#4a443c; margin-bottom:0; }
+
+  .quote-block { font-family:'Nanum Myeongjo',serif; font-size:1.15rem; font-style:italic; color:var(--moss); text-align:center; padding:1.6rem 1rem; margin:2rem 0; border-top:1px solid #e4ddd0; border-bottom:1px solid #e4ddd0; }
+
+  .closing-block { margin-top:3rem; padding-top:2.4rem; border-top:1px solid #e4ddd0; text-align:center; }
+  .closing-tag { font-family:'Nanum Gothic',sans-serif; font-size:.66rem; letter-spacing:.35em; color:var(--stone); text-transform:uppercase; margin-bottom:1.2rem; }
+  .closing-text { font-family:'Nanum Myeongjo',serif; font-size:1.08rem; font-style:italic; color:#5a5248; line-height:1.9; }
+
+  footer { text-align:center; padding:2.6rem 1.6rem 3rem; font-family:'Nanum Gothic',sans-serif; font-size:.72rem; letter-spacing:.08em; color:#8a8078; line-height:1.9; }
+  footer strong { color:var(--sepia); }
+</style>
+</head>
+<body>
+<div class="masthead">
+<div class="masthead-label">영웅의 길 · 번외편</div>
+<h1>물러남으로 살아남은 왕<br/>— <em>정종</em>(定宗)</h1>
+<p class="masthead-sub">답사할 능은 갈 수 없지만, 태조와 태종 사이의 빈자리는 선명하다</p>
+<div class="masthead-rule"></div>
+<div class="masthead-meta">
+<span>태조 이성계 역사 기행</span>
+<span>번외편 · 후릉은 현재 북한 개성 지역</span>
+<span>1398–1400 재위</span>
+</div>
+</div>
+<main>
+<div class="lead-block">
+<div class="lead-tag">Prologue</div>
+<p class="lead-text">이성계가 나라를 세웠고, 이방원이 왕권을 다시 설계했다. 그 사이 2년 남짓 왕좌에 앉았던 사람이 있다. 정종. 그는 왕자의 난 뒤 왕이 되었고, 또 다른 왕자의 난 뒤 왕좌를 내려놓았다. 그를 단순한 '얼굴마담'이나 무기력한 왕으로만 보면 중요한 장면을 놓친다. 젊은 시절 전장을 누빈 무장이었던 그는 싸울 줄 알았고, 왕이 된 뒤에는 오히려 물러나는 쪽을 택했다. 후릉이 오늘 우리가 쉽게 갈 수 없는 곳에 있다는 사실은, 태조와 태종 사이에서 한발 비켜선 그의 생애와 묘하게 겹친다.</p>
+</div>
+<section class="section">
+<div class="section-label">Scene 01</div>
+<h2>원치 않았던 왕관, 그러나 무력한 사람은 아니었다</h2>
+<p>정종의 초명은 방과(芳果). 이성계의 둘째 아들이었다. 1398년 제1차 왕자의 난에서 다섯째 방원 세력이 승리하자 방과가 세자로 책봉되었고, 이어 태조의 양위를 받아 왕위에 올랐다. 방원이 곧바로 왕이 되지 않고 형을 앞세운 정확한 속내는 사료가 모두 말해주지 않는다. 다만 형제들을 제거한 직후 동생이 곧바로 왕위에 오르는 정치적 부담을 완충하는 효과는 분명했다.</p>
+<p>그러나 정종을 단순한 '얼굴마담'으로 부르는 것도 지나치다. 그는 고려 말부터 아버지 이성계를 따라 왜구 토벌에 참여했고 병권에도 관여했던 무장이었다. 왕위에 오른 과정에서는 이방원의 영향력이 컸지만, 싸울 능력이 없어서 물러난 사람은 아니었다.</p>
+<div class="highlight-box">
+<div class="highlight-box-title">팩트체크</div>
+<p>정종은 자력으로 왕위를 차지한 군주가 아니었고 재위 중 이방원의 영향력이 매우 컸다. 다만 '왕위에 욕심이 전혀 없었다'는 내면까지 확정하기보다, 그의 즉위와 선위가 두 차례 왕자의 난이라는 강한 정치적 압력 속에서 이루어졌다고 보는 편이 안전하다.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-label">Scene 02</div>
+<h2>개경으로 돌아가다 — 왕자의 난이 만든 두 수도</h2>
+<p>1399년 정종은 한양에서 개경으로 옮겼다. 당시에는 한양에서 이어진 재이(災異)와 불길한 징조가 명분으로 제시되었다. 왕자의 난 직후의 불안정한 정치 상황도 함께 생각할 수 있지만, 그것을 정종 개인의 공포나 도피 심리로 단정할 근거는 부족하다.</p>
+<p>중요한 것은 결과다. 왕과 관료들은 개경에 머물렀지만 종묘와 사직은 한양에 남아 제사가 이어졌다. 한동안 조선은 사실상 두 수도가 병존하는 듯한 모습을 보였다. 정종은 새 왕조의 수도를 완전히 버린 왕이라기보다, 건국 직후 아직 굳어지지 않은 수도 질서 한가운데에 있었던 왕이었다.</p>
+</section>
+<section class="section">
+<div class="section-label">Scene 03</div>
+<h2>세종보다 21년 먼저, 집현전이라는 이름</h2>
+<p>1399년 조박의 건의에 따라 집현전의 기능을 강화하려는 조치가 이루어졌다. 서적을 수장하고 문신들이 경적을 강론하며 왕의 자문에 대비하도록 했고, 고위 관료를 제조로 삼고 5품 이하 문신도 보강했다.</p>
+<p>물론 우리가 익숙한 세종대 집현전과 같은 조직은 아니었다. 이듬해 보문각으로 이름이 바뀌었고 제도도 오래 정착하지 못했다. 그러나 '간판만 걸린 빈 조직'이라고 낮춰 볼 필요도 없다. 문신을 모아 학문을 연구하고 국왕의 자문에 대비할 기구가 필요하다는 문제의식은 정종대를 거쳐 태종대로 이어졌고, 세종 때 본격적인 집현전으로 자리 잡았다.</p>
+<div class="highlight-box">
+<div class="highlight-box-title">팩트체크</div>
+<p>'정종이 세종의 집현전을 만들었다'고 말하면 과장이다. 반대로 '이름만 만든 사람'이라고 해도 지나치다. 정종대 집현전 강화는 조선 초 학술·자문기구를 만들려는 연속된 시도의 한 단계로 보는 것이 정확하다.</p>
+</div>
+
+</section>
+<section class="section">
+<div class="section-label">Scene 04</div>
+<h2>왕권의 수술은 이미 정종의 왕좌에서 시작됐다</h2>
+
+<div class="quote-block">
+      "잔치 한창에 갑자기 먼저 간 아내가 떠올라, 자리를 파하고 돌아갔다"
+    </div>
+
+<p>정종 재위는 짧았지만 제도 변화는 작지 않았다. 사병을 혁파해 병권을 국가에 집중시키고, 도평의사사를 의정부로 고치며 정무와 군정을 분리하는 방향의 개편이 이루어졌다.</p><p>이 조치들을 정종 개인의 독자적 설계라고 보기는 어렵다. 당시 정안군 이방원의 영향력이 강하게 작용했다. 그래서 이 시기는 오히려 이렇게 읽는 편이 흥미롭다. 태종이 훗날 완성할 왕권 강화의 첫 번째 큰 수술이, 아직 태종이 왕이 되기 전 형 정종의 왕좌에서 이미 시작되고 있었다.</p><div class="highlight-box"><div class="highlight-box-title">태종편으로 이어지는 연결점</div><p>정종의 왕좌는 단순한 대기실이 아니었다. 사병 혁파와 군정·정무 분리는 '누가 군사를 가지는가, 누가 국가를 움직이는가'라는 문제를 왕 중심으로 다시 짜는 과정이었다. 정종편과 태종편은 바로 여기에서 맞닿는다.</p></div></section>
+<section class="section">
+<div class="section-label">Scene 05</div>
+<h2>함께 물러난 부부</h2>
+<p>정종과 정안왕후 사이에는 자녀가 없었다. 정종에게 여러 후궁과 자녀가 있었다는 사실과 별개로, 정안왕후는 정치적으로도 그의 곁을 지킨 왕비였다.</p>
+<p>특히 정안왕후는 정종에게 왕위를 선위하고 물러나 편안히 지낼 것을 권한 인물로 전한다. 정종의 선위를 한 사람의 소극성만으로 설명하기보다, 두 차례 왕자의 난을 통과한 부부가 더 이상의 충돌 대신 물러남을 택한 장면으로 읽어볼 수 있다.</p>
+</section>
+<section class="section">
+<div class="section-label">Scene 06</div>
+<h2>싸울 줄 알았지만, 싸우지 않는 쪽을 택하다</h2>
+
+
+
+
+
+<p>1400년 제2차 왕자의 난에서 방원이 넷째 형 방간을 꺾었다. 이후 정종은 방원을 세자로 책봉했고, 같은 해 11월 왕위를 넘겼다. 이 선위를 순전히 '미련 없는 자발적 퇴장'으로 낭만화할 수는 없다. 두 차례 왕자의 난으로 이미 권력의 향방이 방원에게 기울어 있었기 때문이다.</p><p>그럼에도 정종의 이후 삶은 의미가 있다. 그는 상왕으로 물러난 뒤 거의 20년을 더 살았다. 격구와 사냥, 온천과 연회를 즐기며 태종과의 관계도 안정시켰다. 전장에서 싸워본 사람이었지만, 왕좌를 놓고 끝까지 싸우지는 않았다. 정종의 '물러남'은 무기력이라기보다 격변의 왕실에서 살아남은 하나의 선택이었다.</p></section>
+<section class="section">
+<div class="section-label">Scene 07</div>
+<h2>죽은 뒤 262년, 마침내 '정종'이 되다</h2>
+
+
+
+<p>1419년 정종이 세상을 떠난 뒤 그는 오랫동안 '공정대왕'으로 불렸다. 태종과 세종 때도 묘호는 올려지지 않았고, 성종·중종대에도 후손과 신하들의 문제 제기가 이어졌지만 결론이 나지 않았다.</p><p>1681년 숙종 때 사관들이 실록을 다시 고증하면서 논의가 본격화되었고, 약 석 달 뒤 마침내 '정종(定宗)'이라는 묘호가 올려졌다. 사후 262년 만이었다. 단종 복위는 같은 해가 아니라 17년 뒤인 1698년에 이루어졌다. 두 사건은 시차가 있지만, 숙종대 왕실 정통성을 다시 정비하려는 흐름 속에서 함께 바라볼 수 있다.</p><div class="highlight-box"><div class="highlight-box-title">팩트체크</div><p>정종의 묘호 추상은 1681년, 단종의 복위는 1698년이다. 기존 원고의 '같은 해 단종 복위'는 바로잡았다.</p></div></section>
+<section class="section"><div class="section-label">Scene 08</div><h2>갈 수 없는 후릉, 그래서 더 선명한 빈자리</h2><p>정종과 정안왕후의 후릉은 오늘날 북한 개성 지역에 있어 남한에서 자유롭게 답사하기 어렵다. 이 번외편에 '현장 없음'이라는 성격이 붙는 이유다. 그러나 정종의 빈자리는 태조와 태종의 서사를 연결하는 역사적 공간이 된다.</p><p>태조의 건국이 왕자의 난으로 흔들린 뒤 정종이 잠시 왕좌를 맡았고, 그 재위 중 사병 혁파와 군정 개편이 진행되었다. 그리고 그가 물러난 자리에 이방원이 앉았다. 후릉에 직접 서지 못하더라도, 정종의 흔적은 태종의 왕권이 만들어지는 과정 곳곳에서 만날 수 있다.</p></section><div class="closing-block">
+<div class="closing-tag">Closing</div>
+<p class="closing-text">정종은 왕좌를 차지해서 역사에 남은 사람이 아니다.<br/>왕좌를 내려놓음으로써 살아남은 사람이다.<br/><br/>그가 물러난 자리에는 이방원이 앉았다.<br/>그리고 그 순간부터 조선의 왕좌는 완전히 다른 모습으로 바뀌기 시작한다.<br/><br/>정종의 이야기는 여기서 끝난다.<br/><strong>태종의 이야기는 바로 이 빈자리에서 시작된다.</strong></p>
+</div>
+</main>
+<footer>영웅의 길 — 태조 이성계에서 태종 이방원으로 · 번외편 — 정종(定宗)<br/>후릉은 갈 수 없지만, 정종이 비운 왕좌는 다음 이야기의 출발점이 된다.</footer>
+</body>
+</html>
